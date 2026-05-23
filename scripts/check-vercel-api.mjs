@@ -19,7 +19,7 @@ if (missing.length) {
   process.exit(1);
 }
 
-const manifest = JSON.parse(fs.readFileSync("all_rating_videos.json", "utf8"));
+const manifest = JSON.parse(fs.readFileSync("public/all_rating_videos.json", "utf8"));
 if (!Array.isArray(manifest) || manifest.length === 0) {
   console.error("all_rating_videos.json must contain at least one video.");
   process.exit(1);

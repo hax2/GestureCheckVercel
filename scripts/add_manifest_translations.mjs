@@ -133,7 +133,9 @@ const translations = {
   Poster: { en: "Poster", de: "Poster", it: "Poster" },
 };
 
-const manifestPath = "all_rating_videos.json";
+const manifestPath = fs.existsSync("public/all_rating_videos.json")
+  ? "public/all_rating_videos.json"
+  : "all_rating_videos.json";
 const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
 
 const missing = [...new Set(manifest.map((item) => item.target_word))]

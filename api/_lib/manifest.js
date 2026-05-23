@@ -1,7 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 
-const MANIFEST_PATH = path.join(process.cwd(), "all_rating_videos.json");
+const MANIFEST_PATH = path.join(process.cwd(), "public", "all_rating_videos.json");
 
 let cachedManifest;
 

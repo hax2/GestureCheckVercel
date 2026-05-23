@@ -2,7 +2,8 @@
   "version": 2,
   "cleanUrls": true,
   "rewrites": [
-    { "source": "/", "destination": "/gesture-rating-task.html" }
+    { "source": "/", "destination": "/gesture-rating-task.html" },
+    { "source": "/gesture-rating-task", "destination": "/gesture-rating-task.html" }
   ],
   "headers": [
     {
