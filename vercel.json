@@ -1,16 +1,19 @@
 {
   "version": 2,
-  "cleanUrls": true,
-  "rewrites": [
-    { "source": "/", "destination": "/gesture-rating-task.html" },
-    { "source": "/gesture-rating-task", "destination": "/gesture-rating-task.html" }
+  "builds": [
+    { "src": "api/**/*.js", "use": "@vercel/node" },
+    { "src": "public/**", "use": "@vercel/static" }
   ],
-  "headers": [
+  "routes": [
     {
-      "source": "/api/(.*)",
+      "src": "/api/(.*)",
+      "dest": "/api/$1.js",
       "headers": [
         { "key": "Cache-Control", "value": "no-store" }
       ]
-    }
+    },
+    { "src": "/", "dest": "/public/gesture-rating-task.html" },
+    { "src": "/gesture-rating-task", "dest": "/public/gesture-rating-task.html" },
+    { "src": "/(.*)", "dest": "/public/$1" }
   ]
 }
