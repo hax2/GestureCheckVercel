@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gesture Rating Task</title>
+    <link rel="stylesheet" href="gesture-rating-task.css">
+  </head>
+  <body>
+    <main class="survey-app">
+      <header class="topbar">
+        <div>
+          <p id="appTitle" class="eyebrow">Gesture Rating Task</p>
+          <h1 id="targetWord">Loading videos...</h1>
+          <p id="videoTitle" class="muted"></p>
+        </div>
+        <div class="session-controls">
+          <label>
+            <span>Language</span>
+            <select id="languageSelect">
+              <option value="en">English</option>
+              <option value="de">Deutsch</option>
+              <option value="it">Italiano</option>
+            </select>
+          </label>
+          <label>
+            <span>Participant ID</span>
+            <input id="participantId" autocomplete="off" placeholder="Optional">
+          </label>
+        </div>
+      </header>
+
+      <section class="instructions-panel" aria-labelledby="instructionsTitle">
+        <div>
+          <p id="instructionsKicker" class="eyebrow">Instructions</p>
+          <h2 id="instructionsTitle">Gesture Rating Task Instructions</h2>
+          <div id="instructionsBody" class="instructions-body"></div>
+        </div>
+        <table class="scale-table" aria-label="Rating scale">
+          <thead>
+            <tr>
+              <th id="scaleRatingHead" scope="col">Rating</th>
+              <th id="scaleMeaningHead" scope="col">Meaning</th>
+            </tr>
+          </thead>
+          <tbody id="scaleRows"></tbody>
+        </table>
+      </section>
+
+      <div class="workbench">
+        <section class="stimulus-panel" aria-label="Current video">
+          <video id="videoPlayer" controls playsinline preload="metadata"></video>
+          <p id="stimulusWord" class="stimulus-word"></p>
+          <div class="progress-box">
+            <p id="progressText" class="eyebrow"></p>
+            <div class="progress-track" aria-label="Survey progress">
+              <div id="progressBar" class="progress-bar"></div>
+            </div>
+            <p id="blockSummary" class="muted"></p>
+            <p id="saveStatus" class="muted">Choose one score for each row.</p>
+          </div>
+        </section>
+
+        <form id="ratingForm" class="rating-form">
+          <section class="rating-matrix-wrap" aria-label="Rating dimensions">
+            <table class="rating-matrix">
+              <thead>
+                <tr>
+                  <th id="dimensionHead" scope="col" class="dimension-head">Question</th>
+                  <th scope="col"><span class="score">1</span><span class="score-label" data-label="1">Very low</span></th>
+                  <th scope="col"><span class="score">2</span><span class="score-label" data-label="2">Low</span></th>
+                  <th scope="col"><span class="score">3</span><span class="score-label" data-label="3">Moderate</span></th>
+                  <th scope="col"><span class="score">4</span><span class="score-label" data-label="4">High</span></th>
+                  <th scope="col"><span class="score">5</span><span class="score-label" data-label="5">Very high</span></th>
+                </tr>
+              </thead>
+              <tbody id="ratingRows"></tbody>
+            </table>
+          </section>
+
+          <label class="notes-field">
+            <span id="notesLabel">Notes, optional</span>
+            <textarea id="notes" rows="2" placeholder="Anything unclear about this gesture?"></textarea>
+          </label>
+
+          <div class="actions">
+            <button id="backButton" type="button">Back</button>
+            <button id="nextButton" class="primary-button" type="submit">Save and continue</button>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <script src="gesture-rating-task.js"></script>
+  </body>
+</html>

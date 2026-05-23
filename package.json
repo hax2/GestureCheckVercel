@@ -1,0 +1,16 @@
+{
+  "name": "gesture-rating-survey",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vercel dev",
+    "check": "node scripts/check-vercel-api.mjs"
+  },
+  "dependencies": {
+    "pg": "^8.13.1"
+  },
+  "devDependencies": {
+    "vercel": "^39.1.1"
+  }
+}
