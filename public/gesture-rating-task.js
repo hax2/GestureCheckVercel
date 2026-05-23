@@ -83,7 +83,7 @@
       back: "Back",
       notes: "Notes, optional",
       notesPlaceholder: "Anything unclear about this gesture?",
-      likert: { 1: "Very low", 2: "Low", 3: "Moderate", 4: "High", 5: "Very high" },
+      likert: { 1: "Not at all", 2: "Slightly", 3: "Moderately", 4: "Strongly", 5: "Very strongly" },
       dimensions: [
         ["iconicity", "How much does the gesture visually resemble the meaning of the word?"],
         ["sensorimotor_imagery", "How much does the gesture feel like a real action or experience?"],
@@ -161,7 +161,13 @@
       back: "Zurück",
       notes: "Notizen, optional",
       notesPlaceholder: "War etwas an dieser Geste unklar?",
-      likert: { 1: "Sehr gering", 2: "Gering", 3: "Mittel", 4: "Hoch", 5: "Sehr hoch" },
+      likert: {
+        1: "(Überhaupt nicht) Not at all",
+        2: "(Ein wenig) Slightly",
+        3: "(Mäßig) Moderately",
+        4: "(Stark) Strongly",
+        5: "(Sehr stark) Very strongly",
+      },
       dimensions: [
         ["iconicity", "Wie sehr ähnelt die Geste visuell der Bedeutung des Wortes?"],
         ["sensorimotor_imagery", "Wie sehr fühlt sich die Geste wie eine reale Handlung oder Erfahrung an?"],
@@ -239,7 +245,13 @@
       back: "Indietro",
       notes: "Note, facoltative",
       notesPlaceholder: "Qualcosa non era chiaro in questo gesto?",
-      likert: { 1: "Molto basso", 2: "Basso", 3: "Medio", 4: "Alto", 5: "Molto alto" },
+      likert: {
+        1: "(Per niente) Not at all",
+        2: "(Poco) Slightly",
+        3: "(Moderatamente) Moderately",
+        4: "(Molto) Strongly",
+        5: "(Moltissimo) Very strongly",
+      },
       dimensions: [
         ["iconicity", "Quanto assomiglia il gesto visivamente al significato della parola?"],
         ["sensorimotor_imagery", "Quanto sembra il gesto una vera azione o esperienza?"],
@@ -533,8 +545,12 @@
         </td>
         ${[1, 2, 3, 4, 5].map((score) => `
           <td class="choice-cell">
-            <label class="choice" aria-label="${question}: ${score}">
+            <label class="choice" aria-label="${question}: ${score}" data-score="${score}" data-scale-label="${t().likert[score]}">
               <input type="radio" name="${key}" value="${score}" ${ratings[key] === score ? "checked" : ""}>
+              <span class="choice-text" aria-hidden="true">
+                <span class="choice-score">${score}</span>
+                <span class="choice-label">${t().likert[score]}</span>
+              </span>
               <span class="choice-mark"></span>
             </label>
           </td>

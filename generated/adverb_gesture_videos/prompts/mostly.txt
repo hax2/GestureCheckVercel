@@ -1,0 +1,19 @@
+Create an 8-second gesture-learning video of one abstract meaning.
+
+Match this reference style:
+This instructional video uses a static, eye-level camera framing that captures the performer from head to toe. The subject is centered against a plain, neutral-toned studio backdrop. Soft, even lighting creates a clean instructional look. The performer uses clear, deliberate body movement at a steady pace, with the whole body available for the gesture when useful. The frame contains only the performer and the plain background. The instructional style is direct and minimalist, relying solely on the clarity of the performer's gesture to convey the lesson.
+
+Gesture action:
+The performer communicates a large majority but not totality with one clear full-body gesture. She marks an imagined horizontal scale across the space in front of her body, then uses one arm and a slight torso lean to sweep across nearly the whole scale from left to right, stopping before the final edge to leave a small unmarked remainder. The gesture should be one continuous large sweep that clearly means a large part of the whole, but not the whole.
+
+Production constraints:
+- One adult woman, whole body visible from head to feet at all times, centered in frame.
+- Static camera, neutral indoor background, simple even lighting.
+- Mouth closed at all times.
+- Neutral face at all times.
+- The meaning must be conveyed by the body and hands only, not by facial expression.
+- She may use her whole body for the gesture, including leaning, stepping, shifting weight, bending, or changing posture when useful.
+- The gesture should be clear enough for a second-language vocabulary lesson.
+- Use natural human timing: start neutral, perform exactly one continuous gesture, then hold the final pose briefly.
+- Keep the motion simple, repeatable, and pedagogically usable rather than theatrical.
+- Avoid a chain of different gestures; do not mime a story or combine multiple symbolic actions.

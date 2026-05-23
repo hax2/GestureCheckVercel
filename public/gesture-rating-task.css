@@ -334,6 +334,7 @@ tbody tr:hover {
 }
 
 .choice {
+  position: relative;
   width: 100%;
   min-height: 58px;
   display: inline-grid;
@@ -358,6 +359,10 @@ tbody tr:hover {
   position: absolute;
   opacity: 0;
   pointer-events: none;
+}
+
+.choice-text {
+  display: none;
 }
 
 .choice.selected {
@@ -422,5 +427,150 @@ textarea {
 
   video {
     width: min(100%, 220px);
+  }
+}
+
+@media (max-width: 760px) {
+  .survey-app {
+    width: min(100%, calc(100vw - 20px));
+    padding-top: 12px;
+  }
+
+  h1 {
+    font-size: 34px;
+  }
+
+  .instructions-panel,
+  .demographics-panel,
+  .stimulus-panel {
+    padding: 12px;
+  }
+
+  .rating-matrix-wrap {
+    overflow-x: visible;
+    border: 0;
+    background: transparent;
+  }
+
+  .rating-matrix,
+  .rating-matrix thead,
+  .rating-matrix tbody,
+  .rating-matrix tr,
+  .rating-matrix th,
+  .rating-matrix td {
+    display: block;
+  }
+
+  .rating-matrix {
+    min-width: 0;
+    border-collapse: separate;
+    border-spacing: 0;
+  }
+
+  .rating-matrix thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  .rating-matrix tbody {
+    display: grid;
+    gap: 12px;
+  }
+
+  .rating-matrix tbody tr {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 8px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 12px;
+    background: var(--surface);
+  }
+
+  .rating-matrix tbody tr:hover {
+    background: var(--surface);
+  }
+
+  .dimension-cell {
+    grid-column: 1 / -1;
+    width: auto;
+    padding: 0 0 2px;
+    border-bottom: 0;
+  }
+
+  .choice-cell {
+    width: auto;
+    padding: 0;
+    border-bottom: 0;
+  }
+
+  .choice {
+    min-height: 86px;
+    align-content: start;
+    gap: 7px;
+    border: 1px solid var(--line);
+    padding: 8px 4px;
+    background: #f9fbf6;
+    text-align: center;
+  }
+
+  .choice::before,
+  .choice-mark {
+    display: none;
+  }
+
+  .choice-text {
+    min-width: 0;
+    display: grid;
+    gap: 4px;
+  }
+
+  .choice-score {
+    font-size: 18px;
+    font-weight: 900;
+    line-height: 1;
+  }
+
+  .choice-label {
+    color: var(--muted-strong);
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1.15;
+    overflow-wrap: anywhere;
+  }
+
+  .choice.selected {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: #fff;
+    box-shadow: 0 0 0 3px rgba(47, 107, 79, 0.12);
+  }
+
+  .choice.selected .choice-label {
+    color: #fff;
+  }
+}
+
+@media (max-width: 430px) {
+  .rating-matrix tbody tr {
+    gap: 6px;
+    padding: 10px;
+  }
+
+  .choice {
+    min-height: 78px;
+    padding: 7px 3px;
+  }
+
+  .choice-score {
+    font-size: 16px;
+  }
+
+  .choice-label {
+    font-size: 10px;
   }
 }
