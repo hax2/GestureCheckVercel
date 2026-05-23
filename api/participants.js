@@ -1,4 +1,4 @@
-import { withTransaction } from "./_lib/db.js";
+import { withClient } from "./_lib/db.js";
 import { fail, method, ok, readJson } from "./_lib/http.js";
 
 export default async function handler(req, res) {
@@ -14,7 +14,7 @@ export default async function handler(req, res) {
       return;
     }
 
-    const result = await withTransaction(async (client) => {
+    const result = await withClient(async (client) => {
       await client.query(
         `
           INSERT INTO gesture_participants (

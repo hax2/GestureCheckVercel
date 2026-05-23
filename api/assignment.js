@@ -1,4 +1,4 @@
-import { withTransaction } from "./_lib/db.js";
+import { withClient } from "./_lib/db.js";
 import { fail, method, ok } from "./_lib/http.js";
 import { loadManifest } from "./_lib/manifest.js";
 import { randomId, weightedSampleWithoutReplacement } from "./_lib/random.js";
@@ -39,9 +39,7 @@ export default async function handler(req, res) {
 
     const manifest = await loadManifest();
 
-    const result = await withTransaction(async (client) => {
-      await client.query("SELECT pg_advisory_xact_lock(hashtext($1))", [`assignment:${language}`]);
-
+    const result = await withClient(async (client) => {
       const countsResult = await client.query(
         `
           SELECT title, COUNT(*)::int AS completed_count

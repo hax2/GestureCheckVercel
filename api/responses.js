@@ -1,4 +1,4 @@
-import { withTransaction } from "./_lib/db.js";
+import { withClient } from "./_lib/db.js";
 import { fail, method, ok, readJson } from "./_lib/http.js";
 import { randomId } from "./_lib/random.js";
 
@@ -31,7 +31,7 @@ export default async function handler(req, res) {
       return;
     }
 
-    const result = await withTransaction(async (client) => {
+    const result = await withClient(async (client) => {
       let inserted = 0;
       let updated = 0;
 
