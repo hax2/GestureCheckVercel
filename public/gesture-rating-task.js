@@ -34,6 +34,7 @@
       dimensionHead: "Question",
       chooseAll: "Choose one score for each row.",
       completeAll: "Please complete all six ratings before continuing.",
+      watchVideoFirst: "Please watch the video before rating.",
       complete: "Block complete. Your ratings are saved in this browser.",
       autoSubmitted: "Each saved response is submitted automatically.",
       savedLocalFailed: "Saved locally, but server submission failed: {message}.",
@@ -112,6 +113,7 @@
       dimensionHead: "Frage",
       chooseAll: "Wählen Sie für jede Zeile eine Bewertung aus.",
       completeAll: "Bitte vervollständigen Sie alle sechs Bewertungen, bevor Sie fortfahren.",
+      watchVideoFirst: "Bitte sehen Sie sich zuerst das Video an.",
       complete: "Block abgeschlossen. Ihre Bewertungen sind in diesem Browser gespeichert.",
       autoSubmitted: "Jede gespeicherte Antwort wird automatisch übermittelt.",
       savedLocalFailed: "Lokal gespeichert, aber die Übermittlung an den Server ist fehlgeschlagen: {message}.",
@@ -196,6 +198,7 @@
       dimensionHead: "Domanda",
       chooseAll: "Scegli un punteggio per ogni riga.",
       completeAll: "Completa tutte e sei le valutazioni prima di continuare.",
+      watchVideoFirst: "Guarda prima il video.",
       complete: "Blocco completato. Le valutazioni sono salvate in questo browser.",
       autoSubmitted: "Ogni risposta salvata viene inviata automaticamente.",
       savedLocalFailed: "Salvato localmente, ma l'invio al server non è riuscito: {message}.",
@@ -275,6 +278,7 @@
     demographicsComplete: false,
     index: 0,
     responses: {},
+    watchedKeys: new Set(),
     language: ["en", "de", "it"].includes(new URLSearchParams(window.location.search).get("lang"))
       ? new URLSearchParams(window.location.search).get("lang")
       : "en",
@@ -474,6 +478,43 @@
     return state.videos[state.index];
   }
 
+  function currentResponseKey() {
+    const item = currentItem();
+    return item ? responseKey(item) : "";
+  }
+
+  function canRateCurrent() {
+    const key = currentResponseKey();
+    return Boolean(key && (state.watchedKeys.has(key) || state.responses[key]));
+  }
+
+  function setRatingEnabled(enabled) {
+    ratingForm.classList.toggle("locked", !enabled);
+    ratingRows.querySelectorAll("input[type='radio']").forEach((input) => {
+      input.disabled = !enabled;
+    });
+    nextButton.disabled = !enabled;
+    if (!enabled) {
+      saveStatus.textContent = t().watchVideoFirst;
+      saveStatus.classList.add("warning");
+    } else if (saveStatus.textContent === t().watchVideoFirst) {
+      saveStatus.textContent = config.submitUrl ? t().autoSubmitted : t().chooseAll;
+      saveStatus.classList.remove("warning");
+    }
+  }
+
+  function updateRatingLock() {
+    if (!currentItem()) return;
+    setRatingEnabled(canRateCurrent());
+  }
+
+  function markCurrentVideoWatched() {
+    const key = currentResponseKey();
+    if (!key || state.watchedKeys.has(key)) return;
+    state.watchedKeys.add(key);
+    updateRatingLock();
+  }
+
   function setSelectedStyles() {
     ratingRows.querySelectorAll(".choice").forEach((label) => {
       const input = label.querySelector("input");
@@ -596,6 +637,7 @@
     notes.value = saved?.notes || "";
     videoPlayer.src = videoUrl(item);
     videoPlayer.load();
+    updateRatingLock();
   }
 
   function selectedRatings() {
@@ -611,6 +653,11 @@
   function saveCurrent() {
     const item = currentItem();
     if (!item) return true;
+    if (!canRateCurrent()) {
+      saveStatus.textContent = t().watchVideoFirst;
+      saveStatus.classList.add("warning");
+      return false;
+    }
     const ratings = selectedRatings();
     if (!ratings) {
       saveStatus.textContent = t().completeAll;
@@ -705,6 +752,11 @@
   }
 
   ratingForm.addEventListener("change", () => {
+    if (!canRateCurrent()) {
+      saveStatus.textContent = t().watchVideoFirst;
+      saveStatus.classList.add("warning");
+      return;
+    }
     saveStatus.classList.remove("warning");
     saveStatus.textContent = config.submitUrl ? t().autoSubmitted : t().chooseAll;
     setSelectedStyles();
@@ -724,10 +776,19 @@
   });
 
   backButton.addEventListener("click", () => {
-    saveCurrent();
+    if (canRateCurrent()) saveCurrent();
     state.index = Math.max(0, state.index - 1);
     renderRows();
     renderVideo();
+  });
+
+  videoPlayer.addEventListener("ended", markCurrentVideoWatched);
+
+  videoPlayer.addEventListener("timeupdate", () => {
+    if (!Number.isFinite(videoPlayer.duration) || videoPlayer.duration <= 0) return;
+    if (videoPlayer.currentTime >= Math.max(videoPlayer.duration * 0.95, videoPlayer.duration - 0.25)) {
+      markCurrentVideoWatched();
+    }
   });
 
   languageSelect.addEventListener("change", () => {

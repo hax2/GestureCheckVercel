@@ -388,6 +388,15 @@ tbody tr:hover {
   opacity: 1;
 }
 
+.rating-form.locked .choice {
+  cursor: not-allowed;
+  opacity: 0.52;
+}
+
+.rating-form.locked .choice::before {
+  background: var(--surface-soft);
+}
+
 .notes-field {
   color: var(--ink);
 }
