@@ -8,9 +8,9 @@
     {
       "src": "/api/(.*)",
       "dest": "/api/$1.js",
-      "headers": [
-        { "key": "Cache-Control", "value": "no-store" }
-      ]
+      "headers": {
+        "Cache-Control": "no-store"
+      }
     },
     { "src": "/", "dest": "/public/gesture-rating-task.html" },
     { "src": "/gesture-rating-task", "dest": "/public/gesture-rating-task.html" },
