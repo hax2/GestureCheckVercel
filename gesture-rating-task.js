@@ -322,6 +322,12 @@
     return `${config.assetBaseUrl}${slug(item.title)}.mp4`;
   }
 
+  function displayTargetWord(item) {
+    if (!item) return "";
+    if (item.target_words && item.target_words[state.language]) return item.target_words[state.language];
+    return item.target_word || item.title;
+  }
+
   function t() {
     return copy[state.language] || copy.en;
   }
@@ -558,8 +564,8 @@
       return;
     }
 
-    targetWord.textContent = item.target_word || item.title;
-    stimulusWord.textContent = item.target_word || item.title;
+    targetWord.textContent = displayTargetWord(item);
+    stimulusWord.textContent = displayTargetWord(item);
     videoTitle.textContent = item.title;
     progressText.textContent = format(t().progress, { current: state.index + 1, total: state.videos.length });
     blockSummary.textContent = state.assignmentId
@@ -604,7 +610,8 @@
       collection: item.collection || "",
       source: item.source || "",
       title: item.title,
-      target_word: item.target_word || item.title,
+      target_word: displayTargetWord(item),
+      target_word_source: item.target_word || item.title,
       video_url: videoUrl(item),
       order_index: Number.isFinite(Number(item.order_index)) ? Number(item.order_index) : state.index,
       ratings,
