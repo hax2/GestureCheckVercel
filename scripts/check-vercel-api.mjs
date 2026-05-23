@@ -2,6 +2,7 @@ import fs from "node:fs";
 
 const required = [
   "api/assignment.js",
+  "api/participants.js",
   "api/responses.js",
   "api/status.js",
   "api/_lib/db.js",
