@@ -4,6 +4,7 @@ const required = [
   "api/assignment.js",
   "api/participants.js",
   "api/responses.js",
+  "api/setup.js",
   "api/status.js",
   "api/_lib/db.js",
   "api/_lib/http.js",

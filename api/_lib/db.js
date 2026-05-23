@@ -3,9 +3,8 @@ import pg from "pg";
 const { Pool } = pg;
 
 let pool;
-let schemaReady;
 
-const SCHEMA_SQL = `
+export const SCHEMA_SQL = `
 CREATE TABLE IF NOT EXISTS gesture_assignments (
   id text PRIMARY KEY,
   participant_id text NOT NULL DEFAULT '',
@@ -74,7 +73,6 @@ export function getPool() {
 export async function withClient(callback) {
   const client = await getPool().connect();
   try {
-    await ensureSchema(client);
     return await callback(client);
   } finally {
     client.release();
@@ -93,11 +91,4 @@ export async function withTransaction(callback) {
       throw error;
     }
   });
-}
-
-async function ensureSchema(client) {
-  if (!schemaReady) {
-    schemaReady = client.query(SCHEMA_SQL);
-  }
-  await schemaReady;
 }
