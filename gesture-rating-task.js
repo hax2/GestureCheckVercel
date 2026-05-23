@@ -3,6 +3,7 @@
     manifestUrl: "all_rating_videos.json",
     assetBaseUrl: "assets/rating-videos/",
     assignmentUrl: "/api/assignment",
+    participantUrl: "/api/participants",
     submitUrl: "/api/responses",
     submitMode: "cors",
     submitEachResponse: true,
@@ -36,6 +37,44 @@
       complete: "Block complete. Your ratings are saved in this browser.",
       autoSubmitted: "Each saved response is submitted automatically.",
       savedLocalFailed: "Saved locally, but server submission failed: {message}.",
+      demographicsKicker: "Before you start",
+      demographicsTitle: "Participant information",
+      demographicsSaved: "Participant information saved.",
+      start: "Start",
+      age: "Age",
+      gender: "Gender",
+      nativeLanguage: "Native language",
+      education: "Highest level of education",
+      handedness: "Handedness",
+      gestureCultureFamiliarity: "Familiarity with European gesture cultures",
+      options: {
+        gender: {
+          woman: "Woman",
+          man: "Man",
+          non_binary: "Non-binary",
+          prefer_not_to_say: "Prefer not to say",
+          self_describe: "Self-describe",
+        },
+        education: {
+          secondary: "Secondary school",
+          vocational: "Vocational training",
+          bachelor: "Bachelor's degree",
+          master: "Master's degree",
+          doctorate: "Doctorate",
+          other: "Other",
+        },
+        handedness: {
+          right: "Right-handed",
+          left: "Left-handed",
+          both: "Both / ambidextrous",
+        },
+        familiarity: {
+          none: "Not familiar",
+          low: "Slightly familiar",
+          moderate: "Moderately familiar",
+          high: "Very familiar",
+        },
+      },
       progress: "Video {current} of {total}",
       blockSummary: "Block {block}: videos {start}-{end} of {total}",
       assignmentSummary: "Adaptive assignment: {count} videos selected from the full set.",
@@ -48,10 +87,10 @@
       dimensions: [
         ["iconicity", "How much does the gesture visually resemble the meaning of the word?"],
         ["sensorimotor_imagery", "How much does the gesture feel like a real action or experience?"],
-        ["motional_salience_gesture", "How visually striking or attention grabbing is the movement?"],
-        ["emotional_salience_facial_expression", "How well does the facial expression match the meaning of the word?"],
+        ["motional_salience_gesture", "How big and dynamic is the movement?"],
+        ["emotional_salience_facial_expression", "How much emotion is the face conveying?"],
         ["cultural_familiarity", "How familiar or common does the gesture seem in your country?"],
-        ["enactment_potential", "How easy would it be to imitate this gesture?"],
+        ["enactment_potential", "How easy would it be to perform this gesture?"],
       ],
     },
     de: {
@@ -76,6 +115,44 @@
       complete: "Block abgeschlossen. Ihre Bewertungen sind in diesem Browser gespeichert.",
       autoSubmitted: "Jede gespeicherte Antwort wird automatisch übermittelt.",
       savedLocalFailed: "Lokal gespeichert, aber die Übermittlung an den Server ist fehlgeschlagen: {message}.",
+      demographicsKicker: "Vor dem Start",
+      demographicsTitle: "Angaben zur Person",
+      demographicsSaved: "Angaben zur Person gespeichert.",
+      start: "Start",
+      age: "Alter",
+      gender: "Geschlecht",
+      nativeLanguage: "Muttersprache",
+      education: "Höchster Bildungsabschluss",
+      handedness: "Händigkeit",
+      gestureCultureFamiliarity: "Vertrautheit mit europäischen Gestenkulturen",
+      options: {
+        gender: {
+          woman: "Frau",
+          man: "Mann",
+          non_binary: "Nicht-binär",
+          prefer_not_to_say: "Keine Angabe",
+          self_describe: "Selbstbeschreibung",
+        },
+        education: {
+          secondary: "Sekundarschule",
+          vocational: "Berufsausbildung",
+          bachelor: "Bachelorabschluss",
+          master: "Masterabschluss",
+          doctorate: "Promotion",
+          other: "Andere",
+        },
+        handedness: {
+          right: "Rechtshändig",
+          left: "Linkshändig",
+          both: "Beidhändig / ambidexter",
+        },
+        familiarity: {
+          none: "Nicht vertraut",
+          low: "Etwas vertraut",
+          moderate: "Mäßig vertraut",
+          high: "Sehr vertraut",
+        },
+      },
       progress: "Video {current} von {total}",
       blockSummary: "Block {block}: Videos {start}-{end} von {total}",
       assignmentSummary: "Adaptive Zuweisung: {count} Videos aus dem gesamten Set ausgewählt.",
@@ -88,10 +165,10 @@
       dimensions: [
         ["iconicity", "Wie sehr ähnelt die Geste visuell der Bedeutung des Wortes?"],
         ["sensorimotor_imagery", "Wie sehr fühlt sich die Geste wie eine reale Handlung oder Erfahrung an?"],
-        ["motional_salience_gesture", "Wie visuell auffällig oder aufmerksamkeitsstark ist die Bewegung?"],
-        ["emotional_salience_facial_expression", "Wie gut passt der Gesichtsausdruck zur Bedeutung des Wortes?"],
+        ["motional_salience_gesture", "Wie groß und dynamisch ist die Bewegung?"],
+        ["emotional_salience_facial_expression", "Wie viel Emotion vermittelt das Gesicht?"],
         ["cultural_familiarity", "Wie vertraut oder verbreitet erscheint dir diese Geste in deinem Land?"],
-        ["enactment_potential", "Wie leicht wäre es, diese Geste nachzuahmen?"],
+        ["enactment_potential", "Wie leicht wäre es, diese Geste auszuführen?"],
       ],
     },
     it: {
@@ -116,6 +193,44 @@
       complete: "Blocco completato. Le valutazioni sono salvate in questo browser.",
       autoSubmitted: "Ogni risposta salvata viene inviata automaticamente.",
       savedLocalFailed: "Salvato localmente, ma l'invio al server non è riuscito: {message}.",
+      demographicsKicker: "Prima di iniziare",
+      demographicsTitle: "Informazioni sul partecipante",
+      demographicsSaved: "Informazioni sul partecipante salvate.",
+      start: "Inizia",
+      age: "Età",
+      gender: "Genere",
+      nativeLanguage: "Lingua madre",
+      education: "Livello di istruzione più alto",
+      handedness: "Manualità",
+      gestureCultureFamiliarity: "Familiarità con le culture gestuali europee",
+      options: {
+        gender: {
+          woman: "Donna",
+          man: "Uomo",
+          non_binary: "Non binario",
+          prefer_not_to_say: "Preferisco non rispondere",
+          self_describe: "Autodescrizione",
+        },
+        education: {
+          secondary: "Scuola secondaria",
+          vocational: "Formazione professionale",
+          bachelor: "Laurea triennale",
+          master: "Laurea magistrale",
+          doctorate: "Dottorato",
+          other: "Altro",
+        },
+        handedness: {
+          right: "Destrimane",
+          left: "Mancino/a",
+          both: "Entrambe / ambidestro/a",
+        },
+        familiarity: {
+          none: "Non familiare",
+          low: "Poco familiare",
+          moderate: "Moderatamente familiare",
+          high: "Molto familiare",
+        },
+      },
       progress: "Video {current} di {total}",
       blockSummary: "Blocco {block}: video {start}-{end} di {total}",
       assignmentSummary: "Assegnazione adattiva: {count} video selezionati dall'intero set.",
@@ -128,10 +243,10 @@
       dimensions: [
         ["iconicity", "Quanto assomiglia il gesto visivamente al significato della parola?"],
         ["sensorimotor_imagery", "Quanto sembra il gesto una vera azione o esperienza?"],
-        ["motional_salience_gesture", "Quanto è visivamente sorprendente o capace di attirare l'attenzione il movimento?"],
-        ["emotional_salience_facial_expression", "Quanto corrisponde l'espressione facciale al significato della parola?"],
+        ["motional_salience_gesture", "Quanto il movimento è ampio e dinamico?"],
+        ["emotional_salience_facial_expression", "Quanta emozione trasmette il volto?"],
         ["cultural_familiarity", "Quanto è familiare o comune questo gesto nel tuo Paese?"],
-        ["enactment_potential", "Quanto sarebbe facile imitare questo gesto?"],
+        ["enactment_potential", "Quanto sarebbe facile eseguire questo gesto?"],
       ],
     },
   };
@@ -144,6 +259,8 @@
     blockEnd: 0,
     assignmentId: "",
     sessionId: "",
+    demographics: {},
+    demographicsComplete: false,
     index: 0,
     responses: {},
     language: ["en", "de", "it"].includes(new URLSearchParams(window.location.search).get("lang"))
@@ -176,6 +293,19 @@
   const scaleMeaningHead = $("scaleMeaningHead");
   const scaleRows = $("scaleRows");
   const dimensionHead = $("dimensionHead");
+  const demographicsPanel = $("demographicsPanel");
+  const demographicsForm = $("demographicsForm");
+  const demographicsKicker = $("demographicsKicker");
+  const demographicsTitle = $("demographicsTitle");
+  const demographicsStatus = $("demographicsStatus");
+  const startButton = $("startButton");
+  const ageInput = $("ageInput");
+  const genderInput = $("genderInput");
+  const nativeLanguageInput = $("nativeLanguageInput");
+  const educationInput = $("educationInput");
+  const handednessInput = $("handednessInput");
+  const familiarityInput = $("familiarityInput");
+  const workbench = $("workbench");
 
   function slug(title) {
     return title
@@ -265,6 +395,63 @@
     sessionStorage.setItem(assignmentStorageKey(blockSize), JSON.stringify(assignment));
   }
 
+  function demographicsKey() {
+    return `gesture-rating-task:demographics:${state.sessionId}`;
+  }
+
+  function updateSelectOptions(select, labels) {
+    Array.from(select.options).forEach((option) => {
+      if (option.value && labels[option.value]) option.textContent = labels[option.value];
+    });
+  }
+
+  function demographicsFromForm() {
+    return {
+      age: ageInput.value.trim(),
+      gender: genderInput.value,
+      native_language: nativeLanguageInput.value.trim(),
+      education: educationInput.value,
+      handedness: handednessInput.value,
+      gesture_culture_familiarity: familiarityInput.value,
+    };
+  }
+
+  function applyDemographics(values) {
+    ageInput.value = values.age || "";
+    genderInput.value = values.gender || "";
+    nativeLanguageInput.value = values.native_language || "";
+    educationInput.value = values.education || "";
+    handednessInput.value = values.handedness || "";
+    familiarityInput.value = values.gesture_culture_familiarity || "";
+  }
+
+  function loadDemographics() {
+    try {
+      const saved = JSON.parse(localStorage.getItem(demographicsKey()) || "null");
+      if (!saved) return;
+      state.demographics = saved.demographics || {};
+      state.demographicsComplete = Boolean(saved.complete);
+      applyDemographics(state.demographics);
+    } catch {
+      localStorage.removeItem(demographicsKey());
+    }
+  }
+
+  function saveDemographics() {
+    state.demographics = demographicsFromForm();
+    state.demographicsComplete = true;
+    localStorage.setItem(demographicsKey(), JSON.stringify({
+      complete: true,
+      demographics: state.demographics,
+      saved_at: new Date().toISOString(),
+    }));
+  }
+
+  function renderDemographicsState() {
+    demographicsPanel.classList.toggle("hidden", state.demographicsComplete);
+    workbench.classList.toggle("hidden", !state.demographicsComplete);
+  }
+
   function currentItem() {
     return state.videos[state.index];
   }
@@ -306,7 +493,21 @@
     notesLabel.textContent = t().notes;
     notes.placeholder = t().notesPlaceholder;
     backButton.textContent = t().back;
+    demographicsKicker.textContent = t().demographicsKicker;
+    demographicsTitle.textContent = t().demographicsTitle;
+    $("ageLabel").textContent = t().age;
+    $("genderLabel").textContent = t().gender;
+    $("nativeLanguageLabel").textContent = t().nativeLanguage;
+    $("educationLabel").textContent = t().education;
+    $("handednessLabel").textContent = t().handedness;
+    $("familiarityLabel").textContent = t().gestureCultureFamiliarity;
+    startButton.textContent = t().start;
+    updateSelectOptions(genderInput, t().options.gender);
+    updateSelectOptions(educationInput, t().options.education);
+    updateSelectOptions(handednessInput, t().options.handedness);
+    updateSelectOptions(familiarityInput, t().options.familiarity);
     saveStatus.textContent = config.submitUrl ? t().autoSubmitted : t().chooseAll;
+    renderDemographicsState();
     renderInstructions();
     renderRows();
     renderVideo();
@@ -435,6 +636,7 @@
         assignmentId: state.assignmentId,
         language: state.language,
         block: state.block,
+        demographics: state.demographics,
       },
       session_started_at: new Date().toISOString(),
       exported_at: new Date().toISOString(),
@@ -458,6 +660,24 @@
     postResponses([response]).catch((error) => {
       saveStatus.textContent = format(t().savedLocalFailed, { message: error.message });
       saveStatus.classList.add("warning");
+    });
+  }
+
+  async function postDemographics() {
+    if (!config.participantUrl) return;
+    await fetch(config.participantUrl, {
+      method: "POST",
+      mode: config.submitMode,
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify({
+        participant: {
+          participantId: participantId.value.trim(),
+          sessionId: state.sessionId,
+          assignmentId: state.assignmentId,
+          language: state.language,
+          demographics: state.demographics,
+        },
+      }),
     });
   }
 
@@ -497,6 +717,14 @@
     loadSaved();
     renderRows();
     renderVideo();
+  });
+
+  demographicsForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    saveDemographics();
+    demographicsStatus.textContent = t().demographicsSaved;
+    renderDemographicsState();
+    postDemographics().catch(() => {});
   });
 
   async function init() {
@@ -561,6 +789,7 @@
         manifest: manifestUrl === config.manifestUrl ? null : manifestUrl,
       });
     }
+    loadDemographics();
     loadSaved();
     applyLanguage();
   }

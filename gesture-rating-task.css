@@ -65,6 +65,10 @@ button:disabled {
   padding: 18px 0 28px;
 }
 
+.hidden {
+  display: none !important;
+}
+
 .topbar {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(280px, 430px);
@@ -155,6 +159,31 @@ h1 {
   width: 72px;
   color: var(--ink);
   font-weight: 900;
+}
+
+.demographics-panel {
+  margin-bottom: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 16px;
+  background: var(--surface);
+}
+
+.demographics-panel h2 {
+  margin: 0 0 14px;
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+.demographics-form {
+  display: grid;
+  gap: 14px;
+}
+
+.demographics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
 }
 
 label {
@@ -378,7 +407,8 @@ textarea {
 @media (max-width: 960px) {
   .topbar,
   .instructions-panel,
-  .workbench {
+  .workbench,
+  .demographics-grid {
     grid-template-columns: 1fr;
   }
 
