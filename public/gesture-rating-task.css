@@ -161,6 +161,7 @@ h1 {
   font-weight: 900;
 }
 
+.consent-panel,
 .demographics-panel {
   margin-bottom: 16px;
   border: 1px solid var(--line);
@@ -169,15 +170,55 @@ h1 {
   background: var(--surface);
 }
 
+.consent-panel h2,
 .demographics-panel h2 {
   margin: 0 0 14px;
   font-size: 22px;
   line-height: 1.2;
 }
 
+.consent-form,
 .demographics-form {
   display: grid;
   gap: 14px;
+}
+
+.consent-body {
+  display: grid;
+  gap: 10px;
+  color: var(--muted-strong);
+  line-height: 1.45;
+}
+
+.consent-body p,
+.consent-list {
+  margin: 0;
+}
+
+.consent-list {
+  display: grid;
+  gap: 6px;
+  padding-left: 20px;
+}
+
+.consent-checks {
+  display: grid;
+  gap: 10px;
+}
+
+.checkbox-label {
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: 10px;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 650;
+  line-height: 1.35;
+}
+
+.checkbox-label input {
+  width: auto;
+  margin-top: 3px;
 }
 
 .demographics-grid {
@@ -450,6 +491,7 @@ textarea {
   }
 
   .instructions-panel,
+  .consent-panel,
   .demographics-panel,
   .stimulus-panel {
     padding: 12px;

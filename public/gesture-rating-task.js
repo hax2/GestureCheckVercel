@@ -31,6 +31,26 @@
       ],
       scaleRating: "Rating",
       scaleMeaning: "Meaning",
+      consentKicker: "Informed consent",
+      consentTitle: "Participant consent",
+      consentIntro: "Please read this information before continuing.",
+      consentItems: [
+        "Purpose: this academic study asks how people perceive gesture videos used in vocabulary learning.",
+        "What you will do: provide background information, watch gesture videos, and rate each video.",
+        "Data collected: participant ID if provided, session ID, background survey answers, ratings, optional notes, video assignment metadata, timestamps, and technical submission records.",
+        "Voluntary participation: taking part is voluntary. You can stop at any time by closing this page.",
+        "Withdrawal: if you provided a participant ID, contact the research team with that ID to request withdrawal where possible.",
+        "Data use: responses may be analysed for academic research and reported in aggregate or anonymised form.",
+        "Questions: contact the research team or responsible institution named in the study invitation.",
+      ],
+      consentStatements: {
+        adult: "I am 18 or older.",
+        read: "I have read and understood the study information above.",
+        voluntary: "I understand participation is voluntary and I can stop at any time.",
+        research_use: "I consent to my responses and background information being used for academic research as described.",
+      },
+      consentSaved: "Consent recorded.",
+      consentContinue: "Continue",
       dimensionHead: "Question",
       chooseAll: "Choose one score for each row.",
       completeAll: "Please complete all six ratings before continuing.",
@@ -116,6 +136,26 @@
       ],
       scaleRating: "Bewertung",
       scaleMeaning: "Bedeutung",
+      consentKicker: "Einwilligung",
+      consentTitle: "Einwilligung zur Teilnahme",
+      consentIntro: "Bitte lesen Sie diese Informationen, bevor Sie fortfahren.",
+      consentItems: [
+        "Zweck: Diese akademische Studie untersucht, wie Menschen Gestenvideos für das Vokabellernen wahrnehmen.",
+        "Ablauf: Sie geben Hintergrundinformationen an, sehen sich Gestenvideos an und bewerten jedes Video.",
+        "Erhobene Daten: Teilnehmer-ID, falls angegeben, Sitzungs-ID, Antworten aus dem Hintergrundfragebogen, Bewertungen, optionale Notizen, Metadaten zur Videozuweisung, Zeitstempel und technische Übermittlungsdaten.",
+        "Freiwilligkeit: Die Teilnahme ist freiwillig. Sie können jederzeit abbrechen, indem Sie diese Seite schließen.",
+        "Widerruf: Wenn Sie eine Teilnehmer-ID angegeben haben, kontaktieren Sie das Forschungsteam mit dieser ID, um nach Möglichkeit einen Widerruf zu beantragen.",
+        "Datennutzung: Antworten können für akademische Forschung analysiert und in aggregierter oder anonymisierter Form berichtet werden.",
+        "Fragen: Kontaktieren Sie das Forschungsteam oder die verantwortliche Institution, die in der Studieneinladung genannt wird.",
+      ],
+      consentStatements: {
+        adult: "Ich bin mindestens 18 Jahre alt.",
+        read: "Ich habe die Studieninformationen oben gelesen und verstanden.",
+        voluntary: "Ich verstehe, dass die Teilnahme freiwillig ist und ich jederzeit abbrechen kann.",
+        research_use: "Ich willige ein, dass meine Antworten und Hintergrundinformationen wie beschrieben für akademische Forschung verwendet werden.",
+      },
+      consentSaved: "Einwilligung gespeichert.",
+      consentContinue: "Weiter",
       dimensionHead: "Frage",
       chooseAll: "Wählen Sie für jede Zeile eine Bewertung aus.",
       completeAll: "Bitte vervollständigen Sie alle sechs Bewertungen, bevor Sie fortfahren.",
@@ -201,6 +241,26 @@
       ],
       scaleRating: "Valutazione",
       scaleMeaning: "Significato",
+      consentKicker: "Consenso informato",
+      consentTitle: "Consenso alla partecipazione",
+      consentIntro: "Si prega di leggere queste informazioni prima di continuare.",
+      consentItems: [
+        "Scopo: questo studio accademico esamina come le persone percepiscono video di gesti usati nell'apprendimento del vocabolario.",
+        "Cosa farai: fornirai informazioni di base, guarderai video di gesti e valuterai ogni video.",
+        "Dati raccolti: ID partecipante se fornito, ID sessione, risposte al questionario iniziale, valutazioni, note facoltative, metadati dell'assegnazione dei video, timestamp e dati tecnici di invio.",
+        "Partecipazione volontaria: la partecipazione è volontaria. Puoi interrompere in qualsiasi momento chiudendo questa pagina.",
+        "Ritiro: se hai fornito un ID partecipante, contatta il team di ricerca con quell'ID per richiedere il ritiro, ove possibile.",
+        "Uso dei dati: le risposte possono essere analizzate per ricerca accademica e riportate in forma aggregata o anonimizzata.",
+        "Domande: contatta il team di ricerca o l'istituzione responsabile indicati nell'invito allo studio.",
+      ],
+      consentStatements: {
+        adult: "Ho almeno 18 anni.",
+        read: "Ho letto e compreso le informazioni sullo studio sopra.",
+        voluntary: "Comprendo che la partecipazione è volontaria e che posso interrompere in qualsiasi momento.",
+        research_use: "Acconsento all'uso delle mie risposte e informazioni di base per la ricerca accademica come descritto.",
+      },
+      consentSaved: "Consenso registrato.",
+      consentContinue: "Continua",
       dimensionHead: "Domanda",
       chooseAll: "Scegli un punteggio per ogni riga.",
       completeAll: "Completa tutte e sei le valutazioni prima di continuare.",
@@ -280,6 +340,8 @@
     blockEnd: 0,
     assignmentId: "",
     sessionId: "",
+    consent: {},
+    consentComplete: false,
     demographics: {},
     demographicsComplete: false,
     index: 0,
@@ -315,6 +377,14 @@
   const scaleMeaningHead = $("scaleMeaningHead");
   const scaleRows = $("scaleRows");
   const dimensionHead = $("dimensionHead");
+  const consentPanel = $("consentPanel");
+  const consentForm = $("consentForm");
+  const consentKicker = $("consentKicker");
+  const consentTitle = $("consentTitle");
+  const consentBody = $("consentBody");
+  const consentChecks = $("consentChecks");
+  const consentStatus = $("consentStatus");
+  const consentButton = $("consentButton");
   const demographicsPanel = $("demographicsPanel");
   const demographicsForm = $("demographicsForm");
   const demographicsKicker = $("demographicsKicker");
@@ -423,6 +493,10 @@
     sessionStorage.setItem(assignmentStorageKey(blockSize), JSON.stringify(assignment));
   }
 
+  function consentKey() {
+    return `gesture-rating-task:consent:${state.sessionId}`;
+  }
+
   function demographicsKey() {
     return `gesture-rating-task:demographics:${state.sessionId}`;
   }
@@ -475,9 +549,54 @@
     }));
   }
 
-  function renderDemographicsState() {
-    demographicsPanel.classList.toggle("hidden", state.demographicsComplete);
-    workbench.classList.toggle("hidden", !state.demographicsComplete);
+  function loadConsent() {
+    try {
+      const saved = JSON.parse(localStorage.getItem(consentKey()) || "null");
+      if (!saved) return;
+      state.consent = saved.consent || {};
+      state.consentComplete = Boolean(saved.complete);
+    } catch {
+      localStorage.removeItem(consentKey());
+    }
+  }
+
+  function saveConsent() {
+    const checks = {};
+    consentChecks.querySelectorAll("[data-consent]").forEach((input) => {
+      checks[input.dataset.consent] = input.checked;
+    });
+    state.consent = {
+      version: "2026-05-25",
+      language: state.language,
+      statements: checks,
+      consented_at: new Date().toISOString(),
+    };
+    state.consentComplete = Object.values(checks).every(Boolean);
+    localStorage.setItem(consentKey(), JSON.stringify({
+      complete: state.consentComplete,
+      consent: state.consent,
+    }));
+  }
+
+  function renderConsent() {
+    consentBody.innerHTML = `
+      <p>${t().consentIntro}</p>
+      <ul class="consent-list">
+        ${t().consentItems.map((item) => `<li>${item}</li>`).join("")}
+      </ul>
+    `;
+    consentChecks.innerHTML = Object.entries(t().consentStatements).map(([key, label]) => `
+      <label class="checkbox-label">
+        <input type="checkbox" data-consent="${key}" required ${state.consent.statements?.[key] ? "checked" : ""}>
+        <span>${label}</span>
+      </label>
+    `).join("");
+  }
+
+  function renderFlowState() {
+    consentPanel.classList.toggle("hidden", state.consentComplete);
+    demographicsPanel.classList.toggle("hidden", !state.consentComplete || state.demographicsComplete);
+    workbench.classList.toggle("hidden", !state.consentComplete || !state.demographicsComplete);
   }
 
   function currentItem() {
@@ -558,6 +677,9 @@
     notesLabel.textContent = t().notes;
     notes.placeholder = t().notesPlaceholder;
     backButton.textContent = t().back;
+    consentKicker.textContent = t().consentKicker;
+    consentTitle.textContent = t().consentTitle;
+    consentButton.textContent = t().consentContinue;
     demographicsKicker.textContent = t().demographicsKicker;
     demographicsTitle.textContent = t().demographicsTitle;
     $("ageLabel").textContent = t().age;
@@ -572,7 +694,8 @@
     updateSelectOptions(handednessInput, t().options.handedness);
     updateSelectOptions(familiarityInput, t().options.familiarity);
     saveStatus.textContent = config.submitUrl ? t().autoSubmitted : t().chooseAll;
-    renderDemographicsState();
+    renderConsent();
+    renderFlowState();
     renderInstructions();
     renderRows();
     renderVideo();
@@ -719,6 +842,7 @@
         assignmentId: state.assignmentId,
         language: state.language,
         block: state.block,
+        consent: state.consent,
         demographics: state.demographics,
       },
       session_started_at: new Date().toISOString(),
@@ -758,6 +882,7 @@
           sessionId: state.sessionId,
           assignmentId: state.assignmentId,
           language: state.language,
+          consent: state.consent,
           demographics: state.demographics,
         },
       }),
@@ -818,11 +943,20 @@
     renderVideo();
   });
 
+  consentForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    saveConsent();
+    if (!state.consentComplete) return;
+    consentStatus.textContent = t().consentSaved;
+    renderFlowState();
+    requestAnimationFrame(() => demographicsPanel.scrollIntoView({ behavior: "smooth", block: "start" }));
+  });
+
   demographicsForm.addEventListener("submit", (event) => {
     event.preventDefault();
     saveDemographics();
     demographicsStatus.textContent = t().demographicsSaved;
-    renderDemographicsState();
+    renderFlowState();
     postDemographics().catch(() => {});
   });
 
@@ -888,6 +1022,7 @@
         manifest: manifestUrl === config.manifestUrl ? null : manifestUrl,
       });
     }
+    loadConsent();
     loadDemographics();
     loadSaved();
     applyLanguage();
