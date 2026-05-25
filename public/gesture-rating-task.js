@@ -646,6 +646,13 @@
     updateRatingLock();
   }
 
+  function scrollToCurrentVideo() {
+    requestAnimationFrame(() => {
+      const top = Math.max(0, window.scrollY + videoPlayer.getBoundingClientRect().top - 12);
+      window.scrollTo({ top, behavior: "smooth" });
+    });
+  }
+
   function selectedRatings() {
     const ratings = {};
     for (const [key] of t().dimensions) {
@@ -779,6 +786,7 @@
     state.index += 1;
     renderRows();
     renderVideo();
+    scrollToCurrentVideo();
   });
 
   backButton.addEventListener("click", () => {
@@ -786,6 +794,7 @@
     state.index = Math.max(0, state.index - 1);
     renderRows();
     renderVideo();
+    scrollToCurrentVideo();
   });
 
   videoPlayer.addEventListener("ended", markCurrentVideoWatched);
