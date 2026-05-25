@@ -185,20 +185,39 @@ h1 {
 
 .consent-body {
   display: grid;
-  gap: 10px;
+  gap: 14px;
   color: var(--muted-strong);
   line-height: 1.45;
 }
 
 .consent-body p,
-.consent-list {
+.consent-steps {
   margin: 0;
 }
 
-.consent-list {
+.consent-sections {
+  display: grid;
+  gap: 14px;
+}
+
+.consent-section {
+  display: grid;
+  gap: 7px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+
+.consent-section h3 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+.consent-steps {
   display: grid;
   gap: 6px;
-  padding-left: 20px;
+  padding-left: 24px;
 }
 
 .consent-checks {

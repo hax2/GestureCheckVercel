@@ -80,6 +80,53 @@
               "Thank you for your availability and cooperation.",
               "---"
       ],
+      consentSections: [
+        {
+          title: "Study overview",
+          body: [
+            "You are invited to take part in the study \"Normative Data on Gestures\", organized by the University of Linz and conducted under the responsibility of Dr. Manuela Macedonia.",
+            "The aim is to collect evaluations of gestures that may later be used in cognitive tasks. You will rate about 20 gesture videos on dimensions such as recognizability, dynamism, and emotional expressiveness.",
+          ],
+        },
+        {
+          title: "What participation involves",
+          body: ["The study takes about 10-15 minutes and includes the following steps:"],
+          steps: [
+            "Read this study information and give digital consent.",
+            "Complete a short anonymous demographic form, such as age and gender.",
+            "Watch gesture videos and rate each one on the scales shown in the task. There are no right or wrong answers.",
+          ],
+        },
+        {
+          title: "Voluntary participation",
+          body: [
+            "Taking part is completely voluntary. You may decide not to participate, or stop at any time, without giving a reason and without any negative consequences.",
+            "There are no direct personal benefits from taking part. The study is not intended to provide clinical care or personal diagnostic benefit.",
+          ],
+        },
+        {
+          title: "Risks and conduct of the study",
+          body: [
+            "The study does not present risks to your physical or psychological integrity. It will be conducted in accordance with Good Clinical Practice guidelines and the ethical principles of the Declaration of Helsinki.",
+            "If new information becomes available that could affect your participation, you will be informed. The Principal Investigator may also withdraw you from the study if this is considered to be in your best interest.",
+          ],
+        },
+        {
+          title: "Data protection",
+          body: [
+            "The researcher will ask for limited background information needed to conduct the study. Your data will be processed according to Regulation (EU) 2016/679 (GDPR) and applicable personal data protection law.",
+            "The data you provide will be anonymized and used only for scientific research by authorized study personnel. Results may be shared in meetings, conferences, and scientific publications only in anonymous or aggregate form.",
+            "Your data will not be used for automated decision-making or profiling. Appropriate security measures will be used, and data will be kept only as long as needed for the study purposes, with a minimum retention period of 5 years.",
+          ],
+        },
+        {
+          title: "Your rights",
+          body: [
+            "You may contact the Data Controller, directly or through authorized personnel, to exercise your rights of access, correction, deletion, restriction, portability, or objection under applicable law.",
+            "If you withdraw, no further data about you will be collected. Data already collected may still be used to determine the study results without altering them.",
+          ],
+        },
+      ],
       consentStatements: {
         adult: "I am 18 or older.",
         read: "I have read and understood the study information above.",
@@ -204,6 +251,53 @@
               "Die Teilnahme an der Studie verursacht für Sie keinerlei zusätzliche Kosten oder finanzielle Belastungen.",
               "Bitte beachten Sie, dass Sie nicht gebeten werden, an dieser Studie teilzunehmen, um klinische Versorgung zu erhalten oder persönliche diagnostische Vorteile zu erlangen."
       ],
+      consentSections: [
+        {
+          title: "Überblick zur Studie",
+          body: [
+            "Sie sind eingeladen, an der Studie \"Normative Daten zu Gesten\" teilzunehmen. Die Studie wird von der Universität Linz organisiert und unter der Verantwortung von Dr. Manuela Macedonia durchgeführt.",
+            "Ziel ist es, Bewertungen von Gesten zu sammeln, die später in kognitiven Aufgaben verwendet werden können. Sie bewerten etwa 20 Gestenvideos nach Dimensionen wie Wiedererkennbarkeit, Dynamik und emotionaler Ausdruckskraft.",
+          ],
+        },
+        {
+          title: "Ablauf der Teilnahme",
+          body: ["Die Studie dauert etwa 10-15 Minuten und umfasst diese Schritte:"],
+          steps: [
+            "Lesen Sie diese Studieninformationen und geben Sie Ihre digitale Einwilligung.",
+            "Füllen Sie ein kurzes anonymes demografisches Formular aus, zum Beispiel zu Alter und Geschlecht.",
+            "Sehen Sie sich Gestenvideos an und bewerten Sie jedes Video auf den im Task angezeigten Skalen. Es gibt keine richtigen oder falschen Antworten.",
+          ],
+        },
+        {
+          title: "Freiwilligkeit",
+          body: [
+            "Die Teilnahme ist vollständig freiwillig. Sie können sich gegen die Teilnahme entscheiden oder jederzeit ohne Angabe von Gründen abbrechen, ohne dass Ihnen daraus Nachteile entstehen.",
+            "Aus der Teilnahme ergeben sich keine direkten persönlichen Vorteile. Die Studie dient nicht der klinischen Versorgung und bietet keinen persönlichen diagnostischen Nutzen.",
+          ],
+        },
+        {
+          title: "Risiken und Durchführung",
+          body: [
+            "Die Studie birgt keine Risiken für Ihre körperliche oder psychische Unversehrtheit. Sie wird nach den Richtlinien der Good Clinical Practice und den ethischen Grundsätzen der Deklaration von Helsinki durchgeführt.",
+            "Falls neue Informationen bekannt werden, die Ihre Teilnahme beeinflussen könnten, werden Sie informiert. Die Studienleitung kann Sie außerdem aus der Studie ausschließen, wenn dies in Ihrem besten Interesse liegt.",
+          ],
+        },
+        {
+          title: "Datenschutz",
+          body: [
+            "Die Forschenden erheben begrenzte Hintergrundinformationen, die für die Durchführung der Studie benötigt werden. Ihre Daten werden nach der Verordnung (EU) 2016/679 (DSGVO) und dem geltenden Datenschutzrecht verarbeitet.",
+            "Die von Ihnen bereitgestellten Daten werden anonymisiert und ausschließlich für wissenschaftliche Forschung durch autorisiertes Studienpersonal verwendet. Ergebnisse können nur anonym oder zusammengefasst in Besprechungen, Konferenzen und wissenschaftlichen Publikationen geteilt werden.",
+            "Ihre Daten werden nicht für automatisierte Entscheidungen oder Profiling genutzt. Es werden geeignete Sicherheitsmaßnahmen eingesetzt, und Daten werden nur so lange gespeichert, wie es für die Studienzwecke erforderlich ist, mindestens jedoch 5 Jahre.",
+          ],
+        },
+        {
+          title: "Ihre Rechte",
+          body: [
+            "Sie können sich direkt oder über autorisiertes Personal an den Datenverantwortlichen wenden, um Ihre Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit oder Widerspruch auszuüben.",
+            "Wenn Sie Ihre Teilnahme beenden, werden keine weiteren Daten über Sie erhoben. Bereits erhobene Daten können weiterhin verwendet werden, um die Studienergebnisse zu bestimmen, ohne sie zu verändern.",
+          ],
+        },
+      ],
       consentStatements: {
         adult: "Ich bin mindestens 18 Jahre alt.",
         read: "Ich habe die Studieninformationen oben gelesen und verstanden.",
@@ -320,6 +414,53 @@
               "⬜ FORNISCE IL CONSENSO            ⬜ NON FORNISCE IL CONSENSO",
               "dichiaro inoltre quanto segue: ho letto e compreso il foglio informativo di cui questo modulo è parte integrante; mi sono state illustrate nel foglio informativo la natura, lo scopo e la durata dello studio, le procedure che saranno seguite, il trattamento previsto per i partecipanti e il tipo di collaborazione che ad essi sarà richiesta; ho compreso che la partecipazione allo studio è libera e volontaria e che in qualsiasi momento posso decidere di ritirarmi / ritirare il mio Rappresentato dallo studio senza essere in alcun modo esposto a conseguenze negative e senza che siano compromessi i miei / suoi diritti e il mio / suo rapporto con il personale coinvolto;",
               "Tutto ciò premesso, accetto la proposta di partecipare allo studio descritto nel presente documento. ⬜ ACCETTO            ⬜ NON ACCETTO"
+      ],
+      consentSections: [
+        {
+          title: "Panoramica dello studio",
+          body: [
+            "Le proponiamo di partecipare allo studio \"Dati normativi sui gesti\", organizzato dall'Università di Linz e condotto sotto la responsabilità della Dott.ssa Manuela Macedonia.",
+            "L'obiettivo è raccogliere valutazioni su gesti che potranno essere utilizzati in compiti cognitivi. Le verrà chiesto di valutare circa 20 video di gesti su dimensioni come riconoscibilità, dinamismo ed espressività emotiva.",
+          ],
+        },
+        {
+          title: "Cosa prevede la partecipazione",
+          body: ["Lo studio dura circa 10-15 minuti e prevede questi passaggi:"],
+          steps: [
+            "Leggere queste informazioni e fornire il consenso digitale.",
+            "Compilare una breve scheda demografica anonima, per esempio età e genere.",
+            "Guardare i video dei gesti e valutare ciascuno sulle scale mostrate nel compito. Non esistono risposte giuste o sbagliate.",
+          ],
+        },
+        {
+          title: "Partecipazione volontaria",
+          body: [
+            "La partecipazione è completamente libera e volontaria. Può decidere di non partecipare o interrompere in qualsiasi momento, senza fornire una motivazione e senza conseguenze negative.",
+            "Non sono previsti benefici personali diretti. Lo studio non è finalizzato a fornire assistenza clinica né un beneficio diagnostico personale.",
+          ],
+        },
+        {
+          title: "Rischi e svolgimento dello studio",
+          body: [
+            "La ricerca non presenta rischi per l'integrità fisica o psicologica del partecipante. Lo studio sarà condotto secondo le norme di Buona Pratica Clinica e i principi etici della Dichiarazione di Helsinki.",
+            "Qualora emergessero nuove informazioni che possano influenzare la partecipazione, ne sarà informato/a. Il Responsabile dello studio potrà inoltre ritirarla dallo studio se lo riterrà nel suo migliore interesse.",
+          ],
+        },
+        {
+          title: "Protezione dei dati",
+          body: [
+            "Il ricercatore raccoglierà alcune informazioni di base necessarie allo svolgimento dello studio. I dati saranno trattati secondo il Regolamento (UE) 2016/679 (GDPR) e la normativa applicabile in materia di protezione dei dati personali.",
+            "I dati forniti saranno resi anonimi e utilizzati esclusivamente per finalità di ricerca scientifica da personale autorizzato. I risultati potranno essere condivisi in riunioni, convegni e pubblicazioni scientifiche solo in forma anonima o aggregata.",
+            "I dati non saranno usati per processi decisionali automatizzati o profilazione. Saranno adottate misure di sicurezza adeguate e i dati saranno conservati solo per il tempo necessario alle finalità dello studio, comunque per un periodo minimo di 5 anni.",
+          ],
+        },
+        {
+          title: "I suoi diritti",
+          body: [
+            "Può rivolgersi al Titolare del trattamento, direttamente o tramite personale autorizzato, per esercitare i diritti di accesso, rettifica, cancellazione, limitazione, portabilità o opposizione previsti dalla normativa applicabile.",
+            "Se decide di ritirarsi, non saranno raccolti ulteriori dati che la riguardano. I dati già acquisiti potranno comunque essere utilizzati per determinare i risultati dello studio senza alterarli.",
+          ],
+        },
       ],
       consentStatements: {
         adult: "Ho almeno 18 anni.",
@@ -645,11 +786,23 @@
   }
 
   function renderConsent() {
+    const renderParagraphs = (paragraphs) => paragraphs.map((paragraph) => `<p>${paragraph}</p>`).join("");
+    const renderSteps = (steps = []) => steps.length
+      ? `<ol class="consent-steps">${steps.map((step) => `<li>${step}</li>`).join("")}</ol>`
+      : "";
+    const consentSections = t().consentSections || t().consentItems.map((item) => ({ body: [item] }));
+
     consentBody.innerHTML = `
       <p>${t().consentIntro}</p>
-      <ul class="consent-list">
-        ${t().consentItems.map((item) => `<li>${item}</li>`).join("")}
-      </ul>
+      <div class="consent-sections">
+        ${consentSections.map((section) => `
+          <section class="consent-section">
+            ${section.title ? `<h3>${section.title}</h3>` : ""}
+            ${renderParagraphs(section.body || [])}
+            ${renderSteps(section.steps)}
+          </section>
+        `).join("")}
+      </div>
     `;
     consentChecks.innerHTML = "";
   }
