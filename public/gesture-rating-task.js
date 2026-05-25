@@ -801,7 +801,7 @@
 
   videoPlayer.addEventListener("timeupdate", () => {
     if (!Number.isFinite(videoPlayer.duration) || videoPlayer.duration <= 0) return;
-    if (videoPlayer.currentTime >= Math.max(videoPlayer.duration * 0.95, videoPlayer.duration - 0.25)) {
+    if (videoPlayer.currentTime >= videoPlayer.duration * 0.5) {
       markCurrentVideoWatched();
     }
   });
