@@ -1227,6 +1227,8 @@
     if (!state.consentComplete) return;
     consentStatus.textContent = t().consentSaved;
     renderFlowState();
+    renderRows();
+    renderVideo();
     requestAnimationFrame(() => demographicsPanel.scrollIntoView({ behavior: "smooth", block: "start" }));
   });
 
@@ -1235,6 +1237,8 @@
     saveDemographics();
     demographicsStatus.textContent = t().demographicsSaved;
     renderFlowState();
+    renderRows();
+    renderVideo();
     postDemographics().catch(() => {});
   });
 
