@@ -813,6 +813,10 @@
     workbench.classList.toggle("hidden", !state.consentComplete || !state.demographicsComplete);
   }
 
+  function taskIsActive() {
+    return state.consentComplete && state.demographicsComplete;
+  }
+
   function currentItem() {
     return state.videos[state.index];
   }
@@ -946,6 +950,15 @@
   }
 
   function renderVideo() {
+    if (!taskIsActive()) {
+      targetWord.textContent = state.consentComplete ? t().demographicsTitle : t().consentTitle;
+      videoTitle.textContent = "";
+      stimulusWord.textContent = "";
+      videoPlayer.removeAttribute("src");
+      videoPlayer.load();
+      return;
+    }
+
     const item = currentItem();
     if (!item) {
       targetWord.textContent = "Complete";
