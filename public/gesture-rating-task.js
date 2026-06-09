@@ -32,106 +32,134 @@
       scaleRating: "Rating",
       scaleMeaning: "Meaning",
       consentKicker: "Informed consent",
-      consentTitle: "Participant consent",
-      consentIntro: "Please read this information before continuing.",
-      consentItems: [
-              "Dear Sir / Madam,",
-              "We inform you that we are conducting a study entitled: “Normative Data on Gestures,” organized by the University of Linz. For this reason, we invite you to participate in the study, which will be conducted under the responsibility of Dr. Manuela Macedonia. Before deciding whether to accept or decline participation, please read this document carefully.",
-              "Are you required to participate in the study?",
-              "Participation is completely voluntary. Furthermore, if at any time you change your mind and wish to withdraw from the evaluation procedure, you are free to do so.",
-              "Background and Purpose of the Study",
-              "Purpose: The main objective of the project is to collect evaluations of gestures that may be used in cognitive tasks.",
-              "Study Design: You will be asked to evaluate approximately 20 gestures according to several dimensions, including recognizability, dynamism, and emotional expressiveness.",
-              "Expected Duration of the Study: The study is expected to last approximately 10–15 minutes.",
-              "Number of Participants: Approximately 150 participants.",
-              "What will happen if you decide to participate in the study?",
-              "The procedure includes:",
-              "1. Initial information and digital consent. 2. Completion of a simple anonymous demographic form (age, gender, etc.). 3. Task: You will be shown several gestures and asked to rate each of them on a scale from 0 to 5 across a series of dimensions that will be explained. There are NO right or wrong answers; please respond according to what you believe is appropriate for you.",
-              "What are the possible benefits of participating in the study?",
-              "There are no direct benefits from participation in this study.",
-              "What are the possible risks / side effects related to participation in the study?",
-              "The research does not present any risk to the participant’s physical and/or psychological integrity.",
-              "Other Important Information",
-              "We inform you that the study will be conducted in accordance with the internationally defined “Good Clinical Practice” guidelines and in compliance with the ethical principles established in the “Declaration of Helsinki” (1964) and its subsequent revisions.",
-              "Participation in the Study",
-              "Your participation is completely free and voluntary.",
-              "If you agree to participate, you will be asked to sign the Informed Consent Form for Participation in the Study and for Data Processing, attached to this document, before beginning the study procedure.",
-              "The signature of the attached form serves to guarantee that you have received complete information and have freely expressed your willingness to participate; such signature does not imply any obligation to continue in the study, does not constitute a contractual commitment, and does not represent a waiver of any of your rights.",
-              "If you decide to withdraw from the study after initially accepting participation, you may discontinue your participation at any time by informing the Principal Investigator without providing justification. The decision not to participate, or to withdraw after initial acceptance, has no negative consequences and does not involve any penalty in your relationship with the personnel assisting you.",
-              "Should new data or results become available that may influence your participation in the study, you will be informed promptly. In addition, the Principal Investigator may withdraw you from the study if it is considered to be in your best interest.",
-              "Participation in the study does not entail any additional financial burden or expense for you.",
-              "Please note that you are not being asked to participate in this study in order to receive clinical care or obtain any personal diagnostic benefit.",
-              "PROCESSING OF PERSONAL DATA",
-              "The researcher will request certain personal data from you, such as sex, date of birth, and other possible information. These data are important for the proper conduct of the study.",
-              "All personal data collected during this study will be processed in full compliance with Regulation (EU) 2016/679 regarding the “Protection of natural persons with regard to the processing of personal data,” effective as of May 25, 2018, and with Italian Legislative Decree no. 196 of June 30, 2003, concerning personal data protection, insofar as not repealed by the aforementioned European Regulation.",
-              "According to this legislation, the Data Controller of your personal data will remain the Catholic University of the Sacred Heart of Milan.",
-              "Nature of the Data and Methods of Processing",
-              "All personal information concerning you collected during this study is confidential and will be processed in compliance with the applicable legislation mentioned above.",
-              "The data you provide will be rendered non-identifiable; that is, the collected material will be anonymized and not traceable to the identity of the participant in the study. Such material will be analyzed and processed for scientific research purposes only by personnel authorized to conduct the study.",
-              "The data, processed also through electronic means, may be disclosed in strictly anonymous form through meetings, conferences, and scientific publications. In any case, your name or any other identifying detail will not be disclosed, as the data may only be presented in aggregate form or in ways that do not permit identification of study participants.",
-              "The data processing does not include automated decision-making processes, including profiling.",
-              "Appropriate security measures will be implemented to guarantee the protection, security, integrity, and accessibility of personal data.",
-              "Personal data will be retained only for the time necessary to achieve the purposes for which they were collected or for any other legitimate related purpose, and in any case for a minimum period of 5 years.",
-              "Personal data that are no longer necessary, or for which there is no longer a legal basis for retention, will be irreversibly anonymized or securely destroyed.",
-              "Exercise of Rights",
-              "The GDPR – Regulation (EU) 2016/679 strengthens the protection and processing of personal data according to the principles of fairness, lawfulness, transparency, protection of confidentiality, and the rights of the data subject regarding their own data.",
-              "You may exercise the rights referred to in Article 7 of Legislative Decree 196/2003 and Articles 15–18 and 20–21 of the GDPR – Regulation (EU) 2016/679 (access your personal data, request supplementation, updating, correction, deletion, restriction of processing, portability, or object to processing) by contacting the Data Controller directly or through authorized personnel.",
-              "If you withdraw from the study, no further data concerning you will be collected, without prejudice to the use of any data already acquired in order to determine the results of the study without altering them.",
-              "Thank you for your availability and cooperation.",
-              "---"
-      ],
+      consentTitle: "Information Sheet for Participation in the Study",
+      consentIntro: "Please read this information carefully before deciding whether to participate.",
       consentSections: [
         {
-          title: "Study overview",
+          title: "",
           body: [
-            "You are invited to take part in the study \"Normative Data on Gestures\", organized by the University of Linz and conducted under the responsibility of Dr. Manuela Macedonia.",
-            "The aim is to collect evaluations of gestures that may later be used in cognitive tasks. You will rate about 20 gesture videos on dimensions such as recognizability, dynamism, and emotional expressiveness.",
+            "Dear Sir/Madam,",
+            "We would like to inform you that we are conducting a study entitled \"Normative Data on Gestures,\" organized by Linz University. We invite you to participate in this study, which is being conducted under the responsibility of Dr. Manuela Macedonia. Before deciding whether to participate, please read this document carefully.",
           ],
         },
         {
-          title: "What participation involves",
-          body: ["The study takes about 10-15 minutes and includes the following steps:"],
+          title: "Are you required to participate in the study?",
+          body: [
+            "Participation is entirely voluntary. Furthermore, if at any time you change your mind and wish to withdraw from the study, you are free to do so.",
+          ],
+        },
+        {
+          title: "Background and Purpose of the Study",
+          body: [
+            "Purpose: The main objective of this project is to collect evaluations of gestures that may be used in cognitive tasks.",
+            "Study Design: You will be asked to evaluate approximately 20 gestures on several dimensions, such as how recognizable, dynamic, and emotionally expressive they are.",
+            "Expected Duration: Participation in the study is expected to take approximately 10-15 minutes.",
+            "Number of Participants: Approximately 150 participants will take part in the study.",
+          ],
+        },
+        {
+          title: "What Will Happen If You Decide to Participate?",
+          body: ["The procedure includes:"],
           steps: [
-            "Read this study information and give digital consent.",
-            "Complete a short anonymous demographic form, such as age and gender.",
-            "Watch gesture videos and rate each one on the scales shown in the task. There are no right or wrong answers.",
+            "Initial information and digital consent.",
+            "Completion of a brief anonymous questionnaire containing demographic information (age, gender, etc.).",
+            "Task: You will be shown several gestures and asked to rate each one on a scale from 1 to 5 across several dimensions that will be explained beforehand. There are no right or wrong answers. Please respond according to your personal judgment.",
           ],
         },
         {
-          title: "Voluntary participation",
+          title: "What Are the Possible Benefits of Participating?",
           body: [
-            "Taking part is completely voluntary. You may decide not to participate, or stop at any time, without giving a reason and without any negative consequences.",
-            "There are no direct personal benefits from taking part. The study is not intended to provide clinical care or personal diagnostic benefit.",
+            "There are no direct benefits associated with participation in this study.",
           ],
         },
         {
-          title: "Risks and conduct of the study",
+          title: "What Are the Possible Risks or Side Effects?",
           body: [
-            "The study does not present risks to your physical or psychological integrity. It will be conducted in accordance with Good Clinical Practice guidelines and the ethical principles of the Declaration of Helsinki.",
-            "If new information becomes available that could affect your participation, you will be informed. The Principal Investigator may also withdraw you from the study if this is considered to be in your best interest.",
+            "This research presents no risk to the participant's physical or psychological well-being.",
           ],
         },
         {
-          title: "Data protection",
+          title: "Other Important Information",
           body: [
-            "The researcher will ask for limited background information needed to conduct the study. Your data will be processed according to Regulation (EU) 2016/679 (GDPR) and applicable personal data protection law.",
-            "The data you provide will be anonymized and used only for scientific research by authorized study personnel. Results may be shared in meetings, conferences, and scientific publications only in anonymous or aggregate form.",
-            "Your data will not be used for automated decision-making or profiling. Appropriate security measures will be used, and data will be kept only as long as needed for the study purposes, with a minimum retention period of 5 years.",
+            "The study will be conducted in accordance with internationally recognized Good Clinical Practice (GCP) guidelines and with the ethical principles established in the Declaration of Helsinki (1964) and its subsequent revisions.",
           ],
         },
         {
-          title: "Your rights",
+          title: "Participation in the Study",
           body: [
-            "You may contact the Data Controller, directly or through authorized personnel, to exercise your rights of access, correction, deletion, restriction, portability, or objection under applicable law.",
-            "If you withdraw, no further data about you will be collected. Data already collected may still be used to determine the study results without altering them.",
+            "Your participation is entirely voluntary.",
+            "If you agree to participate, you will be asked to provide digital consent before beginning the study procedures.",
+            "Providing consent serves only to confirm that you have received complete information and have freely agreed to participate. Your consent does not commit you to continue in the study, does not constitute a contractual obligation, and does not involve the waiver of any rights.",
+            "If you initially agree to participate but later decide to withdraw, you may discontinue your participation at any time by notifying the Principal Investigator without providing any justification. Choosing not to participate or withdrawing after initially consenting will not result in any negative consequences or penalties in your relationship with the study staff.",
+            "Should new information or findings arise that could influence your participation, you will be informed promptly. Furthermore, the Principal Investigator may withdraw you from the study if it is considered to be in your best interest.",
+            "Participation in the study involves no costs or financial burden for you.",
+            "Please note that participation in this study is not intended to provide clinical care or any personal diagnostic benefit.",
+          ],
+        },
+        {
+          title: "Processing of Personal Data",
+          body: [
+            "The researcher will ask you to provide certain personal data, such as age, gender, and possibly other information. These data are necessary for the proper conduct of the study.",
+            "All personal data collected during the study will be processed in full compliance with Regulation (EU) 2016/679 (General Data Protection Regulation - GDPR) and the applicable provisions of Italian Legislative Decree No. 196/2003 concerning personal data protection.",
+            "The Data Controller for your personal data will remain the Catholic University of the Sacred Heart of Milan (Università Cattolica del Sacro Cuore di Milano).",
+          ],
+        },
+        {
+          title: "Nature of the Data and Processing Methods",
+          body: [
+            "All personal information collected during this study is confidential and will be processed in accordance with the applicable regulations mentioned above.",
+            "The data you provide will be made non-identifiable; that is, the collected material will be anonymized and cannot be linked back to the identity of the participant. This material will be analyzed and used solely for scientific research purposes by personnel authorized to conduct the study.",
+            "The data, including data processed electronically, may be presented in strictly anonymous form at meetings, conferences, and in scientific publications. In any case, your name or any identifying details will never be disclosed, as the data will be presented only in aggregate form or in a manner that does not permit identification of individual participants.",
+            "The processing of data does not involve automated decision-making or profiling.",
+            "Appropriate security measures will be implemented to ensure the protection, security, integrity, and accessibility of personal data.",
+            "Personal data will be retained only for as long as necessary to achieve the purposes for which they were collected, or for any other legitimate related purpose, and in any event for a minimum period of five years.",
+            "Personal data that are no longer necessary or for which there is no longer a legal basis for retention will be irreversibly anonymized or securely destroyed.",
+          ],
+        },
+        {
+          title: "Exercise of Your Rights",
+          body: [
+            "The GDPR (EU Regulation 2016/679) strengthens the protection and processing of personal data according to the principles of fairness, lawfulness, transparency, confidentiality, and protection of data subject rights.",
+            "You may exercise the rights provided under applicable legislation, including the right to:",
+          ],
+          steps: [
+            "Access your personal data,",
+            "Request correction, updating, or completion of your data,",
+            "Request deletion,",
+            "Request restriction of processing,",
+            "Request data portability,",
+            "Object to data processing.",
+          ],
+        },
+        {
+          title: "Withdrawal",
+          body: [
+            "These rights may be exercised by contacting the Data Controller directly or through authorized personnel.",
+            "If you withdraw, no further data about you will be collected. Data already collected may still be used in the analysis where necessary.",
+            "We thank you for your availability and cooperation.",
+          ],
+        },
+        {
+          title: "Informed Consent Form for Participation in the Study and Data Processing",
+          body: [
+            "Study Title: Normative Data on Gestures",
+            "I, the undersigned, declare the following:",
+            "Pursuant to Legislative Decree No. 196/2003 and GDPR (EU Regulation 2016/679), having received the information regarding the processing of personal data and understanding the purposes and methods described therein, I freely express my consent to the processing of personal data.",
+            "Pursuant to Legislative Decree No. 196/2003 and GDPR (EU Regulation 2016/679), having received the information regarding the processing of sensitive health-related data and understanding the purposes and methods described therein, I freely express my consent to the processing of sensitive health-related data.",
+          ],
+          steps: [
+            "I have read and understood the information sheet of which this form is an integral part.",
+            "I have been informed about the nature, purpose, and duration of the study, the procedures to be followed, the treatment of participants, and the type of cooperation required.",
+            "I understand that participation in the study is voluntary and that I may withdraw myself from the study at any time without any negative consequences and without affecting my rights or my relationship with the personnel involved.",
+            "Having considered the above information, I agree to participate in the study described in this document.",
           ],
         },
       ],
       consentStatements: {
         adult: "I am 18 or older.",
-        read: "I have read and understood the study information above.",
+        read: "I have read and understood the information sheet above.",
         voluntary: "I understand participation is voluntary and I can stop at any time.",
-        research_use: "I consent to my responses and background information being used for academic research as described.",
+        research_use: "I consent to participation in the study and to the processing of my data as described.",
       },
       consentSaved: "Consent recorded.",
       consentContinue: "Continue",
@@ -223,29 +251,6 @@
       consentKicker: "Einwilligung",
       consentTitle: "Information zur Studienteilnahme",
       consentIntro: "Bitte lesen Sie diese Informationen sorgfältig, bevor Sie entscheiden, ob Sie teilnehmen möchten.",
-      consentItems: [
-        "Sehr geehrte Dame, sehr geehrter Herr,",
-        "wir möchten Sie darüber informieren, dass wir eine Studie mit dem Titel \"Normative Daten zu Gesten\" durchführen, die von der Universität Linz organisiert wird. Aus diesem Grund möchten wir Sie zur Teilnahme an dieser Studie einladen, die unter der Verantwortung von Dr. Manuela Macedonia durchgeführt wird. Bevor Sie entscheiden, ob Sie teilnehmen oder nicht, bitten wir Sie, dieses Dokument sorgfältig zu lesen.",
-        "Sind Sie verpflichtet, an der Studie teilzunehmen?",
-        "Die Teilnahme ist vollkommen freiwillig. Sollten Sie Ihre Meinung zu irgendeinem Zeitpunkt ändern und die Teilnahme abbrechen wollen, steht es Ihnen frei, dies jederzeit zu tun.",
-        "Hintergrund und Ziel der Studie",
-        "Das Hauptziel des Projekts besteht darin, Bewertungen von Gesten zu sammeln, die in kognitiven Aufgaben eingesetzt werden können.",
-        "Sie werden gebeten, etwa 20 Gesten anhand verschiedener Merkmale zu bewerten, beispielsweise hinsichtlich ihrer Erkennbarkeit, Dynamik und emotionalen Ausdruckskraft.",
-        "Die Teilnahme dauert etwa 15-20 Minuten.",
-        "Etwa 150 Personen werden an der Studie teilnehmen.",
-        "Was passiert, wenn Sie an der Studie teilnehmen?",
-        "Die Studie umfasst Einführung und digitale Einwilligung, einen kurzen anonymen Fragebogen mit demografischen Angaben und die Bewertung verschiedener Gesten auf einer Skala von 0 bis 5.",
-        "Es gibt keine richtigen oder falschen Antworten. Bitte antworten Sie entsprechend Ihrer individuellen persönlichen Einschätzung.",
-        "Es gibt keinen direkten persönlichen Nutzen durch die Teilnahme an dieser Studie.",
-        "Die Forschung birgt keine Risiken für die körperliche oder psychische Unversehrtheit der Teilnehmenden.",
-        "Die Studie wird gemäß den international anerkannten Grundsätzen der Guten Klinischen Praxis sowie unter Beachtung der ethischen Prinzipien der Deklaration von Helsinki durchgeführt.",
-        "Ihre Teilnahme ist vollständig freiwillig.",
-        "Die Teilnahme verursacht für Sie keine Kosten oder sonstigen finanziellen Belastungen.",
-        "Die im Rahmen dieser Studie erhobenen personenbezogenen Daten werden unter vollständiger Einhaltung der DSGVO sowie des italienischen Datenschutzgesetzes verarbeitet.",
-        "Die von Ihnen bereitgestellten Daten werden anonymisiert und ausschließlich von den mit der Studie betrauten Mitarbeitenden zu wissenschaftlichen Forschungszwecken ausgewertet.",
-        "Wenn Sie Ihre Teilnahme an der Studie beenden, werden keine weiteren Daten über Sie erhoben. Bereits erhobene Daten dürfen jedoch weiterhin verwendet werden, soweit dies erforderlich ist, um die Ergebnisse der Studie unverändert auszuwerten.",
-        "Wir danken Ihnen für Ihre Bereitschaft und Ihre Mitarbeit."
-      ],
       consentSections: [
         {
           title: "",
@@ -265,7 +270,7 @@
           body: [
             "Ziel: Das Hauptziel des Projekts besteht darin, Bewertungen von Gesten zu sammeln, die in kognitiven Aufgaben eingesetzt werden können.",
             "Studiendesign: Sie werden gebeten, etwa 20 Gesten anhand verschiedener Merkmale zu bewerten, beispielsweise hinsichtlich ihrer Erkennbarkeit, Dynamik und emotionalen Ausdruckskraft.",
-            "Voraussichtliche Dauer: Die Teilnahme dauert etwa 15-20 Minuten.",
+            "Voraussichtliche Dauer: Die Teilnahme dauert etwa 10-15 Minuten.",
             "Anzahl der Teilnehmenden: Etwa 150 Personen werden an der Studie teilnehmen.",
           ],
         },
@@ -463,27 +468,6 @@
       consentKicker: "Consenso informato",
       consentTitle: "Consenso alla partecipazione",
       consentIntro: "Si prega di leggere queste informazioni prima di continuare.",
-      consentItems: [
-              "Egr. Sig. / Gent.le Sig.ra La informiamo che stiamo conducendo uno studio dal titolo: Dati normativi sui  gesti, organizzato dall’Università di Linz. Per questo motivo Le proponiamo di partecipare allo studio che sarà condotto sotto la responsabilità della  Dott.ssa Manuela Macedonia. Prima che Lei decida se accettare o rinunciare, La invitiamo a leggere con attenzione questo documento.",
-              "Lei è obbligato/a a partecipare allo studio? La partecipazione è completamente volontaria. Inoltre, se in un qualsiasi momento Lei dovesse cambiare idea e volesse ritirarsi dalla procedura di valutazione, è libero/a di farlo.",
-              "Premesse e scopo dello studio -Scopo: L’obiettivo principale del progetto è raccogliere delle valutazioni su dei gesti che possono essere utilizzati in compiti cognitivi. -Disegno dello Studio: le verrà chiesto di fornire delle valutazioni di una serie di circa 20 gesti relativamente ad alcune dimensioni che riguardano quanto è riconoscibile, dinamico, quanto trasmette emozioni -Durata prevista dello Studio: La durata dello studio prevista è di circa 10-15 minuti. -Numero di soggetti partecipanti: Circa 150 partecipanti",
-              "Cosa succederà se dovesse decidere di partecipare allo studio? La procedura prevede: Informazioni iniziali e consenso digitale La compilazione di una semplice scheda con alcune informazioni anagrafiche anonime (età, genere, etc.) Compito: Le verranno presentate alcuni gesti e per ognuno di essi dovrà dare dei punteggi su una scala da 0 a 5 per una serie di dimensioni che verranno spiegate. NON esistono risposte giuste o sbagliate, La invitiamo a rispondere quello che ritiene sia giusto per Lei.",
-              "Quali sono i possibili benefici relativi alla partecipazione allo studio? Non ci sono benefici diretti dalla partecipazione al presente studio",
-              "Quali sono i possibili rischi / effetti collaterali legati alla partecipazione allo studio? La ricerca non presenta alcun rischio per l’integrità fisica e/o psicologica del partecipante.",
-              "Altre informazioni importanti La informiamo che lo studio verrà condotto in accordo con le \"Norme di Buona Pratica Clinica\" definite a livello internazionale e nel rispetto dei principi etici stabiliti nella \"Dichiarazione di Helsinki\" (1964) e successive revisioni.",
-              "Partecipazione allo studio La Sua partecipazione è completamente libera e volontaria. Se Lei acconsente a partecipare Le sarà chiesto di firmare il Modulo  di  Consenso  Informato  per  la  Partecipazione  allo  Studio e per il Trattamento dei Dati, allegato al presente documento, prima che Lei inizi a eseguire la procedura prevista dallo studio. La firma del modulo allegato è al fine di garantire che Lei abbia ricevuto un’informazione completa e che abbia espresso liberamente la Sua volontà di partecipare; tale firma non implica alcun impegno da parte Sua a proseguire lo studio, non costituisce un vincolo di natura contrattuale, né rappresenta una rinuncia ai diritti che Le spettano. Nel caso in cui Lei decida di ritirarsi dallo studio, dopo avere inizialmente accettato, potrà interrompere la Sua partecipazione in qualsiasi momento dandone comunicazione al Responsabile dello studio senza dover fornire una giustificazione. La scelta di non partecipare, o di ritirarsi dopo l’iniziale accettazione, non ha conseguenze negative e non comporta alcuna penalizzazione nel Suo rapporto con il personale che La assiste. Qualora si venisse a conoscenza di nuovi dati o di risultati che possano influenzare la Sua partecipazione allo studio ne sarà tempestivamente informato/a; inoltre, il Responsabile dello studio potrà ritirarLa dallo studio qualora ritenga che tale decisione risponda al Suo migliore interesse. Sul piano economico la partecipazione allo studio non determina alcun tipo di onere o di spesa aggiuntiva a Suo carico. Precisiamo che non Le viene richiesto di partecipare a questo studio per ricevere assistenza clinica, o per ottenere beneficio personale di tipo diagnostico.",
-              "TRATTAMENTO DEI DATI PERSONALI Il Ricercatore Le chiederà alcuni dati personali, quali il sesso, la data di nascita ed eventuali altri dati. Queste informazioni sono importanti per una corretta esecuzione dello studio. Tutti i dati personali acquisiti nell’esecuzione del presente studio saranno trattati nel pieno rispetto della normativa prevista dal Regolamento (UE) 2016/679 in materia di «Protezione delle persone fisiche con riguardo al trattamento dei dati personali», entrato in vigore il 25 maggio 2018, e dal D.lgs. 30.6.2003 n. 196 - Codice in materia dei dati personali, per quanto non abrogato dall'entrata in vigore del citato regolamento europeo. Ai sensi di tale normativa, il Titolare del trattamento dei Suoi dati personali rimarrà l’Università Cattolica del Sacro Cuore di Milano. Natura dei dati e modalità di trattamento Tutte le informazioni personali che La riguardano, raccolte durante questo studio, sono confidenziali e saranno trattate nel rispetto della normativa vigente sopra richiamata. I dati da Lei forniti saranno resi non identificabili, ossia il materiale raccolto sarà anonimizzato e non ricollegabile all’identità del partecipante allo Studio. Tale materiale sarà analizzato e trattato a scopo di ricerca scientifica solo da parte del personale incaricato all’esecuzione dello Studio. I dati, trattati mediante strumenti anche elettronici, potranno essere diffusi in forma rigorosamente anonima attraverso riunioni, convegni e pubblicazioni scientifiche; in ogni caso il Suo nome o qualsiasi altro dettaglio idoneo a identificarLa, non saranno divulgati in quanto i dati potranno essere presentati esclusivamente in forma aggregata ovvero secondo modalità che non rendano identificabili i soggetti partecipanti allo studio. Il trattamento dei dati non contempla un processo decisionale automatizzato, compresa la profilazione. Saranno utilizzate adeguate misure di sicurezza al fine di garantire la protezione, la sicurezza, l’integrità e l’accessibilità dei dati personali. I dati personali verranno conservati solo per il tempo necessario al conseguimento delle finalità per le quali sono stati raccolti o per qualsiasi altra legittima finalità a essi collegata e comunque per un periodo minimo di 5 anni. I dati personali che non siano più necessari, o per i quali non vi sia più un presupposto giuridico per la relativa conservazione, verranno anonimizzati irreversibilmente o distrutti in modo sicuro. Esercizio dei diritti Il GDPR - Reg. UE 2016/679  prevede e rafforza la protezione e il trattamento dei dati personali alla luce dei principi di correttezza, liceità, trasparenza, tutela della riservatezza e dei diritti dell’interessato in merito ai propri dati. Lei potrà esercitare i diritti di cui all’Art. 7 del D.Lgs. 193/2003 e agli Artt. 15-18 e Artt. 20-21 del GDPR - Reg. UE 2016/679 (accedere ai Suoi dati personali, chiederne l’integrazione, l’aggiornamento, la rettifica, la cancellazione, chiederne la limitazione, richiedere la portabilità, opporsi al trattamento) rivolgendosi direttamente al Titolare del Trattamento oppure tramite il personale da esso incaricato. Nel caso in cui Lei si ritiri dallo studio, non saranno più raccolti ulteriori dati che La riguardano, fermo restando l’utilizzo di quelli eventualmente già acquisiti per determinare, senza alterarli, i risultati dello studio.",
-              "La ringraziamo per la Sua disponibilità e la Sua collaborazione",
-              "MODULO  DI  CONSENSO  INFORMATO  PER  LA  PARTECIPAZIONE  ALLO  STUDIO E PER IL TRATTAMENTO DEI DATI",
-              "Titolo dello studio: Dati normativi sulle caratteristiche sensomotorie di nomi e verbi in lingua italiana.",
-              "Io sottoscritto/a",
-              "dichiaro quanto segue: ai sensi del Decreto Legislativo n.196/2003 e del GDPR - Reg. UE 2016/679, avendo ricevuto apposita informativa sul trattamento dei dati personali e in relazione a quanto indicato in merito al trattamento di tali informazioni, esprimo il proprio libero consenso, barrando la casella di seguito indicata, alla raccolta, al trattamento e alla comunicazione dei dati personali per tutte le finalità e nelle modalità indicate nella presente informativa.",
-              "⬜ FORNISCE IL CONSENSO            ⬜ NON FORNISCE IL CONSENSO",
-              "ai sensi del Decreto Legislativo n.196/2003 e del GDPR - Reg. UE 2016/679, avendo ricevuto apposita informativa sul trattamento dei dati sensibili relativi allo stato di salute e in relazione a quanto indicato in merito al trattamento di tali informazioni, esprimo il proprio libero consenso, barrando la casella di seguito indicata, alla raccolta, al trattamento e alla comunicazione dei dati sensibili relativi allo stato di salute per tutte le finalità e nelle modalità indicate nella presente informativa.",
-              "⬜ FORNISCE IL CONSENSO            ⬜ NON FORNISCE IL CONSENSO",
-              "dichiaro inoltre quanto segue: ho letto e compreso il foglio informativo di cui questo modulo è parte integrante; mi sono state illustrate nel foglio informativo la natura, lo scopo e la durata dello studio, le procedure che saranno seguite, il trattamento previsto per i partecipanti e il tipo di collaborazione che ad essi sarà richiesta; ho compreso che la partecipazione allo studio è libera e volontaria e che in qualsiasi momento posso decidere di ritirarmi / ritirare il mio Rappresentato dallo studio senza essere in alcun modo esposto a conseguenze negative e senza che siano compromessi i miei / suoi diritti e il mio / suo rapporto con il personale coinvolto;",
-              "Tutto ciò premesso, accetto la proposta di partecipare allo studio descritto nel presente documento. ⬜ ACCETTO            ⬜ NON ACCETTO"
-      ],
       consentSections: [
         {
           title: "Panoramica dello studio",
@@ -859,12 +843,10 @@
     const renderSteps = (steps = []) => steps.length
       ? `<ol class="consent-steps">${steps.map((step) => `<li>${step}</li>`).join("")}</ol>`
       : "";
-    const consentSections = t().consentSections || t().consentItems.map((item) => ({ body: [item] }));
-
     consentBody.innerHTML = `
       <p>${t().consentIntro}</p>
       <div class="consent-sections">
-        ${consentSections.map((section) => `
+        ${t().consentSections.map((section) => `
           <section class="consent-section">
             ${section.title ? `<h3>${section.title}</h3>` : ""}
             ${renderParagraphs(section.body || [])}
