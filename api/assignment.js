@@ -5,7 +5,7 @@ import { randomId, weightedSampleWithoutReplacement } from "./_lib/random.js";
 
 const DEFAULT_ASSIGNMENT_SIZE = 20;
 const DEFAULT_TARGET_QUOTA = 20;
-const SUPPORTED_LANGUAGES = new Set(["en", "de", "it"]);
+const SUPPORTED_LANGUAGES = new Set(["en", "de", "it", "ja"]);
 
 function positiveInteger(value, fallback, max = 100) {
   const parsed = Number.parseInt(value, 10);

@@ -8,7 +8,8 @@
     "target_words": {
       "en": "Traffic Light",
       "de": "Ampel",
-      "it": "Semaforo"
+      "it": "Semaforo",
+      "ja": "信号機"
     }
   },
   {
@@ -20,7 +21,8 @@
     "target_words": {
       "en": "Trailer",
       "de": "Anhänger",
-      "it": "Rimorchio"
+      "it": "Rimorchio",
+      "ja": "トレーラー"
     }
   },
   {
@@ -32,7 +34,8 @@
     "target_words": {
       "en": "Balcony",
       "de": "Balkon",
-      "it": "Balcone"
+      "it": "Balcone",
+      "ja": "バルコニー"
     }
   },
   {
@@ -44,7 +47,8 @@
     "target_words": {
       "en": "Ball",
       "de": "Ball",
-      "it": "Palla"
+      "it": "Palla",
+      "ja": "ボール"
     }
   },
   {
@@ -56,7 +60,8 @@
     "target_words": {
       "en": "Bed",
       "de": "Bett",
-      "it": "Letto"
+      "it": "Letto",
+      "ja": "ベッド"
     }
   },
   {
@@ -68,7 +73,8 @@
     "target_words": {
       "en": "Monitor",
       "de": "Monitor",
-      "it": "Monitor"
+      "it": "Monitor",
+      "ja": "モニター"
     }
   },
   {
@@ -80,7 +86,8 @@
     "target_words": {
       "en": "Letter Box",
       "de": "Briefkasten",
-      "it": "Cassetta postale"
+      "it": "Cassetta postale",
+      "ja": "郵便受け"
     }
   },
   {
@@ -92,7 +99,8 @@
     "target_words": {
       "en": "Ceiling",
       "de": "Decke",
-      "it": "Soffitto"
+      "it": "Soffitto",
+      "ja": "天井"
     }
   },
   {
@@ -104,7 +112,8 @@
     "target_words": {
       "en": "Monument",
       "de": "Denkmal",
-      "it": "Monumento"
+      "it": "Monumento",
+      "ja": "記念碑"
     }
   },
   {
@@ -116,7 +125,8 @@
     "target_words": {
       "en": "Entrance Ticket",
       "de": "Eintrittskarte",
-      "it": "Biglietto d'ingresso"
+      "it": "Biglietto d'ingresso",
+      "ja": "入場券"
     }
   },
   {
@@ -128,7 +138,8 @@
     "target_words": {
       "en": "Thread",
       "de": "Faden",
-      "it": "Filo"
+      "it": "Filo",
+      "ja": "糸"
     }
   },
   {
@@ -140,7 +151,8 @@
     "target_words": {
       "en": "Bicycle",
       "de": "Fahrrad",
-      "it": "Bicicletta"
+      "it": "Bicicletta",
+      "ja": "自転車"
     }
   },
   {
@@ -152,7 +164,8 @@
     "target_words": {
       "en": "Window",
       "de": "Fenster",
-      "it": "Finestra"
+      "it": "Finestra",
+      "ja": "窓"
     }
   },
   {
@@ -164,7 +177,8 @@
     "target_words": {
       "en": "Remote Control",
       "de": "Fernbedienung",
-      "it": "Telecomando"
+      "it": "Telecomando",
+      "ja": "リモコン"
     }
   },
   {
@@ -176,7 +190,8 @@
     "target_words": {
       "en": "Bottle",
       "de": "Flasche",
-      "it": "Bottiglia"
+      "it": "Bottiglia",
+      "ja": "ボトル"
     }
   },
   {
@@ -188,7 +203,8 @@
     "target_words": {
       "en": "Airplane",
       "de": "Flugzeug",
-      "it": "Aereo"
+      "it": "Aereo",
+      "ja": "飛行機"
     }
   },
   {
@@ -200,7 +216,8 @@
     "target_words": {
       "en": "Painting",
       "de": "Gemälde",
-      "it": "Dipinto"
+      "it": "Dipinto",
+      "ja": "絵画"
     }
   },
   {
@@ -212,7 +229,8 @@
     "target_words": {
       "en": "Present",
       "de": "Geschenk",
-      "it": "Regalo"
+      "it": "Regalo",
+      "ja": "プレゼント"
     }
   },
   {
@@ -224,7 +242,8 @@
     "target_words": {
       "en": "Guitar",
       "de": "Gitarre",
-      "it": "Chitarra"
+      "it": "Chitarra",
+      "ja": "ギター"
     }
   },
   {
@@ -236,7 +255,8 @@
     "target_words": {
       "en": "Purse",
       "de": "Geldbörse",
-      "it": "Borsellino"
+      "it": "Borsellino",
+      "ja": "財布"
     }
   },
   {
@@ -248,7 +268,8 @@
     "target_words": {
       "en": "Cable",
       "de": "Kabel",
-      "it": "Cavo"
+      "it": "Cavo",
+      "ja": "ケーブル"
     }
   },
   {
@@ -260,7 +281,8 @@
     "target_words": {
       "en": "Camera",
       "de": "Kamera",
-      "it": "Macchina fotografica"
+      "it": "Macchina fotografica",
+      "ja": "カメラ"
     }
   },
   {
@@ -272,7 +294,8 @@
     "target_words": {
       "en": "Till",
       "de": "Kasse",
-      "it": "Cassa"
+      "it": "Cassa",
+      "ja": "レジ"
     }
   },
   {
@@ -284,7 +307,8 @@
     "target_words": {
       "en": "Catalog",
       "de": "Katalog",
-      "it": "Catalogo"
+      "it": "Catalogo",
+      "ja": "カタログ"
     }
   },
   {
@@ -296,7 +320,8 @@
     "target_words": {
       "en": "Clothes",
       "de": "Kleidung",
-      "it": "Vestiti"
+      "it": "Vestiti",
+      "ja": "衣服"
     }
   },
   {
@@ -308,7 +333,8 @@
     "target_words": {
       "en": "Suitcase",
       "de": "Koffer",
-      "it": "Valigia"
+      "it": "Valigia",
+      "ja": "スーツケース"
     }
   },
   {
@@ -320,7 +346,8 @@
     "target_words": {
       "en": "Machine",
       "de": "Maschine",
-      "it": "Macchina"
+      "it": "Macchina",
+      "ja": "機械"
     }
   },
   {
@@ -332,7 +359,8 @@
     "target_words": {
       "en": "Mask",
       "de": "Maske",
-      "it": "Maschera"
+      "it": "Maschera",
+      "ja": "マスク"
     }
   },
   {
@@ -344,7 +372,8 @@
     "target_words": {
       "en": "Paper",
       "de": "Papier",
-      "it": "Carta"
+      "it": "Carta",
+      "ja": "紙"
     }
   },
   {
@@ -356,7 +385,8 @@
     "target_words": {
       "en": "Tire",
       "de": "Reifen",
-      "it": "Pneumatico"
+      "it": "Pneumatico",
+      "ja": "タイヤ"
     }
   },
   {
@@ -368,7 +398,8 @@
     "target_words": {
       "en": "Ring",
       "de": "Ring",
-      "it": "Anello"
+      "it": "Anello",
+      "ja": "指輪"
     }
   },
   {
@@ -380,7 +411,8 @@
     "target_words": {
       "en": "Backpack",
       "de": "Rucksack",
-      "it": "Zaino"
+      "it": "Zaino",
+      "ja": "バックパック"
     }
   },
   {
@@ -392,7 +424,8 @@
     "target_words": {
       "en": "Collection",
       "de": "Sammlung",
-      "it": "Collezione"
+      "it": "Collezione",
+      "ja": "コレクション"
     }
   },
   {
@@ -404,7 +437,8 @@
     "target_words": {
       "en": "Key",
       "de": "Schlüssel",
-      "it": "Chiave"
+      "it": "Chiave",
+      "ja": "鍵"
     }
   },
   {
@@ -416,7 +450,8 @@
     "target_words": {
       "en": "Drawer",
       "de": "Schublade",
-      "it": "Cassetto"
+      "it": "Cassetto",
+      "ja": "引き出し"
     }
   },
   {
@@ -428,7 +463,8 @@
     "target_words": {
       "en": "Sunglasses",
       "de": "Sonnenbrille",
-      "it": "Occhiali da sole"
+      "it": "Occhiali da sole",
+      "ja": "サングラス"
     }
   },
   {
@@ -440,7 +476,8 @@
     "target_words": {
       "en": "Mirror",
       "de": "Spiegel",
-      "it": "Specchio"
+      "it": "Specchio",
+      "ja": "鏡"
     }
   },
   {
@@ -452,7 +489,8 @@
     "target_words": {
       "en": "Tram",
       "de": "Straßenbahn",
-      "it": "Tram"
+      "it": "Tram",
+      "ja": "路面電車"
     }
   },
   {
@@ -464,7 +502,8 @@
     "target_words": {
       "en": "Daily Newspaper",
       "de": "Tageszeitung",
-      "it": "Quotidiano"
+      "it": "Quotidiano",
+      "ja": "日刊紙"
     }
   },
   {
@@ -476,7 +515,8 @@
     "target_words": {
       "en": "Telephone",
       "de": "Telefon",
-      "it": "Telefono"
+      "it": "Telefono",
+      "ja": "電話"
     }
   },
   {
@@ -488,7 +528,8 @@
     "target_words": {
       "en": "Plate",
       "de": "Teller",
-      "it": "Piatto"
+      "it": "Piatto",
+      "ja": "皿"
     }
   },
   {
@@ -500,7 +541,8 @@
     "target_words": {
       "en": "Carpet",
       "de": "Teppich",
-      "it": "Tappeto"
+      "it": "Tappeto",
+      "ja": "カーペット"
     }
   },
   {
@@ -512,7 +554,8 @@
     "target_words": {
       "en": "Bandage",
       "de": "Verband",
-      "it": "Benda"
+      "it": "Benda",
+      "ja": "包帯"
     }
   },
   {
@@ -524,7 +567,8 @@
     "target_words": {
       "en": "Tent",
       "de": "Zelt",
-      "it": "Tenda"
+      "it": "Tenda",
+      "ja": "テント"
     }
   },
   {
@@ -536,7 +580,8 @@
     "target_words": {
       "en": "Cigarette",
       "de": "Zigarette",
-      "it": "Sigaretta"
+      "it": "Sigaretta",
+      "ja": "タバコ"
     }
   },
   {
@@ -548,7 +593,8 @@
     "target_words": {
       "en": "Cancellation",
       "de": "Absage",
-      "it": "Cancellazione"
+      "it": "Cancellazione",
+      "ja": "キャンセル"
     }
   },
   {
@@ -560,7 +606,8 @@
     "target_words": {
       "en": "Alternative",
       "de": "Alternative",
-      "it": "Alternativa"
+      "it": "Alternativa",
+      "ja": "代替案"
     }
   },
   {
@@ -572,7 +619,8 @@
     "target_words": {
       "en": "Requirement",
       "de": "Anforderung",
-      "it": "Requisito"
+      "it": "Requisito",
+      "ja": "要件"
     }
   },
   {
@@ -584,7 +632,8 @@
     "target_words": {
       "en": "Arrival",
       "de": "Ankunft",
-      "it": "Arrivo"
+      "it": "Arrivo",
+      "ja": "到着"
     }
   },
   {
@@ -596,7 +645,8 @@
     "target_words": {
       "en": "Attention",
       "de": "Aufmerksamkeit",
-      "it": "Attenzione"
+      "it": "Attenzione",
+      "ja": "注意"
     }
   },
   {
@@ -608,7 +658,8 @@
     "target_words": {
       "en": "Effort",
       "de": "Anstrengung",
-      "it": "Sforzo"
+      "it": "Sforzo",
+      "ja": "努力"
     }
   },
   {
@@ -620,7 +671,8 @@
     "target_words": {
       "en": "View",
       "de": "Ansicht",
-      "it": "Vista"
+      "it": "Vista",
+      "ja": "見解"
     }
   },
   {
@@ -632,7 +684,8 @@
     "target_words": {
       "en": "Command",
       "de": "Befehl",
-      "it": "Comando"
+      "it": "Comando",
+      "ja": "命令"
     }
   },
   {
@@ -644,7 +697,8 @@
     "target_words": {
       "en": "Property",
       "de": "Eigentum",
-      "it": "Proprietà"
+      "it": "Proprietà",
+      "ja": "所有物"
     }
   },
   {
@@ -656,7 +710,8 @@
     "target_words": {
       "en": "Destination",
       "de": "Ziel",
-      "it": "Destinazione"
+      "it": "Destinazione",
+      "ja": "目的地"
     }
   },
   {
@@ -668,7 +723,8 @@
     "target_words": {
       "en": "Plea",
       "de": "Bitte",
-      "it": "Supplica"
+      "it": "Supplica",
+      "ja": "懇願"
     }
   },
   {
@@ -680,7 +736,8 @@
     "target_words": {
       "en": "Discipline",
       "de": "Disziplin",
-      "it": "Disciplina"
+      "it": "Disciplina",
+      "ja": "規律"
     }
   },
   {
@@ -692,7 +749,8 @@
     "target_words": {
       "en": "Recommendation",
       "de": "Empfehlung",
-      "it": "Raccomandazione"
+      "it": "Raccomandazione",
+      "ja": "推薦"
     }
   },
   {
@@ -704,7 +762,8 @@
     "target_words": {
       "en": "Thought",
       "de": "Gedanke",
-      "it": "Pensiero"
+      "it": "Pensiero",
+      "ja": "考え"
     }
   },
   {
@@ -716,7 +775,8 @@
     "target_words": {
       "en": "Patience",
       "de": "Geduld",
-      "it": "Pazienza"
+      "it": "Pazienza",
+      "ja": "忍耐"
     }
   },
   {
@@ -728,7 +788,8 @@
     "target_words": {
       "en": "Indifference",
       "de": "Gleichgültigkeit",
-      "it": "Indifferenza"
+      "it": "Indifferenza",
+      "ja": "無関心"
     }
   },
   {
@@ -740,7 +801,8 @@
     "target_words": {
       "en": "Information",
       "de": "Information",
-      "it": "Informazione"
+      "it": "Informazione",
+      "ja": "情報"
     }
   },
   {
@@ -752,7 +814,8 @@
     "target_words": {
       "en": "Correction",
       "de": "Korrektur",
-      "it": "Correzione"
+      "it": "Correzione",
+      "ja": "訂正"
     }
   },
   {
@@ -764,7 +827,8 @@
     "target_words": {
       "en": "Boredom",
       "de": "Langeweile",
-      "it": "Noia"
+      "it": "Noia",
+      "ja": "退屈"
     }
   },
   {
@@ -776,7 +840,8 @@
     "target_words": {
       "en": "Mentality",
       "de": "Mentalität",
-      "it": "Mentalità"
+      "it": "Mentalità",
+      "ja": "考え方"
     }
   },
   {
@@ -788,7 +853,8 @@
     "target_words": {
       "en": "Method",
       "de": "Methode",
-      "it": "Metodo"
+      "it": "Metodo",
+      "ja": "方法"
     }
   },
   {
@@ -800,7 +866,8 @@
     "target_words": {
       "en": "Bravery",
       "de": "Tapferkeit",
-      "it": "Coraggio"
+      "it": "Coraggio",
+      "ja": "勇敢"
     }
   },
   {
@@ -812,7 +879,8 @@
     "target_words": {
       "en": "Partnership",
       "de": "Partnerschaft",
-      "it": "Collaborazione"
+      "it": "Collaborazione",
+      "ja": "提携"
     }
   },
   {
@@ -824,7 +892,8 @@
     "target_words": {
       "en": "Consideration",
       "de": "Rücksichtnahme",
-      "it": "Considerazione"
+      "it": "Considerazione",
+      "ja": "配慮"
     }
   },
   {
@@ -836,7 +905,8 @@
     "target_words": {
       "en": "Sensation",
       "de": "Empfindung",
-      "it": "Sensazione"
+      "it": "Sensazione",
+      "ja": "感覚"
     }
   },
   {
@@ -848,7 +918,8 @@
     "target_words": {
       "en": "Style",
       "de": "Stil",
-      "it": "Stile"
+      "it": "Stile",
+      "ja": "スタイル"
     }
   },
   {
@@ -860,7 +931,8 @@
     "target_words": {
       "en": "Talent",
       "de": "Talent",
-      "it": "Talento"
+      "it": "Talento",
+      "ja": "才能"
     }
   },
   {
@@ -872,7 +944,8 @@
     "target_words": {
       "en": "Fact",
       "de": "Tatsache",
-      "it": "Fatto"
+      "it": "Fatto",
+      "ja": "事実"
     }
   },
   {
@@ -884,7 +957,8 @@
     "target_words": {
       "en": "Participation",
       "de": "Teilnahme",
-      "it": "Partecipazione"
+      "it": "Partecipazione",
+      "ja": "参加"
     }
   },
   {
@@ -896,7 +970,8 @@
     "target_words": {
       "en": "Tendency",
       "de": "Tendenz",
-      "it": "Tendenza"
+      "it": "Tendenza",
+      "ja": "傾向"
     }
   },
   {
@@ -907,8 +982,9 @@
     "local_path": "data/gesture_videos/76_Theory.avi",
     "target_words": {
       "en": "Theory",
-      "de": "Theorie",
-      "it": "Teoria"
+      "de": "Teoria",
+      "it": "Teoria",
+      "ja": "理論"
     }
   },
   {
@@ -920,7 +996,8 @@
     "target_words": {
       "en": "Therapy",
       "de": "Therapie",
-      "it": "Terapia"
+      "it": "Terapia",
+      "ja": "セラピー"
     }
   },
   {
@@ -932,7 +1009,8 @@
     "target_words": {
       "en": "Tradition",
       "de": "Tradition",
-      "it": "Tradizione"
+      "it": "Tradizione",
+      "ja": "伝統"
     }
   },
   {
@@ -944,7 +1022,8 @@
     "target_words": {
       "en": "Triumph",
       "de": "Triumph",
-      "it": "Trionfo"
+      "it": "Trionfo",
+      "ja": "勝利"
     }
   },
   {
@@ -956,7 +1035,8 @@
     "target_words": {
       "en": "Exercise",
       "de": "Übung",
-      "it": "Esercizio"
+      "it": "Esercizio",
+      "ja": "練習"
     }
   },
   {
@@ -968,7 +1048,8 @@
     "target_words": {
       "en": "Innocence",
       "de": "Unschuld",
-      "it": "Innocenza"
+      "it": "Innocenza",
+      "ja": "無実"
     }
   },
   {
@@ -980,7 +1061,8 @@
     "target_words": {
       "en": "Change",
       "de": "Veränderung",
-      "it": "Cambiamento"
+      "it": "Cambiamento",
+      "ja": "変化"
     }
   },
   {
@@ -992,7 +1074,8 @@
     "target_words": {
       "en": "Sympathy",
       "de": "Mitgefühl",
-      "it": "Simpatia"
+      "it": "Simpatia",
+      "ja": "同情"
     }
   },
   {
@@ -1004,7 +1087,8 @@
     "target_words": {
       "en": "Procedure",
       "de": "Verfahren",
-      "it": "Procedura"
+      "it": "Procedura",
+      "ja": "手順"
     }
   },
   {
@@ -1016,7 +1100,8 @@
     "target_words": {
       "en": "Excuse",
       "de": "Entschuldigung",
-      "it": "Scusa"
+      "it": "Scusa",
+      "ja": "言い訳"
     }
   },
   {
@@ -1028,7 +1113,8 @@
     "target_words": {
       "en": "Warning",
       "de": "Warnung",
-      "it": "Avvertimento"
+      "it": "Avvertimento",
+      "ja": "警告"
     }
   },
   {
@@ -1040,7 +1126,8 @@
     "target_words": {
       "en": "Wealth",
       "de": "Reichtum",
-      "it": "Ricchezza"
+      "it": "Ricchezza",
+      "ja": "富"
     }
   },
   {
@@ -1052,7 +1139,8 @@
     "target_words": {
       "en": "Benefaction",
       "de": "Wohltat",
-      "it": "Beneficio"
+      "it": "Beneficio",
+      "ja": "恩恵"
     }
   },
   {
@@ -1064,7 +1152,8 @@
     "target_words": {
       "en": "Admission",
       "de": "Zulassung",
-      "it": "Ammissione"
+      "it": "Ammissione",
+      "ja": "認可"
     }
   },
   {
@@ -1076,7 +1165,8 @@
     "target_words": {
       "en": "Purpose",
       "de": "Zweck",
-      "it": "Scopo"
+      "it": "Scopo",
+      "ja": "目的"
     }
   },
   {
@@ -1088,7 +1178,8 @@
     "target_words": {
       "en": "Zip",
       "de": "Reißverschluss",
-      "it": "Cerniera"
+      "it": "Cerniera",
+      "ja": "ファスナー"
     }
   },
   {
@@ -1100,7 +1191,8 @@
     "target_words": {
       "en": "Earring",
       "de": "Ohrring",
-      "it": "Orecchino"
+      "it": "Orecchino",
+      "ja": "イヤリング"
     }
   },
   {
@@ -1112,7 +1204,8 @@
     "target_words": {
       "en": "Peppermill",
       "de": "Pfeffermühle",
-      "it": "Macina pepe"
+      "it": "Macina pepe",
+      "ja": "コショウ挽き"
     }
   },
   {
@@ -1124,7 +1217,8 @@
     "target_words": {
       "en": "Cup",
       "de": "Tasse",
-      "it": "Tazza"
+      "it": "Tazza",
+      "ja": "カップ"
     }
   },
   {
@@ -1136,7 +1230,8 @@
     "target_words": {
       "en": "Broom",
       "de": "Besen",
-      "it": "Scopa"
+      "it": "Scopa",
+      "ja": "ほうき"
     }
   },
   {
@@ -1148,7 +1243,8 @@
     "target_words": {
       "en": "Parsley",
       "de": "Petersilie",
-      "it": "Prezzemolo"
+      "it": "Prezzemolo",
+      "ja": "パセリ"
     }
   },
   {
@@ -1160,7 +1256,8 @@
     "target_words": {
       "en": "Stairs",
       "de": "Treppe",
-      "it": "Scale"
+      "it": "Scale",
+      "ja": "階段"
     }
   },
   {
@@ -1172,7 +1269,8 @@
     "target_words": {
       "en": "Hair Dryer",
       "de": "Haartrockner",
-      "it": "Asciugacapelli"
+      "it": "Asciugacapelli",
+      "ja": "ドライヤー"
     }
   },
   {
@@ -1184,7 +1282,8 @@
     "target_words": {
       "en": "Watering Can",
       "de": "Gießkanne",
-      "it": "Annaffiatoio"
+      "it": "Annaffiatoio",
+      "ja": "ジョーロ"
     }
   },
   {
@@ -1196,7 +1295,8 @@
     "target_words": {
       "en": "Tissue",
       "de": "Taschentuch",
-      "it": "Fazzoletto"
+      "it": "Fazzoletto",
+      "ja": "ティッシュ"
     }
   },
   {
@@ -1208,7 +1308,8 @@
     "target_words": {
       "en": "Soap",
       "de": "Seife",
-      "it": "Sapone"
+      "it": "Sapone",
+      "ja": "石鹸"
     }
   },
   {
@@ -1220,7 +1321,8 @@
     "target_words": {
       "en": "Shelf",
       "de": "Regal",
-      "it": "Mensola"
+      "it": "Mensola",
+      "ja": "棚"
     }
   },
   {
@@ -1232,7 +1334,8 @@
     "target_words": {
       "en": "Violin",
       "de": "Violine",
-      "it": "Violino"
+      "it": "Violino",
+      "ja": "バイオリン"
     }
   },
   {
@@ -1244,7 +1347,8 @@
     "target_words": {
       "en": "Stamp",
       "de": "Briefmarke",
-      "it": "Francobollo"
+      "it": "Francobollo",
+      "ja": "切手"
     }
   },
   {
@@ -1256,7 +1360,8 @@
     "target_words": {
       "en": "Thread",
       "de": "Faden",
-      "it": "Filo"
+      "it": "Filo",
+      "ja": "糸"
     }
   },
   {
@@ -1268,7 +1373,8 @@
     "target_words": {
       "en": "Temple",
       "de": "Tempel",
-      "it": "Tempio"
+      "it": "Tempio",
+      "ja": "寺院"
     }
   },
   {
@@ -1280,7 +1386,8 @@
     "target_words": {
       "en": "Chair",
       "de": "Stuhl",
-      "it": "Sedia"
+      "it": "Sedia",
+      "ja": "椅子"
     }
   },
   {
@@ -1292,7 +1399,8 @@
     "target_words": {
       "en": "Coffee",
       "de": "Kaffee",
-      "it": "Caffè"
+      "it": "Caffè",
+      "ja": "コーヒー"
     }
   },
   {
@@ -1304,7 +1412,8 @@
     "target_words": {
       "en": "Bridge",
       "de": "Brücke",
-      "it": "Ponte"
+      "it": "Ponte",
+      "ja": "橋"
     }
   },
   {
@@ -1316,7 +1425,8 @@
     "target_words": {
       "en": "Earth",
       "de": "Erde",
-      "it": "Terra"
+      "it": "Terra",
+      "ja": "地球"
     }
   },
   {
@@ -1328,7 +1438,8 @@
     "target_words": {
       "en": "Flower",
       "de": "Blume",
-      "it": "Fiore"
+      "it": "Fiore",
+      "ja": "花"
     }
   },
   {
@@ -1340,7 +1451,8 @@
     "target_words": {
       "en": "Shampoo",
       "de": "Shampoo",
-      "it": "Shampoo"
+      "it": "Shampoo",
+      "ja": "シャンプー"
     }
   },
   {
@@ -1352,7 +1464,8 @@
     "target_words": {
       "en": "Jumper",
       "de": "Pullover",
-      "it": "Maglione"
+      "it": "Maglione",
+      "ja": "セーター"
     }
   },
   {
@@ -1364,7 +1477,8 @@
     "target_words": {
       "en": "Dish Washing Liquid",
       "de": "Spülmittel",
-      "it": "Detersivo per piatti"
+      "it": "Detersivo per piatti",
+      "ja": "食器用洗剤"
     }
   },
   {
@@ -1376,7 +1490,8 @@
     "target_words": {
       "en": "Pumpkin",
       "de": "Kürbis",
-      "it": "Zucca"
+      "it": "Zucca",
+      "ja": "カボチャ"
     }
   },
   {
@@ -1388,7 +1503,8 @@
     "target_words": {
       "en": "Eraser",
       "de": "Radiergummi",
-      "it": "Gomma"
+      "it": "Gomma",
+      "ja": "消しゴム"
     }
   },
   {
@@ -1400,7 +1516,8 @@
     "target_words": {
       "en": "Stamp For Letter",
       "de": "Briefmarke",
-      "it": "Francobollo"
+      "it": "Francobollo",
+      "ja": "切手"
     }
   },
   {
@@ -1412,7 +1529,8 @@
     "target_words": {
       "en": "Flute",
       "de": "Flöte",
-      "it": "Flauto"
+      "it": "Flauto",
+      "ja": "フルート"
     }
   },
   {
@@ -1424,7 +1542,8 @@
     "target_words": {
       "en": "Metal Sheet",
       "de": "Metallblech",
-      "it": "Lamiera"
+      "it": "Lamiera",
+      "ja": "金属板"
     }
   },
   {
@@ -1436,7 +1555,8 @@
     "target_words": {
       "en": "Towel",
       "de": "Handtuch",
-      "it": "Asciugamano"
+      "it": "Asciugamano",
+      "ja": "タオル"
     }
   },
   {
@@ -1448,7 +1568,8 @@
     "target_words": {
       "en": "Crutch",
       "de": "Krücke",
-      "it": "Stampella"
+      "it": "Stampella",
+      "ja": "松葉杖"
     }
   },
   {
@@ -1460,7 +1581,8 @@
     "target_words": {
       "en": "Saw",
       "de": "Säge",
-      "it": "Sega"
+      "it": "Sega",
+      "ja": "のこぎり"
     }
   },
   {
@@ -1472,7 +1594,8 @@
     "target_words": {
       "en": "Perfume",
       "de": "Parfüm",
-      "it": "Profumo"
+      "it": "Profumo",
+      "ja": "香水"
     }
   },
   {
@@ -1484,7 +1607,8 @@
     "target_words": {
       "en": "Tie",
       "de": "Krawatte",
-      "it": "Cravatta"
+      "it": "Cravatta",
+      "ja": "ネクタイ"
     }
   },
   {
@@ -1496,7 +1620,8 @@
     "target_words": {
       "en": "Button",
       "de": "Knopf",
-      "it": "Bottone"
+      "it": "Bottone",
+      "ja": "ボタン"
     }
   },
   {
@@ -1508,7 +1633,8 @@
     "target_words": {
       "en": "Sponge",
       "de": "Schwamm",
-      "it": "Spugna"
+      "it": "Spugna",
+      "ja": "スポンジ"
     }
   },
   {
@@ -1520,7 +1646,8 @@
     "target_words": {
       "en": "Piece Of Paper",
       "de": "Blatt Papier",
-      "it": "Foglio di carta"
+      "it": "Foglio di carta",
+      "ja": "一枚の紙"
     }
   },
   {
@@ -1532,7 +1659,8 @@
     "target_words": {
       "en": "Knife",
       "de": "Messer",
-      "it": "Coltello"
+      "it": "Coltello",
+      "ja": "ナイフ"
     }
   },
   {
@@ -1544,7 +1672,8 @@
     "target_words": {
       "en": "Wave",
       "de": "Welle",
-      "it": "Onda"
+      "it": "Onda",
+      "ja": "波"
     }
   },
   {
@@ -1556,7 +1685,8 @@
     "target_words": {
       "en": "Telephone",
       "de": "Telefon",
-      "it": "Telefono"
+      "it": "Telefono",
+      "ja": "電話"
     }
   },
   {
@@ -1568,7 +1698,8 @@
     "target_words": {
       "en": "Mirror",
       "de": "Spiegel",
-      "it": "Specchio"
+      "it": "Specchio",
+      "ja": "鏡"
     }
   },
   {
@@ -1580,7 +1711,8 @@
     "target_words": {
       "en": "Remote Control",
       "de": "Fernbedienung",
-      "it": "Telecomando"
+      "it": "Telecomando",
+      "ja": "リモコン"
     }
   },
   {
@@ -1592,7 +1724,8 @@
     "target_words": {
       "en": "Banana",
       "de": "Banane",
-      "it": "Banana"
+      "it": "Banana",
+      "ja": "バナナ"
     }
   },
   {
@@ -1604,7 +1737,8 @@
     "target_words": {
       "en": "Poster",
       "de": "Poster",
-      "it": "Poster"
+      "it": "Poster",
+      "ja": "ポスター"
     }
   }
 ]

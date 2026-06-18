@@ -58,7 +58,7 @@ Useful URL parameters:
 - `?limit=10`: show only the first 10 videos from the manifest.
 - `?block=1`: show one 20-video block. Use `?block=2`, `?block=3`, etc. for the next blocks.
 - `?block_size=20`: override the default block size.
-- `?lang=en`, `?lang=de`, or `?lang=it`: open the survey in English, German, or Italian.
+- `?lang=en`, `?lang=de`, `?lang=it`, or `?lang=ja`: open the survey in English, German, Italian, or Japanese.
 - `?order=fixed`: disable participant-specific randomization.
 - `?participant_id=...&study_id=...&session_id=...`: identifiers are captured automatically.
 - `?return=https://...`: show a completion return link after export/submission.
