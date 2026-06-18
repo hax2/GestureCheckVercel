@@ -460,7 +460,7 @@
       instructionsBody: [
         "In questo compito verranno mostrati diversi video di gesti.",
         "Per ogni video saranno presentati una parola e un gesto.",
-        "Si prega di rispondere alla seguente domanda per ciascun video utilizzando una scala da 1 a 5:",
+        "Si prega di rispondere alle seguenti domande per ciascun video utilizzando una scala da 1 a 5.",
         "Non ci sono risposte giuste o sbagliate. Si prega di rispondere in base alla propria impressione immediata.",
       ],
       scaleRating: "Valutazione",
