@@ -131,6 +131,20 @@ const translations = {
   Wave: { en: "Wave", de: "Welle", it: "Onda", ja: "波" },
   Banana: { en: "Banana", de: "Banane", it: "Banana", ja: "バナナ" },
   Poster: { en: "Poster", de: "Poster", it: "Poster", ja: "ポスター" },
+
+  // Control videos target words
+  Leg: { en: "Leg", de: "Bein", it: "Gamba", ja: "脚" },
+  Gold: { en: "Gold", de: "Gold", it: "Oro", ja: "金" },
+  Flashlight: { en: "Flashlight", de: "Taschenlampe", it: "Torcia", ja: "懐中電灯" },
+  Grass: { en: "Grass", de: "Gras", it: "Erba", ja: "芝生" },
+  Bread: { en: "Bread", de: "Brot", it: "Pane", ja: "パン" },
+  Water: { en: "Water", de: "Wasser", it: "Acqua", ja: "水" },
+  Cheese: { en: "Cheese", de: "Käse", it: "Formaggio", ja: "チーズ" },
+  Tree: { en: "Tree", de: "Baum", it: "Albero", ja: "木" },
+  Door: { en: "Door", de: "Tür", it: "Porta", ja: "ドア" },
+  Cooking: { en: "Cooking", de: "Kochen", it: "Cucinare", ja: "料理" },
+  Wrench: { en: "Wrench", de: "Schraubenschlüssel", it: "Chiave inglese", ja: "レンチ" },
+  Cat: { en: "Cat", de: "Katze", it: "Gatto", ja: "猫" },
 };
 
 const manifestPath = fs.existsSync("public/all_rating_videos.json")

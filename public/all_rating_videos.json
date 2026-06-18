@@ -1740,5 +1740,215 @@
       "it": "Poster",
       "ja": "ポスター"
     }
+  },
+  {
+    "collection": "gesture",
+    "source": "rating-video",
+    "title": "45_Leg.mp4",
+    "target_word": "Leg",
+    "video_url": "assets/rating-video/45_Leg.mp4",
+    "local_path": "public/assets/rating-video/45_Leg.mp4",
+    "target_words": {
+      "en": "Leg",
+      "de": "Bein",
+      "it": "Gamba",
+      "ja": "脚"
+    }
+  },
+  {
+    "collection": "gesture",
+    "source": "rating-video",
+    "title": "46_Gold.mp4",
+    "target_word": "Gold",
+    "video_url": "assets/rating-video/46_Gold.mp4",
+    "local_path": "public/assets/rating-video/46_Gold.mp4",
+    "target_words": {
+      "en": "Gold",
+      "de": "Gold",
+      "it": "Oro",
+      "ja": "金"
+    }
+  },
+  {
+    "collection": "gesture",
+    "source": "rating-video",
+    "title": "47_Cup.mp4",
+    "target_word": "Cup",
+    "video_url": "assets/rating-video/47_Cup.mp4",
+    "local_path": "public/assets/rating-video/47_Cup.mp4",
+    "target_words": {
+      "en": "Cup",
+      "de": "Tasse",
+      "it": "Tazza",
+      "ja": "カップ"
+    }
+  },
+  {
+    "collection": "gesture",
+    "source": "rating-video",
+    "title": "49_Flashlight.mp4",
+    "target_word": "Flashlight",
+    "video_url": "assets/rating-video/49_Flashlight.mp4",
+    "local_path": "public/assets/rating-video/49_Flashlight.mp4",
+    "target_words": {
+      "en": "Flashlight",
+      "de": "Taschenlampe",
+      "it": "Torcia",
+      "ja": "懐中電灯"
+    }
+  },
+  {
+    "collection": "gesture",
+    "source": "rating-video",
+    "title": "51_Grass.mp4",
+    "target_word": "Grass",
+    "video_url": "assets/rating-video/51_Grass.mp4",
+    "local_path": "public/assets/rating-video/51_Grass.mp4",
+    "target_words": {
+      "en": "Grass",
+      "de": "Gras",
+      "it": "Erba",
+      "ja": "芝生"
+    }
+  },
+  {
+    "collection": "gesture",
+    "source": "rating-video",
+    "title": "52_Bread.mp4",
+    "target_word": "Bread",
+    "video_url": "assets/rating-video/52_Bread.mp4",
+    "local_path": "public/assets/rating-video/52_Bread.mp4",
+    "target_words": {
+      "en": "Bread",
+      "de": "Brot",
+      "it": "Pane",
+      "ja": "パン"
+    }
+  },
+  {
+    "collection": "gesture",
+    "source": "rating-video",
+    "title": "53_Water.mp4",
+    "target_word": "Water",
+    "video_url": "assets/rating-video/53_Water.mp4",
+    "local_path": "public/assets/rating-video/53_Water.mp4",
+    "target_words": {
+      "en": "Water",
+      "de": "Wasser",
+      "it": "Acqua",
+      "ja": "水"
+    }
+  },
+  {
+    "collection": "gesture",
+    "source": "rating-video",
+    "title": "54_Cheese.mp4",
+    "target_word": "Cheese",
+    "video_url": "assets/rating-video/54_Cheese.mp4",
+    "local_path": "public/assets/rating-video/54_Cheese.mp4",
+    "target_words": {
+      "en": "Cheese",
+      "de": "Käse",
+      "it": "Formaggio",
+      "ja": "チーズ"
+    }
+  },
+  {
+    "collection": "gesture",
+    "source": "rating-video",
+    "title": "64_Leg.mp4",
+    "target_word": "Leg",
+    "video_url": "assets/rating-video/64_Leg.mp4",
+    "local_path": "public/assets/rating-video/64_Leg.mp4",
+    "target_words": {
+      "en": "Leg",
+      "de": "Bein",
+      "it": "Gamba",
+      "ja": "脚"
+    }
+  },
+  {
+    "collection": "gesture",
+    "source": "rating-video",
+    "title": "72_Ball.mp4",
+    "target_word": "Ball",
+    "video_url": "assets/rating-video/72_Ball.mp4",
+    "local_path": "public/assets/rating-video/72_Ball.mp4",
+    "target_words": {
+      "en": "Ball",
+      "de": "Ball",
+      "it": "Palla",
+      "ja": "ボール"
+    }
+  },
+  {
+    "collection": "gesture",
+    "source": "rating-video",
+    "title": "79_Tree.mp4",
+    "target_word": "Tree",
+    "video_url": "assets/rating-video/79_Tree.mp4",
+    "local_path": "public/assets/rating-video/79_Tree.mp4",
+    "target_words": {
+      "en": "Tree",
+      "de": "Baum",
+      "it": "Albero",
+      "ja": "木"
+    }
+  },
+  {
+    "collection": "gesture",
+    "source": "rating-video",
+    "title": "86_Door.mp4",
+    "target_word": "Door",
+    "video_url": "assets/rating-video/86_Door.mp4",
+    "local_path": "public/assets/rating-video/86_Door.mp4",
+    "target_words": {
+      "en": "Door",
+      "de": "Tür",
+      "it": "Porta",
+      "ja": "ドア"
+    }
+  },
+  {
+    "collection": "gesture",
+    "source": "rating-video",
+    "title": "87_Cooking.mp4",
+    "target_word": "Cooking",
+    "video_url": "assets/rating-video/87_Cooking.mp4",
+    "local_path": "public/assets/rating-video/87_Cooking.mp4",
+    "target_words": {
+      "en": "Cooking",
+      "de": "Kochen",
+      "it": "Cucinare",
+      "ja": "料理"
+    }
+  },
+  {
+    "collection": "gesture",
+    "source": "rating-video",
+    "title": "89_Wrench.mp4",
+    "target_word": "Wrench",
+    "video_url": "assets/rating-video/89_Wrench.mp4",
+    "local_path": "public/assets/rating-video/89_Wrench.mp4",
+    "target_words": {
+      "en": "Wrench",
+      "de": "Schraubenschlüssel",
+      "it": "Chiave inglese",
+      "ja": "レンチ"
+    }
+  },
+  {
+    "collection": "gesture",
+    "source": "rating-video",
+    "title": "90_Cat.mp4",
+    "target_word": "Cat",
+    "video_url": "assets/rating-video/90_Cat.mp4",
+    "local_path": "public/assets/rating-video/90_Cat.mp4",
+    "target_words": {
+      "en": "Cat",
+      "de": "Katze",
+      "it": "Gatto",
+      "ja": "猫"
+    }
   }
 ]

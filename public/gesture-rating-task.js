@@ -1521,6 +1521,16 @@
         manifest: manifestUrl === config.manifestUrl ? null : manifestUrl,
       });
     }
+    // Filter out conflicts where the same video prefix is already seen in state.videos (e.g., 72_Ball.mp4 and 72_Talent.avi)
+    const seenPrefixes = new Set();
+    state.videos = state.videos.filter((item) => {
+      const match = String(item.title || "").match(/^(\d+)_/);
+      const prefix = match ? match[1] : item.title;
+      if (seenPrefixes.has(prefix)) return false;
+      seenPrefixes.add(prefix);
+      return true;
+    });
+
     loadConsent();
     loadDemographics();
     loadSaved();
