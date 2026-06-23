@@ -101,7 +101,7 @@
           body: [
             "The researcher will ask you to provide certain personal data, such as age, gender, and possibly other information. These data are necessary for the proper conduct of the study.",
             "All personal data collected during the study will be processed in full compliance with Regulation (EU) 2016/679 (General Data Protection Regulation - GDPR) and the applicable provisions of Italian Legislative Decree No. 196/2003 concerning personal data protection.",
-            "The Data Controller for your personal data will remain the Catholic University of the Sacred Heart of Milan (Università Cattolica del Sacro Cuore di Milano).",
+            "The Data Controller for your personal data is Johannes Kepler University Linz (Austria).",
           ],
         },
         {
@@ -318,7 +318,7 @@
           body: [
             "Der Forschende wird einige personenbezogene Daten von Ihnen erheben, beispielsweise Geschlecht, Geburtsdatum und gegebenenfalls weitere Angaben. Diese Informationen sind für die ordnungsgemäße Durchführung der Studie erforderlich.",
             "Alle im Rahmen dieser Studie erhobenen personenbezogenen Daten werden unter vollständiger Einhaltung der Vorschriften der Datenschutz-Grundverordnung (EU) 2016/679 (DSGVO) sowie des italienischen Datenschutzgesetzes (D.lgs. Nr. 196/2003) verarbeitet.",
-            "Verantwortliche Stelle für die Verarbeitung Ihrer personenbezogenen Daten ist die Katholische Universität vom Heiligen Herzen in Mailand (Università Cattolica del Sacro Cuore di Milano).",
+            "Verantwortliche Stelle für die Verarbeitung Ihrer personenbezogenen Daten ist die Johannes Kepler Universität Linz (Österreich).",
           ],
         },
         {
@@ -678,7 +678,7 @@
           body: [
             "研究者は、年齢、性別、および必要に応じてその他の特定の個人データの提供をお願いします。これらのデータは、研究を適切に実施するために不可欠なものです。",
             "研究中に収集されたすべての個人データは、規則 (EU) 2016/679 (一般データ保護規則 - GDPR) および個人データ保護に関するイタリア立法令第196/2003号の適用規定に完全に準拠して処理されます。",
-            "個人データのデータ管理者は、ミラノ・聖心カトリック大学（Università Cattolica del Sacro Cuore di Milano）のままとなります。",
+            "個人データのデータ管理者は、ヨハネス・ケプラー大学リンツ（オーストリア）です。",
           ],
         },
         {
