@@ -87,7 +87,15 @@
             </label>
             <label>
               <span id="nativeLanguageLabel">Native language</span>
-              <input id="nativeLanguageInput" autocomplete="language" required>
+              <select id="nativeLanguageInput" autocomplete="language" required>
+                <option value=""></option>
+                <option value="en">English</option>
+                <option value="de-DE">German (Germany)</option>
+                <option value="de-AT">German (Austria)</option>
+                <option value="ja">Japanese</option>
+                <option value="other">Other language</option>
+              </select>
+              <input id="nativeLanguageOtherInput" class="hidden" autocomplete="language" placeholder="Please specify">
             </label>
             <label>
               <span id="countryLabel">Country of residence</span>

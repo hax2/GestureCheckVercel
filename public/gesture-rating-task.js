@@ -181,7 +181,10 @@
       age: "Age",
       gender: "Gender",
       nativeLanguage: "Native language",
+      nativeLanguageOtherPlaceholder: "Please specify your native language",
       countryOfResidence: "Country of residence",
+      commonCountries: "Common countries",
+      allCountries: "All countries",
       countryNotDisclosed: "Prefer not to say",
       education: "Highest level of education",
       handedness: "Handedness",
@@ -193,6 +196,13 @@
           non_binary: "Non-binary",
           prefer_not_to_say: "Prefer not to say",
           self_describe: "Self-describe",
+        },
+        nativeLanguage: {
+          en: "English",
+          "de-AT": "German (Austria)",
+          "de-DE": "German (Germany)",
+          ja: "Japanese",
+          other: "Other language",
         },
         education: {
           secondary: "Secondary school",
@@ -401,7 +411,10 @@
       age: "Alter",
       gender: "Geschlecht",
       nativeLanguage: "Muttersprache",
+      nativeLanguageOtherPlaceholder: "Bitte Muttersprache angeben",
       countryOfResidence: "Wohnsitzland",
+      commonCountries: "Häufige Länder",
+      allCountries: "Alle Länder",
       countryNotDisclosed: "Keine Angabe",
       education: "Höchster Bildungsabschluss",
       handedness: "Händigkeit",
@@ -413,6 +426,13 @@
           non_binary: "Nicht-binär",
           prefer_not_to_say: "Keine Angabe",
           self_describe: "Selbstbeschreibung",
+        },
+        nativeLanguage: {
+          en: "Englisch",
+          "de-AT": "Deutsch (Österreich)",
+          "de-DE": "Deutsch (Deutschland)",
+          ja: "Japanisch",
+          other: "Andere Sprache",
         },
         education: {
           secondary: "Sekundarschule",
@@ -547,7 +567,10 @@
       age: "Età",
       gender: "Genere",
       nativeLanguage: "Lingua madre",
+      nativeLanguageOtherPlaceholder: "Specificare la lingua madre",
       countryOfResidence: "Paese di residenza",
+      commonCountries: "Paesi principali",
+      allCountries: "Tutti i Paesi",
       countryNotDisclosed: "Preferisco non rispondere",
       education: "Livello di istruzione più alto",
       handedness: "Manualità",
@@ -559,6 +582,13 @@
           non_binary: "Non binario",
           prefer_not_to_say: "Preferisco non rispondere",
           self_describe: "Autodescrizione",
+        },
+        nativeLanguage: {
+          en: "Inglese",
+          "de-AT": "Tedesco (Austria)",
+          "de-DE": "Tedesco (Germania)",
+          ja: "Giapponese",
+          other: "Altra lingua",
         },
         education: {
           secondary: "Scuola secondaria",
@@ -766,7 +796,10 @@
       age: "年齢",
       gender: "性別",
       nativeLanguage: "母国語",
+      nativeLanguageOtherPlaceholder: "母国語を入力してください",
       countryOfResidence: "居住国",
+      commonCountries: "主な国",
+      allCountries: "すべての国",
       countryNotDisclosed: "回答しない",
       education: "最終学歴",
       handedness: "利き手",
@@ -778,6 +811,13 @@
           non_binary: "ノンバイナリー",
           prefer_not_to_say: "回答しない",
           self_describe: "その他（自由記述）",
+        },
+        nativeLanguage: {
+          en: "英語",
+          "de-AT": "ドイツ語（オーストリア）",
+          "de-DE": "ドイツ語（ドイツ）",
+          ja: "日本語",
+          other: "その他の言語",
         },
         education: {
           middle_school: "中学",
@@ -889,6 +929,7 @@
   const ageInput = $("ageInput");
   const genderInput = $("genderInput");
   const nativeLanguageInput = $("nativeLanguageInput");
+  const nativeLanguageOtherInput = $("nativeLanguageOtherInput");
   const countryInput = $("countryInput");
   const educationInput = $("educationInput");
   const handednessInput = $("handednessInput");
@@ -1009,24 +1050,43 @@
     const displayNames = typeof Intl.DisplayNames === "function"
       ? new Intl.DisplayNames([state.language], { type: "region" })
       : null;
-    const countries = COUNTRY_CODES.map((code) => ({
+    const priorityCodes = ["GB", "DE", "AT", "JP"];
+    const countries = COUNTRY_CODES.filter((code) => !priorityCodes.includes(code)).map((code) => ({
       code,
       label: displayNames ? displayNames.of(code) : code,
     })).sort((a, b) => a.label.localeCompare(b.label, state.language));
+    const commonGroup = document.createElement("optgroup");
+    commonGroup.label = t().commonCountries;
+    priorityCodes.forEach((code) => {
+      commonGroup.append(new Option(displayNames ? displayNames.of(code) : code, code));
+    });
+    const allGroup = document.createElement("optgroup");
+    allGroup.label = t().allCountries;
+    countries.forEach(({ code, label }) => allGroup.append(new Option(label, code)));
 
     countryInput.replaceChildren(
       new Option("", ""),
-      ...countries.map(({ code, label }) => new Option(label, code)),
+      commonGroup,
+      allGroup,
       new Option(t().countryNotDisclosed, "prefer_not_to_say"),
     );
     countryInput.value = selected;
+  }
+
+  function syncNativeLanguageOther() {
+    const usesOther = nativeLanguageInput.value === "other";
+    nativeLanguageOtherInput.classList.toggle("hidden", !usesOther);
+    nativeLanguageOtherInput.required = usesOther;
   }
 
   function demographicsFromForm() {
     return {
       age: ageInput.value.trim(),
       gender: genderInput.value,
-      native_language: nativeLanguageInput.value.trim(),
+      native_language: nativeLanguageInput.value,
+      ...(nativeLanguageInput.value === "other"
+        ? { native_language_other: nativeLanguageOtherInput.value.trim() }
+        : {}),
       country_of_residence: countryInput.value,
       education: educationInput.value,
       handedness: handednessInput.value,
@@ -1038,7 +1098,14 @@
   function applyDemographics(values) {
     ageInput.value = values.age || "";
     genderInput.value = values.gender || "";
-    nativeLanguageInput.value = values.native_language || "";
+    const nativeLanguage = values.native_language || "";
+    const commonNativeLanguages = new Set(["en", "de-AT", "de-DE", "ja", "other"]);
+    nativeLanguageInput.value = commonNativeLanguages.has(nativeLanguage)
+      ? nativeLanguage
+      : nativeLanguage ? "other" : "";
+    nativeLanguageOtherInput.value = values.native_language_other
+      || (nativeLanguageInput.value === "other" && nativeLanguage !== "other" ? nativeLanguage : "");
+    syncNativeLanguageOther();
     countryInput.value = values.country_of_residence || "";
     educationInput.value = values.education || "";
     handednessInput.value = values.handedness || "";
@@ -1216,6 +1283,9 @@
     $("familiarityLabel").textContent = t().gestureCultureFamiliarity;
     startButton.textContent = t().start;
     updateSelectOptions(genderInput, t().options.gender);
+    updateSelectOptions(nativeLanguageInput, t().options.nativeLanguage);
+    nativeLanguageOtherInput.placeholder = t().nativeLanguageOtherPlaceholder;
+    syncNativeLanguageOther();
     populateCountryOptions();
     updateSelectOptions(educationInput, t().options.education);
     updateSelectOptions(handednessInput, t().options.handedness);
@@ -1479,6 +1549,8 @@
     renderRows();
     renderVideo();
   });
+
+  nativeLanguageInput.addEventListener("change", syncNativeLanguageOther);
 
   consentForm.addEventListener("submit", (event) => {
     event.preventDefault();
