@@ -39,7 +39,11 @@ export default async function handler(req, res) {
           completed_assignments AS (
             SELECT
               assignment.id,
-              COALESCE(NULLIF(participant.demographics->>'country_of_residence', ''), 'unknown') AS country_code,
+              COALESCE(
+                NULLIF(participant.demographics->>'country_of_origin', ''),
+                NULLIF(participant.demographics->>'country_of_residence', ''),
+                'unknown'
+              ) AS country_code,
               COALESCE(NULLIF(participant.demographics->>'geo_country', ''), 'unknown') AS geo_country_code,
               COALESCE(NULLIF(participant.demographics->>'recruitment_source', ''), 'unspecified') AS recruitment_source
             FROM assignment_targets AS assignment

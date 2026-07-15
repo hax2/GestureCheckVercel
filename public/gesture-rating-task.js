@@ -105,7 +105,7 @@
             "All personal data collected during the study will be processed in full compliance with Regulation (EU) 2016/679 (General Data Protection Regulation - GDPR) and the applicable provisions of Italian Legislative Decree No. 196/2003 concerning personal data protection. For UK participants, any personal data collected as part of this study will be handled in accordance with applicable UK data-protection law, including the UK General Data Protection Regulation and the Data Protection Act 2018, where these apply.",
             "The Data Controller for your personal data is Johannes Kepler University Linz (Austria).",
             "This study involves collaboration between researchers at Johannes Kepler University Linz, Austria; University of Applied Sciences for Sport and Management, Germany; Università Cattolica del Sacro Cuore, Italy; Universidad Politécnica de Madrid, Spain; and University of Aberdeen, UK. Data shared between institutions will be anonymous and done using secure transfer methods and data-protection safeguards.",
-            "We collect your country of residence and an approximate country code supplied by our hosting provider based on your connection. We do not store your IP address.",
+            "We collect your country of origin and an approximate country code supplied by our hosting provider based on your connection. We do not store your IP address.",
           ],
         },
         {
@@ -182,7 +182,7 @@
       gender: "Gender",
       nativeLanguage: "Native language",
       nativeLanguageOtherPlaceholder: "Please specify your native language",
-      countryOfResidence: "Country of residence",
+      countryOfOrigin: "Country of origin",
       commonCountries: "Common countries",
       allCountries: "All countries",
       countryNotDisclosed: "Prefer not to say",
@@ -335,7 +335,7 @@
             "Der Forschende wird einige personenbezogene Daten von Ihnen erheben, beispielsweise Geschlecht, Geburtsdatum und gegebenenfalls weitere Angaben. Diese Informationen sind für die ordnungsgemäße Durchführung der Studie erforderlich.",
             "Alle im Rahmen dieser Studie erhobenen personenbezogenen Daten werden unter vollständiger Einhaltung der Vorschriften der Datenschutz-Grundverordnung (EU) 2016/679 (DSGVO) sowie des italienischen Datenschutzgesetzes (D.lgs. Nr. 196/2003) verarbeitet.",
             "Verantwortliche Stelle für die Verarbeitung Ihrer personenbezogenen Daten ist die Johannes Kepler Universität Linz (Österreich).",
-            "Wir erfassen Ihr Wohnsitzland sowie einen ungefähren Ländercode, den unser Hosting-Anbieter anhand Ihrer Verbindung bereitstellt. Ihre IP-Adresse wird nicht gespeichert.",
+            "Wir erfassen Ihr Herkunftsland sowie einen ungefähren Ländercode, den unser Hosting-Anbieter anhand Ihrer Verbindung bereitstellt. Ihre IP-Adresse wird nicht gespeichert.",
           ],
         },
         {
@@ -412,7 +412,7 @@
       gender: "Geschlecht",
       nativeLanguage: "Muttersprache",
       nativeLanguageOtherPlaceholder: "Bitte Muttersprache angeben",
-      countryOfResidence: "Wohnsitzland",
+      countryOfOrigin: "Herkunftsland",
       commonCountries: "Häufige Länder",
       allCountries: "Alle Länder",
       countryNotDisclosed: "Keine Angabe",
@@ -532,7 +532,7 @@
           title: "Protezione dei dati",
           body: [
             "Il ricercatore raccoglierà alcune informazioni di base necessarie allo svolgimento dello studio. I dati saranno trattati secondo il Regolamento (UE) 2016/679 (GDPR) e la normativa applicabile in materia di protezione dei dati personali.",
-            "Raccogliamo il Paese di residenza e un codice Paese approssimativo fornito dal nostro hosting provider in base alla connessione. L'indirizzo IP non viene memorizzato.",
+            "Raccogliamo il Paese di origine e un codice Paese approssimativo fornito dal nostro hosting provider in base alla connessione. L'indirizzo IP non viene memorizzato.",
             "I dati forniti saranno resi anonimi e utilizzati esclusivamente per finalità di ricerca scientifica da personale autorizzato. I risultati potranno essere condivisi in riunioni, convegni e pubblicazioni scientifiche solo in forma anonima o aggregata.",
             "I dati non saranno usati per processi decisionali automatizzati o profilazione. Saranno adottate misure di sicurezza adeguate e i dati saranno conservati solo per il tempo necessario alle finalità dello studio, comunque per un periodo minimo di 5 anni.",
           ],
@@ -568,7 +568,7 @@
       gender: "Genere",
       nativeLanguage: "Lingua madre",
       nativeLanguageOtherPlaceholder: "Specificare la lingua madre",
-      countryOfResidence: "Paese di residenza",
+      countryOfOrigin: "Paese di origine",
       commonCountries: "Paesi principali",
       allCountries: "Tutti i Paesi",
       countryNotDisclosed: "Preferisco non rispondere",
@@ -721,7 +721,7 @@
             "研究者は，年齢，性別，その他必要に応じた情報など，一定の個人データの提供をお願いすることがあります。これらのデータは，研究を適切に実施するために必要なものです。",
             "本研究で収集されるすべての個人データは，EU一般データ保護規則（Regulation (EU) 2016/679, General Data Protection Regulation, GDPR），および個人データ保護に関するイタリア法令第196/2003号の適用規定に従って処理されます。",
             "参加者の個人データに関するデータ管理者は，ヨハネス・ケプラー大学リンツ（オーストリア）です。",
-            "居住国に加え，接続情報に基づいてホスティング事業者から提供されるおおよその国コードを収集します。IPアドレス自体は保存しません。",
+            "出身国に加え，接続情報に基づいてホスティング事業者から提供されるおおよその国コードを収集します。IPアドレス自体は保存しません。",
           ],
         },
         {
@@ -797,7 +797,7 @@
       gender: "性別",
       nativeLanguage: "母国語",
       nativeLanguageOtherPlaceholder: "母国語を入力してください",
-      countryOfResidence: "居住国",
+      countryOfOrigin: "出身国",
       commonCountries: "主な国",
       allCountries: "すべての国",
       countryNotDisclosed: "回答しない",
@@ -1046,7 +1046,10 @@
   }
 
   function populateCountryOptions() {
-    const selected = countryInput.value || state.demographics.country_of_residence || "";
+    const selected = countryInput.value
+      || state.demographics.country_of_origin
+      || state.demographics.country_of_residence
+      || "";
     const displayNames = typeof Intl.DisplayNames === "function"
       ? new Intl.DisplayNames([state.language], { type: "region" })
       : null;
@@ -1087,7 +1090,7 @@
       ...(nativeLanguageInput.value === "other"
         ? { native_language_other: nativeLanguageOtherInput.value.trim() }
         : {}),
-      country_of_residence: countryInput.value,
+      country_of_origin: countryInput.value,
       education: educationInput.value,
       handedness: handednessInput.value,
       gesture_culture_familiarity: familiarityInput.value,
@@ -1106,7 +1109,7 @@
     nativeLanguageOtherInput.value = values.native_language_other
       || (nativeLanguageInput.value === "other" && nativeLanguage !== "other" ? nativeLanguage : "");
     syncNativeLanguageOther();
-    countryInput.value = values.country_of_residence || "";
+    countryInput.value = values.country_of_origin || values.country_of_residence || "";
     educationInput.value = values.education || "";
     handednessInput.value = values.handedness || "";
     familiarityInput.value = values.gesture_culture_familiarity || "";
@@ -1117,7 +1120,9 @@
       const saved = JSON.parse(localStorage.getItem(demographicsKey()) || "null");
       if (!saved) return;
       state.demographics = saved.demographics || {};
-      state.demographicsComplete = Boolean(saved.complete && state.demographics.country_of_residence);
+      state.demographicsComplete = Boolean(saved.complete && (
+        state.demographics.country_of_origin || state.demographics.country_of_residence
+      ));
       applyDemographics(state.demographics);
     } catch {
       localStorage.removeItem(demographicsKey());
@@ -1277,7 +1282,7 @@
     $("ageLabel").textContent = t().age;
     $("genderLabel").textContent = t().gender;
     $("nativeLanguageLabel").textContent = t().nativeLanguage;
-    $("countryLabel").textContent = t().countryOfResidence;
+    $("countryLabel").textContent = t().countryOfOrigin;
     $("educationLabel").textContent = t().education;
     $("handednessLabel").textContent = t().handedness;
     $("familiarityLabel").textContent = t().gestureCultureFamiliarity;

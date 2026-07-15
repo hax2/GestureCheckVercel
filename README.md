@@ -108,7 +108,7 @@ https://your-vercel-app.vercel.app/gesture-rating-task.html?lang=it
 https://your-vercel-app.vercel.app/gesture-rating-task.html?lang=en
 ```
 
-The participant form records a standardized country-of-residence code separately from the interface language. For an Austrian German-language social-media campaign, use a tagged link such as:
+The participant form records a standardized country-of-origin code separately from the interface language. For an Austrian German-language social-media campaign, use a tagged link such as:
 
 ```text
 https://your-vercel-app.vercel.app/?block_size=20&lang=de&recruitment_source=austria_social
@@ -126,7 +126,7 @@ POST /api/responses
 GET /api/status?lang=de&target_quota=20
 ```
 
-The status response includes completed participant counts grouped by self-reported country, approximate connection country, and recruitment source. A participant is counted as complete only after all responses in their adaptive assignment have been received. For example, Austrian and German residents appear separately under `completed_participants_by_country` as `AT` and `DE`.
+The status response includes completed participant counts grouped by self-reported country of origin, approximate connection country, and recruitment source. A participant is counted as complete only after all responses in their adaptive assignment have been received. For example, participants of Austrian and German origin appear separately under `completed_participants_by_country` as `AT` and `DE`.
 
 To force the old static block behavior for testing, add `assignment=static` or pass an explicit `block`:
 
