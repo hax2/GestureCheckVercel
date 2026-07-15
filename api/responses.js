@@ -18,6 +18,12 @@ function responseId(response, participant) {
   ].join("::");
 }
 
+function requestCountry(req) {
+  const header = req.headers["x-vercel-ip-country"];
+  const country = String(Array.isArray(header) ? header[0] : header || "").trim().toUpperCase();
+  return /^[A-Z]{2}$/.test(country) ? country : "";
+}
+
 export default async function handler(req, res) {
   if (!method(req, res, ["POST"])) return;
 
@@ -25,6 +31,10 @@ export default async function handler(req, res) {
     const payload = await readJson(req);
     const participant = payload.participant || {};
     const responses = normalizeResponses(payload);
+    const geoCountry = requestCountry(req);
+    const storedPayload = geoCountry
+      ? { ...payload, server_metadata: { geo_country: geoCountry } }
+      : payload;
 
     if (!responses.length) {
       fail(res, new Error("Payload contains no responses."), 400);
@@ -52,7 +62,7 @@ export default async function handler(req, res) {
           JSON.stringify(response.ratings || {}),
           response.notes || "",
           response.submitted_at || response.saved_at || new Date().toISOString(),
-          JSON.stringify(payload),
+          JSON.stringify(storedPayload),
         ];
 
         const upsert = await client.query(

@@ -14,6 +14,8 @@
     ...(window.GESTURE_RATING_TASK_CONFIG || {}),
   };
 
+  const COUNTRY_CODES = `AD AE AF AG AI AL AM AO AQ AR AS AT AU AW AX AZ BA BB BD BE BF BG BH BI BJ BL BM BN BO BQ BR BS BT BV BW BY BZ CA CC CD CF CG CH CI CK CL CM CN CO CR CU CV CW CX CY CZ DE DJ DK DM DO DZ EC EE EG EH ER ES ET FI FJ FK FM FO FR GA GB GD GE GF GG GH GI GL GM GN GP GQ GR GS GT GU GW GY HK HM HN HR HT HU ID IE IL IM IN IO IQ IR IS IT JE JM JO JP KE KG KH KI KM KN KP KR KW KY KZ LA LB LC LI LK LR LS LT LU LV LY MA MC MD ME MF MG MH MK ML MM MN MO MP MQ MR MS MT MU MV MW MX MY MZ NA NC NE NF NG NI NL NO NP NR NU NZ OM PA PE PF PG PH PK PL PM PN PR PS PT PW PY QA RE RO RS RU RW SA SB SC SD SE SG SH SI SJ SK SL SM SN SO SR SS ST SV SX SY SZ TC TD TF TG TH TJ TK TL TM TN TO TR TT TV TW TZ UA UG UM US UY UZ VA VC VE VG VI VN VU WF WS YE YT ZA ZM ZW`.split(" ");
+
   const copy = {
     en: {
       appTitle: "Gesture Rating Task",
@@ -103,6 +105,7 @@
             "All personal data collected during the study will be processed in full compliance with Regulation (EU) 2016/679 (General Data Protection Regulation - GDPR) and the applicable provisions of Italian Legislative Decree No. 196/2003 concerning personal data protection. For UK participants, any personal data collected as part of this study will be handled in accordance with applicable UK data-protection law, including the UK General Data Protection Regulation and the Data Protection Act 2018, where these apply.",
             "The Data Controller for your personal data is Johannes Kepler University Linz (Austria).",
             "This study involves collaboration between researchers at Johannes Kepler University Linz, Austria; University of Applied Sciences for Sport and Management, Germany; Università Cattolica del Sacro Cuore, Italy; Universidad Politécnica de Madrid, Spain; and University of Aberdeen, UK. Data shared between institutions will be anonymous and done using secure transfer methods and data-protection safeguards.",
+            "We collect your country of residence and an approximate country code supplied by our hosting provider based on your connection. We do not store your IP address.",
           ],
         },
         {
@@ -178,6 +181,8 @@
       age: "Age",
       gender: "Gender",
       nativeLanguage: "Native language",
+      countryOfResidence: "Country of residence",
+      countryNotDisclosed: "Prefer not to say",
       education: "Highest level of education",
       handedness: "Handedness",
       gestureCultureFamiliarity: "Familiarity with European gesture cultures",
@@ -320,6 +325,7 @@
             "Der Forschende wird einige personenbezogene Daten von Ihnen erheben, beispielsweise Geschlecht, Geburtsdatum und gegebenenfalls weitere Angaben. Diese Informationen sind für die ordnungsgemäße Durchführung der Studie erforderlich.",
             "Alle im Rahmen dieser Studie erhobenen personenbezogenen Daten werden unter vollständiger Einhaltung der Vorschriften der Datenschutz-Grundverordnung (EU) 2016/679 (DSGVO) sowie des italienischen Datenschutzgesetzes (D.lgs. Nr. 196/2003) verarbeitet.",
             "Verantwortliche Stelle für die Verarbeitung Ihrer personenbezogenen Daten ist die Johannes Kepler Universität Linz (Österreich).",
+            "Wir erfassen Ihr Wohnsitzland sowie einen ungefähren Ländercode, den unser Hosting-Anbieter anhand Ihrer Verbindung bereitstellt. Ihre IP-Adresse wird nicht gespeichert.",
           ],
         },
         {
@@ -395,6 +401,8 @@
       age: "Alter",
       gender: "Geschlecht",
       nativeLanguage: "Muttersprache",
+      countryOfResidence: "Wohnsitzland",
+      countryNotDisclosed: "Keine Angabe",
       education: "Höchster Bildungsabschluss",
       handedness: "Händigkeit",
       gestureCultureFamiliarity: "Vertrautheit mit europäischen Gestenkulturen",
@@ -504,6 +512,7 @@
           title: "Protezione dei dati",
           body: [
             "Il ricercatore raccoglierà alcune informazioni di base necessarie allo svolgimento dello studio. I dati saranno trattati secondo il Regolamento (UE) 2016/679 (GDPR) e la normativa applicabile in materia di protezione dei dati personali.",
+            "Raccogliamo il Paese di residenza e un codice Paese approssimativo fornito dal nostro hosting provider in base alla connessione. L'indirizzo IP non viene memorizzato.",
             "I dati forniti saranno resi anonimi e utilizzati esclusivamente per finalità di ricerca scientifica da personale autorizzato. I risultati potranno essere condivisi in riunioni, convegni e pubblicazioni scientifiche solo in forma anonima o aggregata.",
             "I dati non saranno usati per processi decisionali automatizzati o profilazione. Saranno adottate misure di sicurezza adeguate e i dati saranno conservati solo per il tempo necessario alle finalità dello studio, comunque per un periodo minimo di 5 anni.",
           ],
@@ -538,6 +547,8 @@
       age: "Età",
       gender: "Genere",
       nativeLanguage: "Lingua madre",
+      countryOfResidence: "Paese di residenza",
+      countryNotDisclosed: "Preferisco non rispondere",
       education: "Livello di istruzione più alto",
       handedness: "Manualità",
       gestureCultureFamiliarity: "Familiarità con le culture gestuali europee",
@@ -623,7 +634,7 @@
         {
           title: "調査への参加は必須ですか?",
           body: [
-            "本調査への参加は完全に任意です。また，参加に同意した後でも，途中で考えが変わった場合には，ブラウザを閉じるだけで、いつでも自由に参加を取りやめることができます。",
+            "本調査への参加は完全に任意です。また，参加に同意した後でも，途中で考えが変わった場合には，いつでも自由に参加を取りやめることができます。",
           ],
         },
         {
@@ -678,9 +689,9 @@
           title: "個人データの取扱い",
           body: [
             "研究者は，年齢，性別，その他必要に応じた情報など，一定の個人データの提供をお願いすることがあります。これらのデータは，研究を適切に実施するために必要なものです。",
-            "本研究で収集されるすべての個人データは，EU一般データ保護規則（Regulation (EU) 2016/679, General Data Protection Regulation, GDPR），および個人データ保護に関するイタリア法令第196/2003号の適用規定に従って処理されます。英国の参加者について、本研究の一環として収集された個人データは、適用される英国のデータ保護法（英国一般データ保護規則および2018年データ保護法を含む）に従って取り扱われます。",
+            "本研究で収集されるすべての個人データは，EU一般データ保護規則（Regulation (EU) 2016/679, General Data Protection Regulation, GDPR），および個人データ保護に関するイタリア法令第196/2003号の適用規定に従って処理されます。",
             "参加者の個人データに関するデータ管理者は，ヨハネス・ケプラー大学リンツ（オーストリア）です。",
-            "本研究は、ヨハネス・ケプラー大学リンツ（オーストリア）、スポーツ・マネジメント応用科学大学（ドイツ）、サクロ・クオーレ・カトリック大学（イタリア）、マドリード工科大学（スペイン）、およびアバディーン大学（英国）の研究者間の共同研究として行われます。機関間で共有されるデータは匿名化され、安全な転送方法およびデータ保護の安全管理措置を使用して行われます。",
+            "居住国に加え，接続情報に基づいてホスティング事業者から提供されるおおよその国コードを収集します。IPアドレス自体は保存しません。",
           ],
         },
         {
@@ -755,6 +766,8 @@
       age: "年齢",
       gender: "性別",
       nativeLanguage: "母国語",
+      countryOfResidence: "居住国",
+      countryNotDisclosed: "回答しない",
       education: "最終学歴",
       handedness: "利き手",
       gestureCultureFamiliarity: "ヨーロッパのジェスチャー文化への馴染みの程度",
@@ -828,6 +841,7 @@
     index: 0,
     responses: {},
     watchedKeys: new Set(),
+    recruitmentSource: (new URLSearchParams(window.location.search).get("recruitment_source") || "").slice(0, 100),
     language: ["en", "de", "it", "ja"].includes(new URLSearchParams(window.location.search).get("lang"))
       ? new URLSearchParams(window.location.search).get("lang")
       : "en",
@@ -875,6 +889,7 @@
   const ageInput = $("ageInput");
   const genderInput = $("genderInput");
   const nativeLanguageInput = $("nativeLanguageInput");
+  const countryInput = $("countryInput");
   const educationInput = $("educationInput");
   const handednessInput = $("handednessInput");
   const familiarityInput = $("familiarityInput");
@@ -921,6 +936,7 @@
       block_size: state.assignmentId ? null : current.get("block_size") || String(config.blockSize),
       block: state.assignmentId ? null : String(state.block),
       lang: state.language,
+      recruitment_source: state.recruitmentSource || null,
       ...overrides,
     };
     Object.entries(next).forEach(([key, value]) => {
@@ -988,14 +1004,34 @@
     });
   }
 
+  function populateCountryOptions() {
+    const selected = countryInput.value || state.demographics.country_of_residence || "";
+    const displayNames = typeof Intl.DisplayNames === "function"
+      ? new Intl.DisplayNames([state.language], { type: "region" })
+      : null;
+    const countries = COUNTRY_CODES.map((code) => ({
+      code,
+      label: displayNames ? displayNames.of(code) : code,
+    })).sort((a, b) => a.label.localeCompare(b.label, state.language));
+
+    countryInput.replaceChildren(
+      new Option("", ""),
+      ...countries.map(({ code, label }) => new Option(label, code)),
+      new Option(t().countryNotDisclosed, "prefer_not_to_say"),
+    );
+    countryInput.value = selected;
+  }
+
   function demographicsFromForm() {
     return {
       age: ageInput.value.trim(),
       gender: genderInput.value,
       native_language: nativeLanguageInput.value.trim(),
+      country_of_residence: countryInput.value,
       education: educationInput.value,
       handedness: handednessInput.value,
       gesture_culture_familiarity: familiarityInput.value,
+      ...(state.recruitmentSource ? { recruitment_source: state.recruitmentSource } : {}),
     };
   }
 
@@ -1003,6 +1039,7 @@
     ageInput.value = values.age || "";
     genderInput.value = values.gender || "";
     nativeLanguageInput.value = values.native_language || "";
+    countryInput.value = values.country_of_residence || "";
     educationInput.value = values.education || "";
     handednessInput.value = values.handedness || "";
     familiarityInput.value = values.gesture_culture_familiarity || "";
@@ -1013,7 +1050,7 @@
       const saved = JSON.parse(localStorage.getItem(demographicsKey()) || "null");
       if (!saved) return;
       state.demographics = saved.demographics || {};
-      state.demographicsComplete = Boolean(saved.complete);
+      state.demographicsComplete = Boolean(saved.complete && state.demographics.country_of_residence);
       applyDemographics(state.demographics);
     } catch {
       localStorage.removeItem(demographicsKey());
@@ -1043,7 +1080,7 @@
 
   function saveConsent() {
     state.consent = {
-      version: "2026-05-25",
+      version: "2026-07-15",
       language: state.language,
       statements: {
         accepted: true,
@@ -1173,11 +1210,13 @@
     $("ageLabel").textContent = t().age;
     $("genderLabel").textContent = t().gender;
     $("nativeLanguageLabel").textContent = t().nativeLanguage;
+    $("countryLabel").textContent = t().countryOfResidence;
     $("educationLabel").textContent = t().education;
     $("handednessLabel").textContent = t().handedness;
     $("familiarityLabel").textContent = t().gestureCultureFamiliarity;
     startButton.textContent = t().start;
     updateSelectOptions(genderInput, t().options.gender);
+    populateCountryOptions();
     updateSelectOptions(educationInput, t().options.education);
     updateSelectOptions(handednessInput, t().options.handedness);
     updateSelectOptions(familiarityInput, t().options.familiarity);
@@ -1379,6 +1418,7 @@
           sessionId: state.sessionId,
           assignmentId: state.assignmentId,
           language: state.language,
+          recruitmentSource: state.recruitmentSource,
           consent: state.consent,
           demographics: state.demographics,
         },
