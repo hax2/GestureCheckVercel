@@ -321,7 +321,7 @@
       "en": "Clothes",
       "de": "Kleidung",
       "it": "Vestiti",
-      "ja": "衣服"
+      "ja": "服"
     }
   },
   {
@@ -412,7 +412,7 @@
       "en": "Backpack",
       "de": "Rucksack",
       "it": "Zaino",
-      "ja": "バックパック"
+      "ja": "リュック"
     }
   },
   {
@@ -503,7 +503,7 @@
       "en": "Daily Newspaper",
       "de": "Tageszeitung",
       "it": "Quotidiano",
-      "ja": "日刊紙"
+      "ja": "新聞"
     }
   },
   {
@@ -698,7 +698,7 @@
       "en": "Property",
       "de": "Eigentum",
       "it": "Proprietà",
-      "ja": "所有物"
+      "ja": "財産"
     }
   },
   {
@@ -724,7 +724,7 @@
       "en": "Plea",
       "de": "Bitte",
       "it": "Supplica",
-      "ja": "懇願"
+      "ja": "お願い"
     }
   },
   {
@@ -867,7 +867,7 @@
       "en": "Bravery",
       "de": "Tapferkeit",
       "it": "Coraggio",
-      "ja": "勇敢"
+      "ja": "勇気"
     }
   },
   {
@@ -880,7 +880,7 @@
       "en": "Partnership",
       "de": "Partnerschaft",
       "it": "Collaborazione",
-      "ja": "提携"
+      "ja": "協力関係"
     }
   },
   {
@@ -1075,7 +1075,7 @@
       "en": "Sympathy",
       "de": "Mitgefühl",
       "it": "Simpatia",
-      "ja": "同情"
+      "ja": "共感"
     }
   },
   {
@@ -1088,7 +1088,7 @@
       "en": "Procedure",
       "de": "Verfahren",
       "it": "Procedura",
-      "ja": "手順"
+      "ja": "手続き"
     }
   },
   {
@@ -1140,7 +1140,7 @@
       "en": "Benefaction",
       "de": "Wohltat",
       "it": "Beneficio",
-      "ja": "恩恵"
+      "ja": "寄付金"
     }
   },
   {
@@ -1153,7 +1153,7 @@
       "en": "Admission",
       "de": "Zulassung",
       "it": "Ammissione",
-      "ja": "認可"
+      "ja": "入場"
     }
   },
   {
@@ -1205,7 +1205,7 @@
       "en": "Peppermill",
       "de": "Pfeffermühle",
       "it": "Macina pepe",
-      "ja": "コショウ挽き"
+      "ja": "こしょう挽き（ひき）"
     }
   },
   {
@@ -1283,7 +1283,7 @@
       "en": "Watering Can",
       "de": "Gießkanne",
       "it": "Annaffiatoio",
-      "ja": "ジョーロ"
+      "ja": "じょうろ"
     }
   },
   {
@@ -1374,7 +1374,7 @@
       "en": "Temple",
       "de": "Tempel",
       "it": "Tempio",
-      "ja": "寺院"
+      "ja": "お寺"
     }
   },
   {
@@ -1543,7 +1543,7 @@
       "en": "Metal Sheet",
       "de": "Metallblech",
       "it": "Lamiera",
-      "ja": "金属板"
+      "ja": "金属の板"
     }
   },
   {
@@ -1752,7 +1752,7 @@
       "en": "Leg",
       "de": "Bein",
       "it": "Gamba",
-      "ja": "脚"
+      "ja": "足"
     }
   },
   {
@@ -1864,7 +1864,7 @@
       "en": "Leg",
       "de": "Bein",
       "it": "Gamba",
-      "ja": "脚"
+      "ja": "足"
     }
   },
   {
