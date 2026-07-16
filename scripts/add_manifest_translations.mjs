@@ -5,7 +5,7 @@ const translations = {
   Trailer: { en: "Trailer", de: "Anhänger", it: "Rimorchio", ja: "トレーラー" },
   Balcony: { en: "Balcony", de: "Balkon", it: "Balcone", ja: "バルコニー" },
   Ball: { en: "Ball", de: "Ball", it: "Palla", ja: "ボール" },
-  Bett: { en: "Bed", de: "Bett", it: "Letto", ja: "ベッド" },
+  Bed: { en: "Bed", de: "Bett", it: "Letto", ja: "ベッド" },
   Monitor: { en: "Monitor", de: "Monitor", it: "Monitor", ja: "モニター" },
   "Letter Box": { en: "Letter Box", de: "Briefkasten", it: "Cassetta postale", ja: "郵便受け" },
   Ceiling: { en: "Ceiling", de: "Decke", it: "Soffitto", ja: "天井" },

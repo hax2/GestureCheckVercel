@@ -55,7 +55,7 @@
     "collection": "gesture",
     "source": "local_gesture_videos",
     "title": "05_Bett.mov.avi",
-    "target_word": "Bett",
+    "target_word": "Bed",
     "local_path": "data/gesture_videos/05_Bett.mov.avi",
     "target_words": {
       "en": "Bed",
