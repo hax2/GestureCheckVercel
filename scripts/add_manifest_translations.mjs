@@ -25,7 +25,7 @@ const translations = {
   Camera: { en: "Camera", de: "Kamera", it: "Macchina fotografica", ja: "カメラ" },
   Till: { en: "Till", de: "Kasse", it: "Cassa", ja: "レジ" },
   Catalog: { en: "Catalog", de: "Katalog", it: "Catalogo", ja: "カタログ" },
-  Clothes: { en: "Clothes", de: "Kleidung", it: "Vestiti", ja: "服" },
+  Clothes: { en: "Clothes", de: "Kleidung", it: "Vestito", ja: "服" },
   Suitcase: { en: "Suitcase", de: "Koffer", it: "Valigia", ja: "スーツケース" },
   Machine: { en: "Machine", de: "Maschine", it: "Macchina", ja: "機械" },
   Mask: { en: "Mask", de: "Maske", it: "Maschera", ja: "マスク" },
@@ -142,7 +142,6 @@ const translations = {
   Cheese: { en: "Cheese", de: "Käse", it: "Formaggio", ja: "チーズ" },
   Tree: { en: "Tree", de: "Baum", it: "Albero", ja: "木" },
   Door: { en: "Door", de: "Tür", it: "Porta", ja: "ドア" },
-  Cooking: { en: "Cooking", de: "Kochen", it: "Cucinare", ja: "料理" },
   Wrench: { en: "Wrench", de: "Schraubenschlüssel", it: "Chiave inglese", ja: "レンチ" },
   Cat: { en: "Cat", de: "Katze", it: "Gatto", ja: "猫" },
 };

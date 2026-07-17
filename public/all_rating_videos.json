@@ -320,7 +320,7 @@
     "target_words": {
       "en": "Clothes",
       "de": "Kleidung",
-      "it": "Vestiti",
+      "it": "Vestito",
       "ja": "服"
     }
   },
@@ -1907,20 +1907,6 @@
       "de": "Tür",
       "it": "Porta",
       "ja": "ドア"
-    }
-  },
-  {
-    "collection": "gesture",
-    "source": "rating-video",
-    "title": "87_Cooking.mp4",
-    "target_word": "Cooking",
-    "video_url": "assets/rating-video/87_Cooking.mp4",
-    "local_path": "public/assets/rating-video/87_Cooking.mp4",
-    "target_words": {
-      "en": "Cooking",
-      "de": "Kochen",
-      "it": "Cucinare",
-      "ja": "料理"
     }
   },
   {
