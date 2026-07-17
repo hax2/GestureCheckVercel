@@ -3,19 +3,28 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#173f35">
+    <meta name="description" content="Rate a series of gesture videos for a multilingual research study.">
     <title>Gesture Rating Task</title>
     <link rel="stylesheet" href="gesture-rating-task.css">
   </head>
   <body>
     <main class="survey-app">
       <header class="topbar">
-        <div>
-          <p id="appTitle" class="eyebrow">Gesture Rating Task</p>
-          <h1 id="targetWord">Loading videos...</h1>
-          <p id="videoTitle" class="muted"></p>
+        <div class="brand-lockup">
+          <div class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 48 48" focusable="false">
+              <path d="M15 22v-8a3 3 0 0 1 6 0v6-10a3 3 0 0 1 6 0v10-8a3 3 0 0 1 6 0v10-5a3 3 0 0 1 6 0v10c0 9-6 15-15 15h-1c-6 0-10-3-13-8l-3-5a3 3 0 0 1 5-3l3 4v-8Z"/>
+            </svg>
+          </div>
+          <div class="brand-copy">
+            <p id="appTitle" class="eyebrow">Gesture Rating Task</p>
+            <h1 id="targetWord">Loading videos...</h1>
+            <p id="videoTitle" class="video-meta"></p>
+          </div>
         </div>
         <div class="session-controls">
-          <label>
+          <label class="language-control">
             <span>Language</span>
             <select id="languageSelect">
               <option value="en">English</option>
@@ -31,11 +40,31 @@
         </div>
       </header>
 
-      <section class="instructions-panel" aria-labelledby="instructionsTitle">
+      <nav class="stage-nav" aria-label="Study progress">
+        <div id="stageConsent" class="stage-item current">
+          <span class="stage-number">1</span>
+          <span id="stageConsentLabel">Consent</span>
+        </div>
+        <span class="stage-line" aria-hidden="true"></span>
+        <div id="stageDetails" class="stage-item">
+          <span class="stage-number">2</span>
+          <span id="stageDetailsLabel">About you</span>
+        </div>
+        <span class="stage-line" aria-hidden="true"></span>
+        <div id="stageRating" class="stage-item">
+          <span class="stage-number">3</span>
+          <span id="stageRatingLabel">Rate gestures</span>
+        </div>
+      </nav>
+
+      <section id="instructionsPanel" class="instructions-panel" aria-labelledby="instructionsTitle">
         <div>
           <p id="instructionsKicker" class="eyebrow">Instructions</p>
           <h2 id="instructionsTitle">Gesture Rating Task Instructions</h2>
-          <div id="instructionsBody" class="instructions-body"></div>
+          <div id="instructionsBody" class="instructions-body" aria-busy="true">
+            <span class="loading-line"></span>
+            <span class="loading-line short"></span>
+          </div>
         </div>
         <table class="scale-table" aria-label="Rating scale">
           <thead>
@@ -54,16 +83,20 @@
             <p id="consentKicker" class="eyebrow">Informed consent</p>
             <h2 id="consentTitle">Participant consent</h2>
           </div>
-          <div id="consentBody" class="consent-body"></div>
+          <div id="consentBody" class="consent-body" aria-busy="true">
+            <span class="loading-line"></span>
+            <span class="loading-line"></span>
+            <span class="loading-line short"></span>
+          </div>
           <div id="consentChecks" class="consent-checks"></div>
           <div class="actions">
-            <p id="consentStatus" class="muted"></p>
+            <p id="consentStatus" class="muted" aria-live="polite"></p>
             <button id="consentButton" class="primary-button" type="submit">Continue</button>
           </div>
         </form>
       </section>
 
-      <section id="demographicsPanel" class="demographics-panel" aria-labelledby="demographicsTitle">
+      <section id="demographicsPanel" class="demographics-panel hidden" aria-labelledby="demographicsTitle">
         <form id="demographicsForm" class="demographics-form">
           <div>
             <p id="demographicsKicker" class="eyebrow">Before you start</p>
@@ -138,15 +171,17 @@
             </label>
           </div>
           <div class="actions">
-            <p id="demographicsStatus" class="muted"></p>
+            <p id="demographicsStatus" class="muted" aria-live="polite"></p>
             <button id="startButton" class="primary-button" type="submit">Start</button>
           </div>
         </form>
       </section>
 
       <div id="workbench" class="workbench hidden">
-        <section class="stimulus-panel" aria-label="Current video">
+        <section id="stimulusPanel" class="stimulus-panel" aria-label="Current video">
+          <div class="video-frame">
           <video id="videoPlayer" controls playsinline preload="metadata"></video>
+          </div>
           <div id="videoErrorActions" class="video-error-actions hidden">
             <button id="retryVideoButton" type="button">Retry video</button>
             <button id="skipVideoButton" type="button">Skip unavailable video</button>
@@ -154,15 +189,22 @@
           <p id="stimulusWord" class="stimulus-word"></p>
           <div class="progress-box">
             <p id="progressText" class="eyebrow"></p>
-            <div class="progress-track" aria-label="Survey progress">
+            <div id="progressTrack" class="progress-track" role="progressbar" aria-label="Survey progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
               <div id="progressBar" class="progress-bar"></div>
             </div>
             <p id="blockSummary" class="muted"></p>
-            <p id="saveStatus" class="muted">Choose one score for each row.</p>
+            <p id="saveStatus" class="status-message muted" aria-live="polite">Choose one score for each row.</p>
           </div>
         </section>
 
         <form id="ratingForm" class="rating-form">
+          <div class="rating-heading">
+            <div>
+              <p id="ratingKicker" class="eyebrow">Your impression</p>
+              <h2 id="ratingTitle">Rate this gesture</h2>
+            </div>
+            <p id="ratingHint" class="muted">Choose one answer in every row.</p>
+          </div>
           <section class="rating-matrix-wrap" aria-label="Rating dimensions">
             <table class="rating-matrix">
               <thead>
@@ -189,6 +231,14 @@
             <button id="nextButton" class="primary-button" type="submit">Save and continue</button>
           </div>
         </form>
+
+        <section id="completionPanel" class="completion-panel hidden">
+          <div class="completion-mark" aria-hidden="true">✓</div>
+          <p id="completionKicker" class="eyebrow">Complete</p>
+          <h2 id="completionTitle">Thank you</h2>
+          <p id="completionMessage" class="muted">All ratings were submitted successfully.</p>
+          <button id="completionBackButton" type="button">Review previous response</button>
+        </section>
       </div>
     </main>
 

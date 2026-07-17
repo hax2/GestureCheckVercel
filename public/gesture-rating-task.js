@@ -21,6 +21,15 @@
       appTitle: "Gesture Rating Task",
       pageTitle: "Gesture Rating Task",
       language: "Language",
+      stageConsent: "Consent",
+      stageDetails: "About you",
+      stageRating: "Rate gestures",
+      ratingKicker: "Your impression",
+      ratingTitle: "Rate this gesture",
+      ratingHint: "Choose one answer in every row.",
+      completionKicker: "Complete",
+      completionTitle: "Thank you",
+      completionBack: "Review previous response",
       participantId: "Participant ID",
       participantPlaceholder: "Optional",
       instructionsKicker: "Instructions",
@@ -258,6 +267,15 @@
       appTitle: "Gestenbewertung",
       pageTitle: "Gestenbewertung",
       language: "Sprache",
+      stageConsent: "Einwilligung",
+      stageDetails: "Über Sie",
+      stageRating: "Gesten bewerten",
+      ratingKicker: "Ihr Eindruck",
+      ratingTitle: "Bewerten Sie diese Geste",
+      ratingHint: "Wählen Sie in jeder Zeile eine Antwort aus.",
+      completionKicker: "Abgeschlossen",
+      completionTitle: "Vielen Dank",
+      completionBack: "Vorherige Antwort prüfen",
       participantId: "Teilnehmer-ID",
       participantPlaceholder: "Optional",
       instructionsKicker: "Anleitung",
@@ -494,6 +512,15 @@
       appTitle: "Valutazione dei Gesti",
       pageTitle: "Valutazione dei Gesti",
       language: "Lingua",
+      stageConsent: "Consenso",
+      stageDetails: "Informazioni",
+      stageRating: "Valuta i gesti",
+      ratingKicker: "La tua impressione",
+      ratingTitle: "Valuta questo gesto",
+      ratingHint: "Scegli una risposta in ogni riga.",
+      completionKicker: "Completato",
+      completionTitle: "Grazie",
+      completionBack: "Rivedi la risposta precedente",
       participantId: "ID partecipante",
       participantPlaceholder: "Facoltativo",
       instructionsKicker: "Istruzioni",
@@ -656,6 +683,15 @@
       appTitle: "ジェスチャー評価タスク",
       pageTitle: "ジェスチャー評価タスク",
       language: "言語",
+      stageConsent: "同意",
+      stageDetails: "参加者情報",
+      stageRating: "ジェスチャー評価",
+      ratingKicker: "あなたの印象",
+      ratingTitle: "このジェスチャーを評価",
+      ratingHint: "各行で回答を1つ選択してください。",
+      completionKicker: "完了",
+      completionTitle: "ありがとうございました",
+      completionBack: "前の回答を確認",
       participantId: "参加者ID",
       participantPlaceholder: "任意",
       instructionsKicker: "説明",
@@ -918,11 +954,13 @@
   const videoTitle = $("videoTitle");
   const stimulusWord = $("stimulusWord");
   const videoPlayer = $("videoPlayer");
+  const stimulusPanel = $("stimulusPanel");
   const videoErrorActions = $("videoErrorActions");
   const retryVideoButton = $("retryVideoButton");
   const skipVideoButton = $("skipVideoButton");
   const progressText = $("progressText");
   const progressBar = $("progressBar");
+  const progressTrack = $("progressTrack");
   const saveStatus = $("saveStatus");
   const blockSummary = $("blockSummary");
   const languageSelect = $("languageSelect");
@@ -934,6 +972,7 @@
   const backButton = $("backButton");
   const nextButton = $("nextButton");
   const instructionsKicker = $("instructionsKicker");
+  const instructionsPanel = $("instructionsPanel");
   const instructionsTitle = $("instructionsTitle");
   const instructionsBody = $("instructionsBody");
   const scaleRatingHead = $("scaleRatingHead");
@@ -963,6 +1002,11 @@
   const handednessInput = $("handednessInput");
   const familiarityInput = $("familiarityInput");
   const workbench = $("workbench");
+  const stageConsent = $("stageConsent");
+  const stageDetails = $("stageDetails");
+  const stageRating = $("stageRating");
+  const completionPanel = $("completionPanel");
+  const completionBackButton = $("completionBackButton");
 
   function slug(title) {
     return title
@@ -1220,12 +1264,35 @@
       </div>
     `;
     consentChecks.innerHTML = "";
+    consentBody.setAttribute("aria-busy", "false");
   }
 
   function renderFlowState() {
     consentPanel.classList.toggle("hidden", state.consentComplete);
     demographicsPanel.classList.toggle("hidden", !state.consentComplete || state.demographicsComplete);
     workbench.classList.toggle("hidden", !state.consentComplete || !state.demographicsComplete);
+    instructionsPanel.classList.toggle("hidden", taskIsActive());
+
+    const activeStage = !state.consentComplete
+      ? stageConsent
+      : !state.demographicsComplete
+        ? stageDetails
+        : stageRating;
+    [stageConsent, stageDetails, stageRating].forEach((stage) => {
+      const isCurrent = stage === activeStage;
+      const isComplete = stage === stageConsent
+        ? state.consentComplete
+        : stage === stageDetails
+          ? state.demographicsComplete
+          : state.index >= state.videos.length && state.videos.length > 0;
+      stage.classList.toggle("current", isCurrent);
+      stage.classList.toggle("complete", isComplete);
+      if (isCurrent) stage.setAttribute("aria-current", "step");
+      else stage.removeAttribute("aria-current");
+    });
+    document.body.dataset.stage = state.index >= state.videos.length && state.videos.length
+      ? "complete"
+      : activeStage.id.replace("stage", "").toLowerCase();
   }
 
   function taskIsActive() {
@@ -1289,6 +1356,7 @@
         <td>${meaning}</td>
       </tr>
     `).join("");
+    instructionsBody.setAttribute("aria-busy", "false");
   }
 
   function applyLanguage() {
@@ -1296,6 +1364,16 @@
     document.title = t().pageTitle;
     appTitle.textContent = t().appTitle;
     languageSelect.previousElementSibling.textContent = t().language;
+    $("stageConsentLabel").textContent = t().stageConsent;
+    $("stageDetailsLabel").textContent = t().stageDetails;
+    $("stageRatingLabel").textContent = t().stageRating;
+    $("ratingKicker").textContent = t().ratingKicker;
+    $("ratingTitle").textContent = t().ratingTitle;
+    $("ratingHint").textContent = t().ratingHint;
+    $("completionKicker").textContent = t().completionKicker;
+    $("completionTitle").textContent = t().completionTitle;
+    $("completionMessage").textContent = t().complete;
+    completionBackButton.textContent = t().completionBack;
     participantId.previousElementSibling.textContent = t().participantId;
     participantId.placeholder = t().participantPlaceholder;
     instructionsKicker.textContent = t().instructionsKicker;
@@ -1373,6 +1451,9 @@
 
   function renderVideo() {
     if (!taskIsActive()) {
+      stimulusPanel.classList.remove("hidden");
+      ratingForm.classList.remove("hidden");
+      completionPanel.classList.add("hidden");
       targetWord.textContent = state.consentComplete ? t().demographicsTitle : t().consentTitle;
       videoTitle.textContent = "";
       stimulusWord.textContent = "";
@@ -1384,23 +1465,31 @@
 
     const item = currentItem();
     if (!item) {
-      targetWord.textContent = "Complete";
+      renderFlowState();
+      targetWord.textContent = t().completionTitle;
       videoTitle.textContent = "";
       stimulusWord.textContent = "";
       videoPlayer.removeAttribute("src");
       videoPlayer.load();
       videoErrorActions.classList.add("hidden");
+      stimulusPanel.classList.add("hidden");
+      ratingForm.classList.add("hidden");
+      completionPanel.classList.remove("hidden");
       progressText.textContent = format(t().progress, { current: state.videos.length, total: state.videos.length });
       blockSummary.textContent = state.assignmentId
         ? format(t().assignmentSummary, { count: state.videos.length })
         : format(t().blockSummary, { block: state.block, start: state.blockStart + 1, end: state.blockEnd, total: state.totalVideos });
       progressBar.style.width = "100%";
+      progressTrack.setAttribute("aria-valuenow", "100");
       saveStatus.textContent = t().complete;
       nextButton.disabled = true;
       backButton.disabled = state.videos.length === 0;
       return;
     }
 
+    stimulusPanel.classList.remove("hidden");
+    ratingForm.classList.remove("hidden");
+    completionPanel.classList.add("hidden");
     targetWord.textContent = displayTargetWord(item);
     stimulusWord.textContent = displayTargetWord(item);
     videoTitle.textContent = item.title;
@@ -1408,7 +1497,9 @@
     blockSummary.textContent = state.assignmentId
       ? format(t().assignmentSummary, { count: state.videos.length })
       : format(t().blockSummary, { block: state.block, start: state.blockStart + 1, end: state.blockEnd, total: state.totalVideos });
-    progressBar.style.width = `${Math.round((state.index / Math.max(state.videos.length, 1)) * 100)}%`;
+    const progressPercent = Math.round((state.index / Math.max(state.videos.length, 1)) * 100);
+    progressBar.style.width = `${progressPercent}%`;
+    progressTrack.setAttribute("aria-valuenow", String(progressPercent));
     backButton.disabled = state.index === 0;
     nextButton.disabled = false;
     nextButton.textContent = state.index >= state.videos.length - 1 ? t().finish : t().saveContinue;
@@ -1736,6 +1827,15 @@
     submitPendingInBackground();
     state.index += 1;
     persistProgress();
+    renderRows();
+    renderVideo();
+    scrollToCurrentVideo();
+  });
+
+  completionBackButton.addEventListener("click", () => {
+    state.index = Math.max(0, state.videos.length - 1);
+    persistProgress();
+    renderFlowState();
     renderRows();
     renderVideo();
     scrollToCurrentVideo();
