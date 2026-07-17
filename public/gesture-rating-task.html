@@ -92,6 +92,7 @@
                 <option value="en">English</option>
                 <option value="de-DE">German (Germany)</option>
                 <option value="de-AT">German (Austria)</option>
+                <option value="it">Italian</option>
                 <option value="ja">Japanese</option>
                 <option value="other">Other language</option>
               </select>
@@ -146,6 +147,10 @@
       <div id="workbench" class="workbench hidden">
         <section class="stimulus-panel" aria-label="Current video">
           <video id="videoPlayer" controls playsinline preload="metadata"></video>
+          <div id="videoErrorActions" class="video-error-actions hidden">
+            <button id="retryVideoButton" type="button">Retry video</button>
+            <button id="skipVideoButton" type="button">Skip unavailable video</button>
+          </div>
           <p id="stimulusWord" class="stimulus-word"></p>
           <div class="progress-box">
             <p id="progressText" class="eyebrow"></p>

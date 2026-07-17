@@ -1,27 +1,31 @@
-import { withClient } from "./_lib/db.js";
+import { withTransaction } from "./_lib/db.js";
 import { fail, method, ok, readJson } from "./_lib/http.js";
+import { loadManifest } from "./_lib/manifest.js";
 import { randomId } from "./_lib/random.js";
+import {
+  requiredString,
+  validateLanguage,
+  validateRatings,
+  ValidationError,
+} from "./_lib/validation.js";
 
 function normalizeResponses(payload) {
   if (Array.isArray(payload.responses)) return payload.responses;
   if (payload.response) return [payload.response];
-  if (payload.title && payload.ratings) return [payload];
+  if (payload.title && (payload.ratings || payload.skipped)) return [payload];
   return [];
-}
-
-function responseId(response, participant) {
-  return response.response_id || [
-    response.participant_id || participant.participantId || "anonymous",
-    response.session_id || participant.sessionId || "session",
-    response.collection || "video",
-    response.title || "untitled",
-  ].join("::");
 }
 
 function requestCountry(req) {
   const header = req.headers["x-vercel-ip-country"];
   const country = String(Array.isArray(header) ? header[0] : header || "").trim().toUpperCase();
   return /^[A-Z]{2}$/.test(country) ? country : "";
+}
+
+function submittedAt(response) {
+  const value = response.submitted_at || response.saved_at;
+  const date = value ? new Date(value) : new Date();
+  return Number.isNaN(date.getTime()) ? new Date().toISOString() : date.toISOString();
 }
 
 export default async function handler(req, res) {
@@ -31,39 +35,101 @@ export default async function handler(req, res) {
     const payload = await readJson(req);
     const participant = payload.participant || {};
     const responses = normalizeResponses(payload);
+    if (!responses.length || responses.length > 50) {
+      throw new ValidationError("Payload must contain between 1 and 50 responses.");
+    }
+
+    const assignmentId = requiredString(
+      payload.assignment_id || participant.assignmentId || responses[0]?.assignment_id,
+      "assignment_id",
+      100,
+    );
+    const sessionId = requiredString(
+      participant.sessionId || participant.session_id || responses[0]?.session_id,
+      "session_id",
+      100,
+    );
+    const language = validateLanguage(
+      participant.language || payload.language || responses[0]?.language,
+    );
+    const manifest = await loadManifest();
+    const manifestByTitle = new Map(manifest.map((item) => [item.title, item]));
     const geoCountry = requestCountry(req);
     const storedPayload = geoCountry
       ? { ...payload, server_metadata: { geo_country: geoCountry } }
       : payload;
 
-    if (!responses.length) {
-      fail(res, new Error("Payload contains no responses."), 400);
-      return;
-    }
+    const result = await withTransaction(async (client) => {
+      const assignmentResult = await client.query(
+        `
+          SELECT id, participant_id, session_id, language, assigned_titles
+          FROM gesture_assignments
+          WHERE id = $1
+          FOR UPDATE
+        `,
+        [assignmentId],
+      );
+      const assignment = assignmentResult.rows[0];
+      if (!assignment) throw new ValidationError("Unknown assignment.");
+      if (assignment.session_id !== sessionId) {
+        throw new ValidationError("Assignment does not belong to this session.");
+      }
+      if (assignment.language !== language) {
+        throw new ValidationError("Response language does not match the assignment.");
+      }
 
-    const result = await withClient(async (client) => {
+      const assignedTitles = Array.isArray(assignment.assigned_titles)
+        ? assignment.assigned_titles
+        : [];
+      const assignedSet = new Set(assignedTitles);
+      const seenTitles = new Set();
       let inserted = 0;
       let updated = 0;
 
       for (const response of responses) {
-        const id = responseId(response, participant);
-        const values = [
-          id,
-          response.assignment_id || payload.assignment_id || participant.assignmentId || "",
-          response.participant_id || participant.participantId || "",
-          response.session_id || participant.sessionId || "",
-          response.language || participant.language || payload.language || "",
-          response.collection || "",
-          response.source || "",
-          response.title || "",
-          response.target_word || "",
-          response.video_url || "",
-          Number.isFinite(Number(response.order_index)) ? Number(response.order_index) : null,
-          JSON.stringify(response.ratings || {}),
-          response.notes || "",
-          response.submitted_at || response.saved_at || new Date().toISOString(),
-          JSON.stringify(storedPayload),
-        ];
+        const title = requiredString(response.title, "title", 300);
+        if (!assignedSet.has(title)) {
+          throw new ValidationError(`Video "${title}" is not part of this assignment.`);
+        }
+        if (seenTitles.has(title)) {
+          throw new ValidationError(`Video "${title}" appears more than once.`);
+        }
+        seenTitles.add(title);
+
+        const item = manifestByTitle.get(title);
+        if (!item) throw new ValidationError(`Video "${title}" is not in the manifest.`);
+
+        const skipped = response.skipped === true;
+        if (skipped && response.skip_reason !== "video_error") {
+          throw new ValidationError("Skipped videos require the video_error reason.");
+        }
+        const ratings = skipped ? {} : validateRatings(response.ratings);
+        const participantId = String(assignment.participant_id || "").trim().slice(0, 200);
+        const collection = item.collection || "";
+        const existingResult = await client.query(
+          `
+            SELECT response_id
+            FROM gesture_responses
+            WHERE assignment_id = $1
+              AND title = $2
+            ORDER BY received_at DESC
+            LIMIT 1
+          `,
+          [assignmentId, title],
+        );
+        const id = existingResult.rows[0]?.response_id || `${assignmentId}::${title}`;
+        const notes = String(response.notes || "").trim().slice(0, 2000);
+        const targetWord = item.target_words?.[language] || item.target_word || title;
+        const videoUrl = item.video_url
+          || item.video
+          || item.github_pages_path
+          || response.video_url
+          || "";
+        const orderIndex = assignedTitles.indexOf(title);
+        const rawPayload = {
+          ...storedPayload,
+          response_status: skipped ? "skipped_video_error" : "completed",
+        };
 
         const upsert = await client.query(
           `
@@ -107,14 +173,34 @@ export default async function handler(req, res) {
               received_at = NOW()
             RETURNING (xmax = 0) AS inserted
           `,
-          values,
+          [
+            id,
+            assignmentId,
+            participantId,
+            sessionId,
+            language,
+            collection,
+            item.source || "",
+            title,
+            targetWord,
+            videoUrl,
+            orderIndex,
+            JSON.stringify(ratings),
+            notes,
+            submittedAt(response),
+            JSON.stringify(rawPayload),
+          ],
         );
 
-        if (upsert.rows[0] && upsert.rows[0].inserted) inserted += 1;
+        if (upsert.rows[0]?.inserted) inserted += 1;
         else updated += 1;
       }
 
-      return { inserted_rows: inserted, updated_rows: updated, submission_id: randomId("submission") };
+      return {
+        inserted_rows: inserted,
+        updated_rows: updated,
+        submission_id: randomId("submission"),
+      };
     });
 
     ok(res, result);

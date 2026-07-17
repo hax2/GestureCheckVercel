@@ -169,11 +169,15 @@
       consentContinue: "Continue",
       dimensionHead: "Question",
       chooseAll: "Choose one score for each row.",
-      completeAll: "Please complete all six ratings before continuing.",
+      completeAll: "Please complete all seven ratings before continuing.",
       watchVideoFirst: "Please watch the video before rating.",
-      complete: "Block complete. Your ratings are saved in this browser.",
-      autoSubmitted: "Each saved response is submitted automatically.",
+      complete: "Block complete. All ratings were submitted successfully.",
+      autoSubmitted: "Saved responses are submitted automatically.",
+      submitting: "Submitting saved responses...",
       savedLocalFailed: "Saved locally, but server submission failed: {message}.",
+      videoLoadFailed: "This video could not be loaded. You can retry or skip this unavailable video.",
+      retryVideo: "Retry video",
+      skipVideo: "Skip unavailable video",
       demographicsKicker: "Before you start",
       demographicsTitle: "Participant information",
       demographicsSaved: "Participant information saved.",
@@ -201,6 +205,7 @@
           en: "English",
           "de-AT": "German (Austria)",
           "de-DE": "German (Germany)",
+          it: "Italian",
           ja: "Japanese",
           other: "Other language",
         },
@@ -244,6 +249,7 @@
         ["sensorimotor_imagery", "How much does the gesture feel like a real action or experience?"],
         ["motional_salience_gesture", "How big and dynamic is the movement?"],
         ["emotional_salience_facial_expression", "How much emotion is the face conveying?"],
+        ["gesture_complexity_fit", "How well does the complexity of the gesture fit the complexity of the word or concept?"],
         ["cultural_familiarity", "How familiar or common does the gesture seem in your country?"],
         ["enactment_potential", "How easy would it be to perform this gesture?"],
       ],
@@ -399,11 +405,15 @@
       consentContinue: "Weiter",
       dimensionHead: "Frage",
       chooseAll: "Wählen Sie für jede Zeile eine Bewertung aus.",
-      completeAll: "Bitte vervollständigen Sie alle sechs Bewertungen, bevor Sie fortfahren.",
+      completeAll: "Bitte vervollständigen Sie alle sieben Bewertungen, bevor Sie fortfahren.",
       watchVideoFirst: "Bitte sehen Sie sich zuerst das Video an.",
-      complete: "Block abgeschlossen. Ihre Bewertungen sind in diesem Browser gespeichert.",
-      autoSubmitted: "Jede gespeicherte Antwort wird automatisch übermittelt.",
+      complete: "Block abgeschlossen. Alle Bewertungen wurden erfolgreich übermittelt.",
+      autoSubmitted: "Gespeicherte Antworten werden automatisch übermittelt.",
+      submitting: "Gespeicherte Antworten werden übermittelt...",
       savedLocalFailed: "Lokal gespeichert, aber die Übermittlung an den Server ist fehlgeschlagen: {message}.",
+      videoLoadFailed: "Dieses Video konnte nicht geladen werden. Sie können es erneut versuchen oder das nicht verfügbare Video überspringen.",
+      retryVideo: "Video erneut laden",
+      skipVideo: "Nicht verfügbares Video überspringen",
       demographicsKicker: "Vor dem Start",
       demographicsTitle: "Angaben zur Person",
       demographicsSaved: "Angaben zur Person gespeichert.",
@@ -431,6 +441,7 @@
           en: "Englisch",
           "de-AT": "Deutsch (Österreich)",
           "de-DE": "Deutsch (Deutschland)",
+          it: "Italienisch",
           ja: "Japanisch",
           other: "Andere Sprache",
         },
@@ -474,6 +485,7 @@
         ["sensorimotor_imagery", "Wie sehr fühlt sich die Geste wie eine reale Handlung oder Erfahrung an?"],
         ["motional_salience_gesture", "Wie groß und dynamisch ist die Bewegung?"],
         ["emotional_salience_facial_expression", "Wie viel Emotion vermittelt das Gesicht?"],
+        ["gesture_complexity_fit", "Wie gut passt die Komplexität der Geste zur Komplexität des Wortes oder Konzepts?"],
         ["cultural_familiarity", "Wie vertraut oder verbreitet erscheint dir diese Geste in deinem Land?"],
         ["enactment_potential", "Wie leicht wäre es, diese Geste auszuführen?"],
       ],
@@ -555,11 +567,15 @@
       consentContinue: "Continua",
       dimensionHead: "Domanda",
       chooseAll: "Scegli un punteggio per ogni riga.",
-      completeAll: "Completa tutte e sei le valutazioni prima di continuare.",
+      completeAll: "Completa tutte e sette le valutazioni prima di continuare.",
       watchVideoFirst: "Guarda prima il video.",
-      complete: "Blocco completato. Le valutazioni sono salvate in questo browser.",
-      autoSubmitted: "Ogni risposta salvata viene inviata automaticamente.",
+      complete: "Blocco completato. Tutte le valutazioni sono state inviate correttamente.",
+      autoSubmitted: "Le risposte salvate vengono inviate automaticamente.",
+      submitting: "Invio delle risposte salvate...",
       savedLocalFailed: "Salvato localmente, ma l'invio al server non è riuscito: {message}.",
+      videoLoadFailed: "Non è stato possibile caricare questo video. Puoi riprovare o saltare il video non disponibile.",
+      retryVideo: "Riprova il video",
+      skipVideo: "Salta il video non disponibile",
       demographicsKicker: "Prima di iniziare",
       demographicsTitle: "Informazioni sul partecipante",
       demographicsSaved: "Informazioni sul partecipante salvate.",
@@ -587,6 +603,7 @@
           en: "Inglese",
           "de-AT": "Tedesco (Austria)",
           "de-DE": "Tedesco (Germania)",
+          it: "Italiano",
           ja: "Giapponese",
           other: "Altra lingua",
         },
@@ -630,6 +647,7 @@
         ["sensorimotor_imagery", "Quanto sembra il gesto una vera azione o esperienza?"],
         ["motional_salience_gesture", "Quanto il movimento è ampio e dinamico?"],
         ["emotional_salience_facial_expression", "Quanta emozione trasmette il volto?"],
+        ["gesture_complexity_fit", "Quanto bene la complessità del gesto corrisponde alla complessità della parola o del concetto?"],
         ["cultural_familiarity", "Quanto è familiare o comune questo gesto nel tuo Paese?"],
         ["enactment_potential", "Quanto sarebbe facile eseguire questo gesto?"],
       ],
@@ -784,11 +802,15 @@
       consentContinue: "続行",
       dimensionHead: "質問",
       chooseAll: "各行で評価を1つ選択してください。",
-      completeAll: "続行する前に、6つの評価すべてを完了させてください。",
+      completeAll: "続行する前に、7つの評価すべてを完了させてください。",
       watchVideoFirst: "評価する前に動画を視聴してください。",
-      complete: "ブロック完了。評価はブラウザに保存されました。",
-      autoSubmitted: "保存された各回答は，自動的に送信されます。",
+      complete: "ブロックが完了しました。すべての評価が正常に送信されました。",
+      autoSubmitted: "保存された回答は自動的に送信されます。",
+      submitting: "保存された回答を送信しています...",
       savedLocalFailed: "ローカルには保存されましたが、サーバーへの送信に失敗しました: {message}",
+      videoLoadFailed: "この動画を読み込めませんでした。再試行するか，利用できない動画をスキップできます。",
+      retryVideo: "動画を再読み込み",
+      skipVideo: "利用できない動画をスキップ",
       demographicsKicker: "開始する前に",
       demographicsTitle: "参加者情報",
       demographicsSaved: "参加者情報が保存されました。",
@@ -816,6 +838,7 @@
           en: "英語",
           "de-AT": "ドイツ語（オーストリア）",
           "de-DE": "ドイツ語（ドイツ）",
+          it: "イタリア語",
           ja: "日本語",
           other: "その他の言語",
         },
@@ -860,6 +883,7 @@
         ["sensorimotor_imagery", "このジェスチャーは，実際の動作や身体的経験にどの程度基づいていると感じますか？"],
         ["motional_salience_gesture", "このジェスチャーの動きは，どの程度大きく，躍動感がありますか？"],
         ["emotional_salience_facial_expression", "このジェスチャーに伴う顔の表情は，どの程度感情を伝えていますか？"],
+        ["gesture_complexity_fit", "このジェスチャーの複雑さは，単語や概念の複雑さにどの程度合っていますか？"],
         ["cultural_familiarity", "このジェスチャーは，あなたの国でどの程度馴染みがある，または一般的ですか？"],
         ["enactment_potential", "このジェスチャーを自分で行うのは，どの程度簡単ですか。"],
       ],
@@ -880,6 +904,7 @@
     demographicsComplete: false,
     index: 0,
     responses: {},
+    submittedResponses: {},
     watchedKeys: new Set(),
     recruitmentSource: (new URLSearchParams(window.location.search).get("recruitment_source") || "").slice(0, 100),
     language: ["en", "de", "it", "ja"].includes(new URLSearchParams(window.location.search).get("lang"))
@@ -893,6 +918,9 @@
   const videoTitle = $("videoTitle");
   const stimulusWord = $("stimulusWord");
   const videoPlayer = $("videoPlayer");
+  const videoErrorActions = $("videoErrorActions");
+  const retryVideoButton = $("retryVideoButton");
+  const skipVideoButton = $("skipVideoButton");
   const progressText = $("progressText");
   const progressBar = $("progressBar");
   const saveStatus = $("saveStatus");
@@ -992,11 +1020,19 @@
 
   function storageKey() {
     const scope = state.assignmentId || `block-${state.block}`;
-    return `gesture-rating-task:${participantId.value.trim() || state.sessionId || "anonymous"}:${scope}`;
+    return `gesture-rating-task:v2:${participantId.value.trim() || state.sessionId || "anonymous"}:${scope}`;
   }
 
   function responseKey(item) {
     return `${item.collection || "video"}::${item.title}`;
+  }
+
+  function persistProgress() {
+    localStorage.setItem(storageKey(), JSON.stringify({
+      index: state.index,
+      responses: state.responses,
+      submittedResponses: state.submittedResponses,
+    }));
   }
 
   function sessionId() {
@@ -1053,7 +1089,7 @@
     const displayNames = typeof Intl.DisplayNames === "function"
       ? new Intl.DisplayNames([state.language], { type: "region" })
       : null;
-    const priorityCodes = ["GB", "DE", "AT", "JP"];
+    const priorityCodes = ["GB", "DE", "AT", "IT", "JP"];
     const countries = COUNTRY_CODES.filter((code) => !priorityCodes.includes(code)).map((code) => ({
       code,
       label: displayNames ? displayNames.of(code) : code,
@@ -1102,7 +1138,7 @@
     ageInput.value = values.age || "";
     genderInput.value = values.gender || "";
     const nativeLanguage = values.native_language || "";
-    const commonNativeLanguages = new Set(["en", "de-AT", "de-DE", "ja", "other"]);
+    const commonNativeLanguages = new Set(["en", "de-AT", "de-DE", "it", "ja", "other"]);
     nativeLanguageInput.value = commonNativeLanguages.has(nativeLanguage)
       ? nativeLanguage
       : nativeLanguage ? "other" : "";
@@ -1274,6 +1310,8 @@
     notesLabel.textContent = t().notes;
     notes.placeholder = t().notesPlaceholder;
     backButton.textContent = t().back;
+    retryVideoButton.textContent = t().retryVideo;
+    skipVideoButton.textContent = t().skipVideo;
     consentKicker.textContent = t().consentKicker;
     consentTitle.textContent = t().consentTitle;
     consentButton.textContent = t().consentContinue;
@@ -1340,6 +1378,7 @@
       stimulusWord.textContent = "";
       videoPlayer.removeAttribute("src");
       videoPlayer.load();
+      videoErrorActions.classList.add("hidden");
       return;
     }
 
@@ -1350,6 +1389,7 @@
       stimulusWord.textContent = "";
       videoPlayer.removeAttribute("src");
       videoPlayer.load();
+      videoErrorActions.classList.add("hidden");
       progressText.textContent = format(t().progress, { current: state.videos.length, total: state.videos.length });
       blockSummary.textContent = state.assignmentId
         ? format(t().assignmentSummary, { count: state.videos.length })
@@ -1375,6 +1415,7 @@
 
     const saved = state.responses[responseKey(item)];
     notes.value = saved?.notes || "";
+    videoErrorActions.classList.add("hidden");
     videoPlayer.src = videoUrl(item);
     videoPlayer.load();
     updateRatingLock();
@@ -1397,6 +1438,32 @@
     return ratings;
   }
 
+  function responseFor(item, details) {
+    return {
+      participant_id: participantId.value.trim(),
+      session_id: state.sessionId,
+      assignment_id: state.assignmentId,
+      language: state.language,
+      collection: item.collection || "",
+      source: item.source || "",
+      title: item.title,
+      target_word: displayTargetWord(item),
+      target_word_source: item.target_word || item.title,
+      video_url: videoUrl(item),
+      order_index: Number.isFinite(Number(item.order_index)) ? Number(item.order_index) : state.index,
+      saved_at: new Date().toISOString(),
+      ...details,
+    };
+  }
+
+  function storeCurrentResponse(response) {
+    const item = currentItem();
+    const key = responseKey(item);
+    state.responses[key] = response;
+    state.submittedResponses[key] = false;
+    persistProgress();
+  }
+
   function saveCurrent() {
     const item = currentItem();
     if (!item) return true;
@@ -1412,25 +1479,23 @@
       return false;
     }
     saveStatus.classList.remove("warning");
-    const response = {
-      participant_id: participantId.value.trim(),
-      session_id: state.sessionId,
-      assignment_id: state.assignmentId,
-      language: state.language,
-      collection: item.collection || "",
-      source: item.source || "",
-      title: item.title,
-      target_word: displayTargetWord(item),
-      target_word_source: item.target_word || item.title,
-      video_url: videoUrl(item),
-      order_index: Number.isFinite(Number(item.order_index)) ? Number(item.order_index) : state.index,
+    const response = responseFor(item, {
       ratings,
       notes: notes.value.trim(),
-      saved_at: new Date().toISOString(),
-    };
-    state.responses[responseKey(item)] = response;
-    localStorage.setItem(storageKey(), JSON.stringify({ index: state.index, responses: state.responses }));
-    submitResponseInBackground(response);
+    });
+    storeCurrentResponse(response);
+    return true;
+  }
+
+  function saveSkippedCurrent() {
+    const item = currentItem();
+    if (!item || videoErrorActions.classList.contains("hidden")) return false;
+    storeCurrentResponse(responseFor(item, {
+      skipped: true,
+      skip_reason: "video_error",
+      ratings: {},
+      notes: "",
+    }));
     return true;
   }
 
@@ -1438,8 +1503,9 @@
     try {
       const saved = JSON.parse(localStorage.getItem(storageKey()) || "null");
       if (!saved) return;
-      state.index = Math.min(saved.index || 0, Math.max(state.videos.length - 1, 0));
+      state.index = Math.min(saved.index || 0, state.videos.length);
       state.responses = saved.responses || {};
+      state.submittedResponses = saved.submittedResponses || {};
     } catch {
       localStorage.removeItem(storageKey());
     }
@@ -1464,18 +1530,67 @@
   }
 
   async function postResponses(responses) {
-    const response = await fetch(config.submitUrl, {
-      method: "POST",
-      mode: config.submitMode,
-      headers: { "Content-Type": "text/plain;charset=utf-8" },
-      body: JSON.stringify(payloadFor(responses)),
-    });
-    if (config.submitMode !== "no-cors" && !response.ok) throw new Error(`HTTP ${response.status}`);
+    const controller = new AbortController();
+    const timeout = window.setTimeout(() => controller.abort(), 15_000);
+    try {
+      const response = await fetch(config.submitUrl, {
+        method: "POST",
+        mode: config.submitMode,
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify(payloadFor(responses)),
+        signal: controller.signal,
+      });
+      if (config.submitMode !== "no-cors") {
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok || !result.ok) {
+          throw new Error(result.error || `HTTP ${response.status}`);
+        }
+      }
+    } finally {
+      window.clearTimeout(timeout);
+    }
   }
 
-  function submitResponseInBackground(response) {
-    if (!config.submitUrl || !config.submitEachResponse) return;
-    postResponses([response]).catch((error) => {
+  let submissionPromise = null;
+
+  async function flushPendingResponses() {
+    if (!config.submitUrl) return true;
+    if (submissionPromise) {
+      const previousSucceeded = await submissionPromise;
+      if (!previousSucceeded) return false;
+    }
+
+    const pendingEntries = Object.entries(state.responses)
+      .filter(([key]) => !state.submittedResponses[key]);
+    if (!pendingEntries.length) return true;
+
+    saveStatus.textContent = t().submitting;
+    saveStatus.classList.remove("warning");
+    submissionPromise = (async () => {
+      try {
+        await postResponses(pendingEntries.map(([, response]) => response));
+        pendingEntries.forEach(([key]) => {
+          state.submittedResponses[key] = true;
+        });
+        persistProgress();
+        saveStatus.textContent = t().autoSubmitted;
+        return true;
+      } catch (error) {
+        const message = error.name === "AbortError" ? "request timed out" : error.message;
+        saveStatus.textContent = format(t().savedLocalFailed, { message });
+        saveStatus.classList.add("warning");
+        return false;
+      }
+    })();
+
+    const succeeded = await submissionPromise;
+    submissionPromise = null;
+    return succeeded;
+  }
+
+  function submitPendingInBackground() {
+    if (!config.submitEachResponse) return;
+    flushPendingResponses().catch((error) => {
       saveStatus.textContent = format(t().savedLocalFailed, { message: error.message });
       saveStatus.classList.add("warning");
     });
@@ -1483,7 +1598,7 @@
 
   async function postDemographics() {
     if (!config.participantUrl) return;
-    await fetch(config.participantUrl, {
+    const response = await fetch(config.participantUrl, {
       method: "POST",
       mode: config.submitMode,
       headers: { "Content-Type": "text/plain;charset=utf-8" },
@@ -1499,6 +1614,12 @@
         },
       }),
     });
+    if (config.submitMode !== "no-cors") {
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok || !result.ok) {
+        throw new Error(result.error || `HTTP ${response.status}`);
+      }
+    }
   }
 
   ratingForm.addEventListener("change", () => {
@@ -1512,15 +1633,24 @@
     setSelectedStyles();
   });
 
-  ratingForm.addEventListener("submit", (event) => {
+  ratingForm.addEventListener("submit", async (event) => {
     event.preventDefault();
     if (!saveCurrent()) return;
     if (state.index >= state.videos.length - 1) {
+      nextButton.disabled = true;
+      const submitted = await flushPendingResponses();
+      if (!submitted) {
+        nextButton.disabled = false;
+        return;
+      }
       state.index = state.videos.length;
+      persistProgress();
       renderVideo();
       return;
     }
+    submitPendingInBackground();
     state.index += 1;
+    persistProgress();
     renderRows();
     renderVideo();
     scrollToCurrentVideo();
@@ -1528,7 +1658,9 @@
 
   backButton.addEventListener("click", () => {
     if (canRateCurrent()) saveCurrent();
+    submitPendingInBackground();
     state.index = Math.max(0, state.index - 1);
+    persistProgress();
     renderRows();
     renderVideo();
     scrollToCurrentVideo();
@@ -1544,9 +1676,9 @@
   });
 
   languageSelect.addEventListener("change", () => {
-    state.language = languageSelect.value;
-    syncUrl({ lang: state.language });
-    applyLanguage();
+    const url = new URL(window.location.href);
+    url.searchParams.set("lang", languageSelect.value);
+    window.location.assign(url.toString());
   });
 
   participantId.addEventListener("change", () => {
@@ -1575,7 +1707,56 @@
     renderFlowState();
     renderRows();
     renderVideo();
-    postDemographics().catch(() => {});
+    postDemographics().catch((error) => {
+      demographicsStatus.textContent = format(t().savedLocalFailed, { message: error.message });
+      demographicsStatus.classList.add("warning");
+    });
+  });
+
+  retryVideoButton.addEventListener("click", () => {
+    videoErrorActions.classList.add("hidden");
+    saveStatus.textContent = t().watchVideoFirst;
+    videoPlayer.load();
+  });
+
+  skipVideoButton.addEventListener("click", async () => {
+    if (!saveSkippedCurrent()) return;
+    if (state.index >= state.videos.length - 1) {
+      nextButton.disabled = true;
+      const submitted = await flushPendingResponses();
+      if (!submitted) {
+        nextButton.disabled = false;
+        return;
+      }
+      state.index = state.videos.length;
+      persistProgress();
+      renderVideo();
+      return;
+    }
+    submitPendingInBackground();
+    state.index += 1;
+    persistProgress();
+    renderRows();
+    renderVideo();
+    scrollToCurrentVideo();
+  });
+
+  videoPlayer.addEventListener("loadeddata", () => {
+    videoErrorActions.classList.add("hidden");
+  });
+
+  videoPlayer.addEventListener("error", () => {
+    if (!currentItem()) return;
+    videoErrorActions.classList.remove("hidden");
+    saveStatus.textContent = t().videoLoadFailed;
+    saveStatus.classList.add("warning");
+  });
+
+  window.addEventListener("online", () => {
+    submitPendingInBackground();
+    if (state.demographicsComplete) {
+      postDemographics().catch(() => {});
+    }
   });
 
   async function init() {
@@ -1654,6 +1835,10 @@
     loadDemographics();
     loadSaved();
     applyLanguage();
+    submitPendingInBackground();
+    if (state.demographicsComplete) {
+      postDemographics().catch(() => {});
+    }
   }
 
   init().catch((error) => {

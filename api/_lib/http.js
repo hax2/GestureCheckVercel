@@ -4,7 +4,8 @@ export function ok(res, payload, status = 200) {
 
 export function fail(res, error, status = 500) {
   const message = error && error.message ? error.message : String(error);
-  res.status(status).json({ ok: false, error: message });
+  const responseStatus = error && Number.isInteger(error.status) ? error.status : status;
+  res.status(responseStatus).json({ ok: false, error: message });
 }
 
 export async function readJson(req) {

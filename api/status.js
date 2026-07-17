@@ -1,6 +1,7 @@
 import { withClient } from "./_lib/db.js";
 import { fail, method, ok } from "./_lib/http.js";
 import { loadManifest } from "./_lib/manifest.js";
+import { COMPLETE_RATINGS_SQL } from "./_lib/validation.js";
 
 export default async function handler(req, res) {
   if (!method(req, res, ["GET"])) return;
@@ -17,6 +18,7 @@ export default async function handler(req, res) {
           SELECT title, COUNT(*)::int AS completed_count
           FROM gesture_responses
           WHERE language = $1
+            AND ${COMPLETE_RATINGS_SQL}
           GROUP BY title
         `,
         [language],
