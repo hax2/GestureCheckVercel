@@ -21,6 +21,7 @@
       appTitle: "Gesture Rating Task",
       pageTitle: "Gesture Rating Task",
       language: "Language",
+      languageLocked: "Locked during the task",
       stageConsent: "Consent",
       stageDetails: "About you",
       stageRating: "Rate gestures",
@@ -267,6 +268,7 @@
       appTitle: "Gestenbewertung",
       pageTitle: "Gestenbewertung",
       language: "Sprache",
+      languageLocked: "Während der Aufgabe gesperrt",
       stageConsent: "Einwilligung",
       stageDetails: "Über Sie",
       stageRating: "Gesten bewerten",
@@ -512,6 +514,7 @@
       appTitle: "Valutazione dei Gesti",
       pageTitle: "Valutazione dei Gesti",
       language: "Lingua",
+      languageLocked: "Bloccata durante l'attività",
       stageConsent: "Consenso",
       stageDetails: "Informazioni",
       stageRating: "Valuta i gesti",
@@ -683,6 +686,7 @@
       appTitle: "ジェスチャー評価タスク",
       pageTitle: "ジェスチャー評価タスク",
       language: "言語",
+      languageLocked: "評価中は変更できません",
       stageConsent: "同意",
       stageDetails: "参加者情報",
       stageRating: "ジェスチャー評価",
@@ -964,6 +968,7 @@
   const saveStatus = $("saveStatus");
   const blockSummary = $("blockSummary");
   const languageSelect = $("languageSelect");
+  const languageLockNote = $("languageLockNote");
   const participantId = $("participantId");
   const ratingForm = $("ratingForm");
   const ratingRows = $("ratingRows");
@@ -1289,6 +1294,8 @@
     demographicsPanel.classList.toggle("hidden", !state.consentComplete || state.demographicsComplete);
     workbench.classList.toggle("hidden", !state.consentComplete || !state.demographicsComplete);
     instructionsPanel.classList.toggle("hidden", taskIsActive());
+    languageSelect.disabled = taskIsActive();
+    languageLockNote.classList.toggle("hidden", !taskIsActive());
 
     const activeStage = !state.consentComplete
       ? stageConsent
@@ -1381,6 +1388,7 @@
     document.title = t().pageTitle;
     appTitle.textContent = t().appTitle;
     languageSelect.previousElementSibling.textContent = t().language;
+    languageLockNote.textContent = t().languageLocked;
     $("stageConsentLabel").textContent = t().stageConsent;
     $("stageDetailsLabel").textContent = t().stageDetails;
     $("stageRatingLabel").textContent = t().stageRating;

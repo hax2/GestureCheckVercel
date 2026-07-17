@@ -242,6 +242,23 @@ h2 {
   font-weight: 750;
 }
 
+.language-lock-note {
+  color: var(--muted);
+  font-size: 10px !important;
+  font-weight: 650;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
+
+.language-control:has(select:disabled) select {
+  border-color: var(--line);
+  background:
+    linear-gradient(90deg, transparent, transparent),
+    var(--page-deep);
+  color: var(--muted-strong);
+  cursor: not-allowed;
+}
+
 .stage-nav {
   display: grid;
   grid-template-columns: auto minmax(24px, 1fr) auto minmax(24px, 1fr) auto;
