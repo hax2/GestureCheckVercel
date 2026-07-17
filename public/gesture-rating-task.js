@@ -998,6 +998,7 @@
   const nativeLanguageInput = $("nativeLanguageInput");
   const nativeLanguageOtherInput = $("nativeLanguageOtherInput");
   const countryInput = $("countryInput");
+  const commonCountryButtons = $("commonCountryButtons");
   const educationInput = $("educationInput");
   const handednessInput = $("handednessInput");
   const familiarityInput = $("familiarityInput");
@@ -1154,6 +1155,22 @@
       new Option(t().countryNotDisclosed, "prefer_not_to_say"),
     );
     countryInput.value = selected;
+
+    commonCountryButtons.replaceChildren(...priorityCodes.map((code) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "country-chip";
+      button.dataset.countryCode = code;
+      button.textContent = displayNames ? displayNames.of(code) : code;
+      button.classList.toggle("selected", code === selected);
+      button.addEventListener("click", () => {
+        countryInput.value = code;
+        commonCountryButtons.querySelectorAll(".country-chip").forEach((chip) => {
+          chip.classList.toggle("selected", chip.dataset.countryCode === code);
+        });
+      });
+      return button;
+    }));
   }
 
   function syncNativeLanguageOther() {
@@ -1779,6 +1796,12 @@
   });
 
   nativeLanguageInput.addEventListener("change", syncNativeLanguageOther);
+
+  countryInput.addEventListener("change", () => {
+    commonCountryButtons.querySelectorAll(".country-chip").forEach((chip) => {
+      chip.classList.toggle("selected", chip.dataset.countryCode === countryInput.value);
+    });
+  });
 
   consentForm.addEventListener("submit", (event) => {
     event.preventDefault();
