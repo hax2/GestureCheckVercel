@@ -38,7 +38,7 @@
       instructionsBody: [
         "In this task, you will watch a series of gesture videos.",
         "For each video, a word and a gesture will be presented.",
-        "Please answer the following question for each video using a scale from 1 to 5:",
+        "You will be asked to perform some ratings for each video using a scale from 1 to 5.",
         "There are no right or wrong answers. Please respond based on your immediate impression.",
       ],
       scaleRating: "Rating",
@@ -241,12 +241,11 @@
       },
       progress: "Video {current} of {total}",
       blockSummary: "Block {block}: videos {start}-{end} of {total}",
-      assignmentSummary: "Adaptive assignment: {count} videos selected from the full set.",
       saveContinue: "Save and continue",
       finish: "Finish",
       back: "Back",
       notes: "Notes, optional",
-      notesPlaceholder: "Anything unclear about this gesture? Do not include names, contact details, or private information.",
+      notesPlaceholder: "Is there anything unclear about this gesture? Do not include names, contact details, or private information.",
       likert: {
         1: "Not at all",
         2: "A little / Slightly",
@@ -487,7 +486,6 @@
       },
       progress: "Video {current} von {total}",
       blockSummary: "Block {block}: Videos {start}-{end} von {total}",
-      assignmentSummary: "Adaptive Zuweisung: {count} Videos aus dem gesamten Set ausgewählt.",
       saveContinue: "Speichern und fortfahren",
       finish: "Beenden",
       back: "Zurück",
@@ -659,7 +657,6 @@
       },
       progress: "Video {current} di {total}",
       blockSummary: "Blocco {block}: video {start}-{end} di {total}",
-      assignmentSummary: "Assegnazione adattiva: {count} video selezionati dall'intero set.",
       saveContinue: "Salva e continua",
       finish: "Fine",
       back: "Indietro",
@@ -905,7 +902,6 @@
       },
       progress: "動画 {current} / {total}",
       blockSummary: "ブロック {block}: 動画 {start}〜{end} / 全体 {total}",
-      assignmentSummary: "全動画セット中から{count}本の動画が選択されます。",
       saveContinue: "保存して次へ",
       finish: "終了",
       back: "戻る",
@@ -1502,7 +1498,7 @@
       completionPanel.classList.remove("hidden");
       progressText.textContent = format(t().progress, { current: state.videos.length, total: state.videos.length });
       blockSummary.textContent = state.assignmentId
-        ? format(t().assignmentSummary, { count: state.videos.length })
+        ? ""
         : format(t().blockSummary, { block: state.block, start: state.blockStart + 1, end: state.blockEnd, total: state.totalVideos });
       progressBar.style.width = "100%";
       progressTrack.setAttribute("aria-valuenow", "100");
@@ -1520,7 +1516,7 @@
     videoTitle.textContent = item.title;
     progressText.textContent = format(t().progress, { current: state.index + 1, total: state.videos.length });
     blockSummary.textContent = state.assignmentId
-      ? format(t().assignmentSummary, { count: state.videos.length })
+      ? ""
       : format(t().blockSummary, { block: state.block, start: state.blockStart + 1, end: state.blockEnd, total: state.totalVideos });
     const progressPercent = Math.round((state.index / Math.max(state.videos.length, 1)) * 100);
     progressBar.style.width = `${progressPercent}%`;
