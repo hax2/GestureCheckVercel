@@ -116,7 +116,7 @@ https://your-vercel-app.vercel.app/?block_size=20&lang=de&recruitment_source=aus
 
 `recruitment_source` accepts letters, numbers, dots, underscores, and hyphens. The participant API also records Vercel's approximate `x-vercel-ip-country` value as `geo_country`; the application does not store the participant's IP address. Both values are stored in the existing `gesture_participants.demographics` JSON, so no database migration is required.
 
-By default, `gesture-rating-task.js` calls `/api/assignment` for a 20-video adaptive assignment and posts each completed video to `/api/responses`. The assignment algorithm counts completed ratings by `language + title`, prioritizes gestures below the target quota of 20, and still includes randomness so order and assignment are not deterministic. Assignments are logged, but quota counts come from completed responses only, so participant dropout does not inflate completed counts.
+By default, `gesture-rating-task.js` calls `/api/assignment` for a 20-video adaptive assignment and posts each completed video to `/api/responses`. The assignment algorithm counts completed ratings by video title across all languages, prioritizes videos below the target quota of 20, and still includes randomness so order and assignment are not deterministic. Assignments are logged, but quota counts come from completed responses only, so participant dropout does not inflate completed counts.
 
 Useful API calls:
 
@@ -126,7 +126,7 @@ POST /api/responses
 GET /api/status?lang=de&target_quota=20
 ```
 
-The status response includes completed participant counts grouped by self-reported country of origin, approximate connection country, and recruitment source. A participant is counted as complete only after all responses in their adaptive assignment have been received. For example, participants of Austrian and German origin appear separately under `completed_participants_by_country` as `AT` and `DE`.
+The status response reports each video's quota progress across all languages and includes `quota_scope: "all_languages"`. The `lang` parameter still filters completed-participant counts grouped by self-reported country of origin, approximate connection country, and recruitment source. A participant is counted as complete only after all responses in their adaptive assignment have been received. For example, participants of Austrian and German origin appear separately under `completed_participants_by_country` as `AT` and `DE`.
 
 To force the old static block behavior for testing, add `assignment=static` or pass an explicit `block`:
 

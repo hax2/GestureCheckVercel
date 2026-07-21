@@ -17,11 +17,9 @@ export default async function handler(req, res) {
         `
           SELECT title, COUNT(*)::int AS completed_count
           FROM gesture_responses
-          WHERE language = $1
-            AND ${COMPLETE_RATINGS_SQL}
+          WHERE ${COMPLETE_RATINGS_SQL}
           GROUP BY title
         `,
-        [language],
       );
       const completedResult = await client.query(
         `
@@ -107,6 +105,7 @@ export default async function handler(req, res) {
 
     ok(res, {
       language,
+      quota_scope: "all_languages",
       target_quota: targetQuota,
       gestures: status,
       total_completed_ratings: status.reduce((sum, item) => sum + item.completed_count, 0),
