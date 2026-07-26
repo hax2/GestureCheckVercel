@@ -693,6 +693,11 @@
       completionKicker: "完了",
       completionTitle: "ありがとうございました",
       completionBack: "前の回答を確認",
+      workerNameLabel: "あなたのワーカー名をご記入ください。",
+      workerNameSubmit: "ワーカー名を送信",
+      workerNameSaving: "ワーカー名を送信しています...",
+      workerNameSaved: "ワーカー名を送信しました。",
+      workerNameRequired: "ワーカー名をご記入ください。",
       participantId: "参加者ID",
       participantPlaceholder: "任意",
       instructionsKicker: "説明",
@@ -1009,6 +1014,11 @@
   const stageRating = $("stageRating");
   const completionPanel = $("completionPanel");
   const completionBackButton = $("completionBackButton");
+  const workerNameForm = $("workerNameForm");
+  const workerNameInput = $("workerNameInput");
+  const workerNameLabel = $("workerNameLabel");
+  const workerNameStatus = $("workerNameStatus");
+  const workerNameButton = $("workerNameButton");
 
   function slug(title) {
     return title
@@ -1395,6 +1405,13 @@
     $("completionTitle").textContent = t().completionTitle;
     $("completionMessage").textContent = t().complete;
     completionBackButton.textContent = t().completionBack;
+    const showWorkerName = state.language === "ja";
+    workerNameForm.classList.toggle("hidden", !showWorkerName);
+    if (showWorkerName) {
+      workerNameLabel.textContent = t().workerNameLabel;
+      workerNameButton.textContent = t().workerNameSubmit;
+      workerNameInput.value = localStorage.getItem(workerNameStorageKey()) || "";
+    }
     participantId.previousElementSibling.textContent = t().participantId;
     participantId.placeholder = t().participantPlaceholder;
     instructionsKicker.textContent = t().instructionsKicker;
@@ -1734,6 +1751,36 @@
     }
   }
 
+  function workerNameStorageKey() {
+    return `gesture-rating-task:worker-name:${state.sessionId}`;
+  }
+
+  async function postWorkerName(workerName) {
+    if (!config.participantUrl) return;
+    const response = await fetch(config.participantUrl, {
+      method: "POST",
+      mode: config.submitMode,
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify({
+        participant: {
+          participantId: workerName,
+          sessionId: state.sessionId,
+          assignmentId: state.assignmentId,
+          language: state.language,
+          recruitmentSource: state.recruitmentSource,
+          consent: state.consent,
+          demographics: state.demographics,
+        },
+      }),
+    });
+    if (config.submitMode !== "no-cors") {
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok || !result.ok) {
+        throw new Error(result.error || `HTTP ${response.status}`);
+      }
+    }
+  }
+
   ratingForm.addEventListener("change", () => {
     if (!canRateCurrent()) {
       saveStatus.textContent = t().watchVideoFirst;
@@ -1866,6 +1913,31 @@
     renderRows();
     renderVideo();
     scrollToCurrentVideo();
+  });
+
+  workerNameForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const workerName = workerNameInput.value.trim();
+    if (!workerName) {
+      workerNameStatus.textContent = t().workerNameRequired;
+      workerNameStatus.classList.add("warning");
+      workerNameInput.focus();
+      return;
+    }
+
+    workerNameButton.disabled = true;
+    workerNameStatus.textContent = t().workerNameSaving;
+    workerNameStatus.classList.remove("warning");
+    try {
+      await postWorkerName(workerName);
+      localStorage.setItem(workerNameStorageKey(), workerName);
+      workerNameStatus.textContent = t().workerNameSaved;
+    } catch (error) {
+      workerNameStatus.textContent = format(t().savedLocalFailed, { message: error.message });
+      workerNameStatus.classList.add("warning");
+    } finally {
+      workerNameButton.disabled = false;
+    }
   });
 
   videoPlayer.addEventListener("loadeddata", () => {

@@ -900,6 +900,23 @@ video {
   margin: 10px auto 24px;
 }
 
+.worker-name-form {
+  width: min(100%, 520px);
+  display: grid;
+  gap: 12px;
+  margin: 20px auto;
+  text-align: left;
+}
+
+.worker-name-form .muted {
+  min-height: 21px;
+  margin: 0;
+}
+
+.worker-name-form .primary-button {
+  justify-self: center;
+}
+
 @media (max-width: 980px) {
   .survey-app {
     width: min(100% - 28px, 820px);

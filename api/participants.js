@@ -1,4 +1,4 @@
-import { withClient } from "./_lib/db.js";
+import { withTransaction } from "./_lib/db.js";
 import { fail, method, ok, readJson } from "./_lib/http.js";
 import {
   requiredString,
@@ -40,6 +40,9 @@ export default async function handler(req, res) {
       100,
     );
     const language = validateLanguage(participant.language || payload.language);
+    const participantId = String(
+      participant.participantId || participant.participant_id || "",
+    ).trim().slice(0, 200);
 
     const suppliedDemographics = participant.demographics || payload.demographics || {};
     if (
@@ -63,7 +66,7 @@ export default async function handler(req, res) {
       throw new ValidationError("Demographics payload is too large.");
     }
 
-    const result = await withClient(async (client) => {
+    const result = await withTransaction(async (client) => {
       const assignmentResult = await client.query(
         `
           SELECT session_id, language
@@ -93,18 +96,42 @@ export default async function handler(req, res) {
           )
           VALUES ($1, $2, $3, $4::jsonb, NOW(), NOW())
           ON CONFLICT (session_id) DO UPDATE SET
-            participant_id = EXCLUDED.participant_id,
+            participant_id = CASE
+              WHEN EXCLUDED.participant_id <> '' THEN EXCLUDED.participant_id
+              ELSE gesture_participants.participant_id
+            END,
             language = EXCLUDED.language,
             demographics = gesture_participants.demographics || EXCLUDED.demographics,
             updated_at = NOW()
         `,
         [
           sessionId,
-          participant.participantId || participant.participant_id || "",
+          participantId,
           language,
           JSON.stringify(demographics),
         ],
       );
+
+      if (participantId) {
+        await client.query(
+          `
+            UPDATE gesture_assignments
+            SET participant_id = $1
+            WHERE id = $2
+              AND session_id = $3
+          `,
+          [participantId, assignmentId, sessionId],
+        );
+        await client.query(
+          `
+            UPDATE gesture_responses
+            SET participant_id = $1
+            WHERE assignment_id = $2
+              AND session_id = $3
+          `,
+          [participantId, assignmentId, sessionId],
+        );
+      }
 
       return { session_id: sessionId };
     });

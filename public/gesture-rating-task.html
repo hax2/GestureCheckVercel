@@ -239,6 +239,14 @@
           <p id="completionKicker" class="eyebrow">Complete</p>
           <h2 id="completionTitle">Thank you</h2>
           <p id="completionMessage" class="muted">All ratings were submitted successfully.</p>
+          <form id="workerNameForm" class="worker-name-form hidden">
+            <label for="workerNameInput">
+              <span id="workerNameLabel">あなたのワーカー名をご記入ください。</span>
+              <input id="workerNameInput" type="text" maxlength="200" autocomplete="off" required>
+            </label>
+            <p id="workerNameStatus" class="muted" aria-live="polite"></p>
+            <button id="workerNameButton" class="primary-button" type="submit">ワーカー名を送信</button>
+          </form>
           <button id="completionBackButton" type="button">Review previous response</button>
         </section>
       </div>
