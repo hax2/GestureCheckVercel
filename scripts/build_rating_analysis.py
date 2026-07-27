@@ -32,9 +32,9 @@ DIMENSIONS = [
 ]
 DIM_LABELS = dict(DIMENSIONS)
 MODELS = [
-    ("gemini_pro", "Gemini Pro", "all_rating_pro"),
-    ("gemini_flash", "Gemini Flash", "all_rating_flash"),
-    ("qwen", "Qwen 3.5 397B A17B", "qwen_qwen3.5-397b-a17b_video_fixed"),
+    ("gemini_pro", "Gemini 3.1 Pro Preview", "all_rating_pro"),
+    ("gemini_flash", "Gemini 3.1 Flash-Lite Preview", "all_rating_flash"),
+    ("qwen", "Qwen3.5-397B-A17B", "qwen_qwen3.5-397b-a17b_video_fixed"),
 ]
 MODEL_LABELS = {key: label for key, label, _ in MODELS}
 LANGUAGE_LABELS = {"en": "English", "de": "German", "it": "Italian", "ja": "Japanese"}
@@ -488,7 +488,11 @@ def build_workbook(output_path, human_df, model_df, rationales_df, video_df, ove
         ("Purpose", "Human–VLM comparison across seven 1–5 gesture-rating dimensions."),
         ("Snapshot", metadata["generated_at"]),
         ("Human data", f"{metadata['human_responses']} complete responses, {metadata['human_raters']} pseudonymized raters, {metadata['human_videos']} videos."),
-        ("VLM data", "149 videos for each of Gemini Pro, Gemini Flash, and corrected Qwen 3.5 397B A17B."),
+        (
+            "VLM data",
+            "149 videos for each of google/gemini-3.1-pro-preview, "
+            "google/gemini-3.1-flash-lite-preview, and qwen/qwen3.5-397b-a17b.",
+        ),
         ("Privacy", "Raw database identifiers, exact submission times, raw payloads, and participant-level demographics are excluded. Rater codes are study-local pseudonyms."),
         ("Primary comparison", "Each VLM score is paired with the human mean for the same video and dimension. Videos—not individual ratings—receive equal weight."),
         ("Inference", "Pearson and Spearman correlation measure item ordering; MAE/RMSE measure distance; bias tests whether model scores are systematically higher/lower."),
