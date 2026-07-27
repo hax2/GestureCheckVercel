@@ -7,6 +7,7 @@ import argparse
 import json
 import math
 import re
+import shutil
 from collections import Counter, defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
@@ -711,6 +712,11 @@ def main():
     parser.add_argument("--models-root", type=Path, default=Path("/home/Shodan/Projects/GestureCheck/results"))
     parser.add_argument("--manifest", type=Path, default=Path("public/all_rating_videos.json"))
     parser.add_argument("--workbook", type=Path, default=Path("analysis/gesture_ratings_complete_analysis.xlsx"))
+    parser.add_argument(
+        "--public-workbook",
+        type=Path,
+        default=Path("public/research-insights-7f3c9a/gesture_ratings_all_data_and_analysis.xlsx"),
+    )
     parser.add_argument("--dashboard-data", type=Path, default=Path("public/research-insights-7f3c9a/data.json"))
     args = parser.parse_args()
 
@@ -743,6 +749,8 @@ def main():
         comments,
         metadata,
     )
+    args.public_workbook.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(args.workbook, args.public_workbook)
     args.dashboard_data.parent.mkdir(parents=True, exist_ok=True)
     args.dashboard_data.write_text(
         json.dumps(
@@ -764,6 +772,7 @@ def main():
         json.dumps(
             {
                 "workbook": str(args.workbook),
+                "public_workbook": str(args.public_workbook),
                 "dashboard_data": str(args.dashboard_data),
                 "human_responses": len(human_df),
                 "paired_videos": sum(video["human_response_count"] > 0 for video in videos),

@@ -14,6 +14,7 @@ const required = [
   "public/research-insights-7f3c9a/styles.css",
   "public/research-insights-7f3c9a/app.js",
   "public/research-insights-7f3c9a/data.json",
+  "public/research-insights-7f3c9a/gesture_ratings_all_data_and_analysis.xlsx",
   "vercel.json",
   "package.json",
 ];

@@ -71,6 +71,25 @@ main { max-width: 1440px; margin: 0 auto; padding: 0 clamp(22px, 5vw, 76px) 60px
 .eyebrow { margin: 0 0 14px; color: var(--blue); font-size: 11px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
 h1 { max-width: 780px; margin: 0; color: var(--night); font-size: clamp(48px, 6.4vw, 94px); line-height: .96; letter-spacing: -.055em; }
 .lede { max-width: 650px; margin: 26px 0 0; color: var(--muted); font-size: clamp(17px, 1.6vw, 22px); line-height: 1.55; }
+.hero-actions { margin-top: 30px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.primary-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 18px;
+  color: white;
+  background: var(--night);
+  border-radius: 10px;
+  box-shadow: 0 12px 30px rgba(20, 27, 45, .16);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 750;
+  transition: transform .18s, background .18s;
+}
+.primary-download:hover { background: var(--blue); transform: translateY(-2px); }
+.primary-download span { color: var(--teal); font-size: 18px; line-height: 1; }
+.primary-download:hover span { color: white; }
+.download-meta { max-width: 280px; color: #7d879a; font-size: 10px; line-height: 1.45; }
 .hero-orbit { position: relative; min-height: 420px; }
 .orbit { position: absolute; top: 50%; left: 50%; border: 1px solid rgba(95,124,255,.24); border-radius: 50%; transform: translate(-50%,-50%) rotate(-14deg); }
 .orbit-one { width: 340px; height: 340px; }

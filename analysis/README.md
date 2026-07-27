@@ -20,3 +20,7 @@ python3 scripts/build_rating_analysis.py
 The hosted dashboard uses only aggregate human data from
 `public/research-insights-7f3c9a/data.json`. It does not contain raw participant,
 session, or response identifiers.
+
+The same build also copies the cleaned workbook to the hidden dashboard directory as
+`gesture_ratings_all_data_and_analysis.xlsx` for the dashboard's explicit download
+button. The workbook uses study-local rater codes and contains no raw database IDs.
