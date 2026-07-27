@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import json
 import math
+import re
 from collections import Counter, defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
@@ -111,6 +112,8 @@ def load_inputs(human_path, models_root, manifest_path):
         rows = {}
         for file_path in sorted((models_root / directory).glob("*.rating.json")):
             record = json.loads(file_path.read_text())
+            if record["video_file"] not in manifest_by_title:
+                continue
             rows[record["video_file"]] = record
         model_data[model_key] = rows
     return human, manifest_by_title, model_data
@@ -118,6 +121,26 @@ def load_inputs(human_path, models_root, manifest_path):
 
 def human_frame(human):
     responses = human["responses"]
+    responses_by_rater = defaultdict(list)
+    for row in responses:
+        responses_by_rater[row["rater_key"]].append(row)
+    excluded_raters = set()
+    excluded_run_details = []
+    for rater_key, rater_rows in responses_by_rater.items():
+        scores = [
+            int(row["ratings"][dimension])
+            for row in rater_rows
+            for dimension, _ in DIMENSIONS
+        ]
+        if scores and len(set(scores)) == 1 and scores[0] in {1, 5}:
+            excluded_raters.add(rater_key)
+            excluded_run_details.append(
+                {
+                    "uniform_score": scores[0],
+                    "responses": len(rater_rows),
+                }
+            )
+    responses = [row for row in responses if row["rater_key"] not in excluded_raters]
     first_seen = {}
     for row in responses:
         first_seen.setdefault(row["rater_key"], row["submitted_at"])
@@ -138,7 +161,16 @@ def human_frame(human):
         for key, _ in DIMENSIONS:
             out[key] = int(row["ratings"][key])
         rows.append(out)
-    return pd.DataFrame(rows), rater_codes
+    exclusions = {
+        "raw_complete_responses": len(human["responses"]),
+        "excluded_uniform_extreme_runs": len(excluded_raters),
+        "excluded_uniform_extreme_responses": len(human["responses"]) - len(responses),
+        "excluded_run_details": sorted(
+            excluded_run_details,
+            key=lambda item: (item["uniform_score"], item["responses"]),
+        ),
+    }
+    return pd.DataFrame(rows), rater_codes, exclusions
 
 
 def model_frames(model_data, manifest):
@@ -176,9 +208,18 @@ def model_frames(model_data, manifest):
     return pd.DataFrame(rating_rows), pd.DataFrame(rationale_rows)
 
 
+def dashboard_video_url(title, meta):
+    if meta.get("video_url"):
+        return f"/{meta['video_url'].lstrip('/')}"
+    stem = re.sub(r"\.[^.]+$", "", title)
+    stem = re.sub(r"\.mov$", "", stem, flags=re.IGNORECASE)
+    slug = re.sub(r"[^A-Za-z0-9]+", "_", stem).strip("_")
+    return f"/assets/rating-videos/{slug}.mp4"
+
+
 def summarize(human_df, model_data, manifest):
     grouped = human_df.groupby("video_title")
-    all_titles = sorted(set(manifest) | {title for rows in model_data.values() for title in rows})
+    all_titles = sorted(manifest)
     videos = []
     long_rows = []
     for title in all_titles:
@@ -190,6 +231,7 @@ def summarize(human_df, model_data, manifest):
             "target_word": meta.get("target_word") or first_model.get("target_word", ""),
             "collection": meta.get("collection", ""),
             "source": meta.get("source", ""),
+            "video_url": dashboard_video_url(title, meta),
             "human_response_count": int(len(subset)),
             "human": {},
             "human_by_language": {},
@@ -374,15 +416,6 @@ def build_comments(overall, human_df):
             ),
         }
     )
-    comments.append(
-        {
-            "title": "Inference boundary",
-            "text": (
-                "Model–human tests are exploratory item-level comparisons. A model score is one generated judgment, "
-                "while each human value is a mean from a varying number of raters; correlation does not establish interchangeability."
-            ),
-        }
-    )
     return comments
 
 
@@ -487,18 +520,27 @@ def build_workbook(output_path, human_df, model_df, rationales_df, video_df, ove
     rows = [
         ("Purpose", "Human–VLM comparison across seven 1–5 gesture-rating dimensions."),
         ("Snapshot", metadata["generated_at"]),
-        ("Human data", f"{metadata['human_responses']} complete responses, {metadata['human_raters']} pseudonymized raters, {metadata['human_videos']} videos."),
+        (
+            "Human data",
+            f"{metadata['human_responses']} cleaned complete responses, "
+            f"{metadata['human_raters']} pseudonymized raters, {metadata['human_videos']} videos.",
+        ),
+        (
+            "Cleaning",
+            f"Excluded {metadata['excluded_uniform_extreme_responses']} responses from "
+            f"{metadata['excluded_uniform_extreme_runs']} runs in which every recorded score was uniformly 1 or uniformly 5.",
+        ),
         (
             "VLM data",
-            "149 videos for each of google/gemini-3.1-pro-preview, "
+            "148 noun videos for each of google/gemini-3.1-pro-preview, "
             "google/gemini-3.1-flash-lite-preview, and qwen/qwen3.5-397b-a17b.",
         ),
         ("Privacy", "Raw database identifiers, exact submission times, raw payloads, and participant-level demographics are excluded. Rater codes are study-local pseudonyms."),
         ("Primary comparison", "Each VLM score is paired with the human mean for the same video and dimension. Videos—not individual ratings—receive equal weight."),
         ("Inference", "Pearson and Spearman correlation measure item ordering; MAE/RMSE measure distance; bias tests whether model scores are systematically higher/lower."),
         ("Multiple testing", "Paired t-test p-values are Benjamini–Hochberg adjusted across the 21 model × dimension tests."),
-        ("Important limitation", "Human n varies by video (5–17), language composition is uneven, and VLM values are single generated outputs."),
-        ("Missing pairing", "87_Cooking.mp4 has VLM ratings but no complete human rating in this snapshot."),
+        ("Important limitation", "Human n varies by video, language composition is uneven, and VLM values are single generated outputs."),
+        ("Coverage", "All 148 noun videos have both cleaned human ratings and ratings from all three models."),
     ]
     for row_index, (label, value) in enumerate(rows, start=3):
         readme.cell(row_index, 1, label).font = Font(bold=True, color=INK)
@@ -638,7 +680,7 @@ def build_workbook(output_path, human_df, model_df, rationales_df, video_df, ove
     wb.save(output_path)
 
 
-def dashboard_payload(videos, overall, agreement, comments, human_df, generated_at):
+def dashboard_payload(videos, overall, agreement, comments, human_df, generated_at, exclusions):
     for video in videos:
         video["languages"] = sorted(video.pop("human_by_language").keys())
     return {
@@ -647,8 +689,11 @@ def dashboard_payload(videos, overall, agreement, comments, human_df, generated_
             "human_responses": int(len(human_df)),
             "human_raters": int(human_df["rater_code"].nunique()),
             "human_videos": int(human_df["video_title"].nunique()),
-            "model_videos": 149,
+            "model_videos": len(videos),
             "human_ratings_total": int(len(human_df) * len(DIMENSIONS)),
+            "raw_complete_responses": exclusions["raw_complete_responses"],
+            "excluded_uniform_extreme_runs": exclusions["excluded_uniform_extreme_runs"],
+            "excluded_uniform_extreme_responses": exclusions["excluded_uniform_extreme_responses"],
             "models": [{"key": key, "label": label} for key, label, _ in MODELS],
             "languages": [{"key": key, "label": label, "responses": int((human_df["language"] == key).sum())} for key, label in LANGUAGE_LABELS.items()],
         },
@@ -670,7 +715,7 @@ def main():
     args = parser.parse_args()
 
     human, manifest, model_data = load_inputs(args.human, args.models_root, args.manifest)
-    human_df, rater_codes = human_frame(human)
+    human_df, rater_codes, exclusions = human_frame(human)
     model_df, rationale_df = model_frames(model_data, manifest)
     videos, video_df = summarize(human_df, model_data, manifest)
     overall = overall_statistics(videos)
@@ -683,6 +728,8 @@ def main():
         "human_responses": len(human_df),
         "human_raters": human_df["rater_code"].nunique(),
         "human_videos": human_df["video_title"].nunique(),
+        "excluded_uniform_extreme_runs": exclusions["excluded_uniform_extreme_runs"],
+        "excluded_uniform_extreme_responses": exclusions["excluded_uniform_extreme_responses"],
     }
     build_workbook(
         args.workbook,
@@ -698,7 +745,19 @@ def main():
     )
     args.dashboard_data.parent.mkdir(parents=True, exist_ok=True)
     args.dashboard_data.write_text(
-        json.dumps(dashboard_payload(videos, overall, agreement, comments, human_df, generated_at), ensure_ascii=False, separators=(",", ":"))
+        json.dumps(
+            dashboard_payload(
+                videos,
+                overall,
+                agreement,
+                comments,
+                human_df,
+                generated_at,
+                exclusions,
+            ),
+            ensure_ascii=False,
+            separators=(",", ":"),
+        )
         + "\n"
     )
     print(

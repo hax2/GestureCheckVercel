@@ -51,7 +51,8 @@
   function populateHeader() {
     const { metadata, overall } = state.data;
     $("humanResponses").textContent = metadata.human_responses.toLocaleString();
-    $("humanRaters").textContent = `Across ${metadata.human_raters} pseudonymized raters`;
+    $("humanRaters").textContent =
+      `Across ${metadata.human_raters} raters · ${metadata.excluded_uniform_extreme_responses} test responses excluded`;
     $("humanScores").textContent = metadata.human_ratings_total.toLocaleString();
     $("vlmScores").textContent = (metadata.model_videos * metadata.models.length * state.data.dimensions.length).toLocaleString();
     $("heroPaired").textContent = metadata.human_videos;
@@ -248,6 +249,16 @@
     $("videoTitle").textContent = video.target_word || video.title;
     $("videoTarget").textContent = video.title;
     $("videoHumanN").textContent = video.human_response_count ? `Human n = ${video.human_response_count}` : "No human ratings";
+    const player = $("explorerVideo");
+    const videoStatus = $("explorerVideoStatus");
+    videoStatus.hidden = true;
+    player.hidden = false;
+    player.onerror = () => {
+      player.hidden = true;
+      videoStatus.hidden = false;
+    };
+    player.src = video.video_url;
+    player.load();
     $("videoScoreChart").innerHTML = state.data.dimensions.map((dimension) => {
       const human = video.human[dimension.key];
       const humanDot = human.mean == null ? "" : `

@@ -33,7 +33,7 @@ if (!Array.isArray(manifest) || manifest.length === 0) {
 const analysis = JSON.parse(fs.readFileSync("public/research-insights-7f3c9a/data.json", "utf8"));
 if (
   !Array.isArray(analysis.videos) ||
-  analysis.videos.length < manifest.length ||
+  analysis.videos.length !== manifest.length ||
   !Array.isArray(analysis.overall) ||
   analysis.overall.length !== 21
 ) {
@@ -44,6 +44,18 @@ const analysisTitles = new Set(analysis.videos.map((video) => video.title));
 const missingManifestVideos = manifest.filter((video) => !analysisTitles.has(video.title));
 if (missingManifestVideos.length) {
   console.error(`Research dashboard is missing ${missingManifestVideos.length} manifest videos.`);
+  process.exit(1);
+}
+const missingAnalysisVideos = analysis.videos.filter((video) => {
+  const relativePath = String(video.video_url || "").replace(/^\/+/, "");
+  return !relativePath || !fs.existsSync(`public/${relativePath}`);
+});
+if (missingAnalysisVideos.length) {
+  console.error(`Research dashboard has ${missingAnalysisVideos.length} missing video assets.`);
+  process.exit(1);
+}
+if (analysis.videos.some((video) => video.title === "87_Cooking.mp4")) {
+  console.error("Verb control 87_Cooking.mp4 must not appear in the noun analysis.");
   process.exit(1);
 }
 

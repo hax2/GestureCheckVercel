@@ -7,6 +7,9 @@ rater code, all supplied VLM scores and rationales, item-level summaries, modelâ
 statistics, modelâ€“model agreement, coverage, aggregate demographics, charts, and
 interpretation notes.
 
+Runs in which every recorded score is uniformly `1` or uniformly `5` are treated as
+test runs and excluded from the analysis.
+
 The raw database export is intentionally ignored under `analysis/source/`. To rebuild:
 
 ```bash
