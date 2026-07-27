@@ -353,7 +353,7 @@
 
   async function init() {
     try {
-      const response = await fetch("data.json", { cache: "no-store" });
+      const response = await fetch("/research-insights-7f3c9a/data.json", { cache: "no-store" });
       if (!response.ok) throw new Error(`Data request failed (${response.status})`);
       state.data = await response.json();
       state.selectedVideo = state.data.videos.find((video) => video.human_response_count)?.title || state.data.videos[0]?.title;
