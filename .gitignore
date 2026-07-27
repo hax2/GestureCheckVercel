@@ -4,6 +4,7 @@ node_modules/
 .vercel/
 .gitreal/
 .tmp/
+analysis/source/
 __pycache__/
 *.pyc
 data/

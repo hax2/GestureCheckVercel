@@ -15,6 +15,20 @@
     },
     { "src": "/", "dest": "/public/gesture-rating-task.html" },
     { "src": "/gesture-rating-task", "dest": "/public/gesture-rating-task.html" },
+    {
+      "src": "/research-insights-7f3c9a",
+      "dest": "/public/research-insights-7f3c9a/index.html",
+      "headers": {
+        "X-Robots-Tag": "noindex, nofollow, noarchive"
+      }
+    },
+    {
+      "src": "/research-insights-7f3c9a/(.*)",
+      "dest": "/public/research-insights-7f3c9a/$1",
+      "headers": {
+        "X-Robots-Tag": "noindex, nofollow, noarchive"
+      }
+    },
     { "src": "/(.*)", "dest": "/public/$1" }
   ]
 }

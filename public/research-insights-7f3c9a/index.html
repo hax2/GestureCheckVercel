@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex,nofollow,noarchive">
+    <meta name="theme-color" content="#141b2d">
+    <title>Gesture Rating Research Console</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#overview" aria-label="Gesture Rating Research Console">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span>
+          <strong>Gesture / Signal</strong>
+          <small>Research console</small>
+        </span>
+      </a>
+      <nav aria-label="Analysis sections">
+        <a class="nav-link active" href="#overview">Overview</a>
+        <a class="nav-link" href="#agreement">Agreement</a>
+        <a class="nav-link" href="#explorer">Video explorer</a>
+        <a class="nav-link" href="#methods">Methods</a>
+      </nav>
+      <span class="privacy-chip"><span></span> Aggregate data only</span>
+    </header>
+
+    <main>
+      <section class="hero" id="overview">
+        <div class="hero-copy">
+          <p class="eyebrow">Human × machine evaluation / 2026 snapshot</p>
+          <h1>Where human judgment<br>meets model perception.</h1>
+          <p class="lede">
+            An item-level view of seven gesture qualities across human raters,
+            Gemini Pro, Gemini Flash, and corrected Qwen.
+          </p>
+        </div>
+        <div class="hero-orbit" aria-hidden="true">
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <div class="orbit-core">
+            <strong id="heroPaired">148</strong>
+            <span>paired videos</span>
+          </div>
+          <span class="orbit-label label-human">HUMAN</span>
+          <span class="orbit-label label-pro">PRO</span>
+          <span class="orbit-label label-flash">FLASH</span>
+          <span class="orbit-label label-qwen">QWEN</span>
+        </div>
+      </section>
+
+      <section class="kpi-grid" aria-label="Dataset summary">
+        <article class="kpi-card">
+          <span>Complete human responses</span>
+          <strong id="humanResponses">—</strong>
+          <small id="humanRaters">Across — raters</small>
+        </article>
+        <article class="kpi-card">
+          <span>Individual human scores</span>
+          <strong id="humanScores">—</strong>
+          <small>Seven dimensions per response</small>
+        </article>
+        <article class="kpi-card">
+          <span>VLM judgments</span>
+          <strong id="vlmScores">—</strong>
+          <small>Three models × 149 × seven</small>
+        </article>
+        <article class="kpi-card accent">
+          <span>Best overall proximity</span>
+          <strong id="bestModel">—</strong>
+          <small id="bestModelDetail">Lowest mean absolute error</small>
+        </article>
+      </section>
+
+      <section class="panel benchmark-panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Benchmark profile</p>
+            <h2>Average score by dimension</h2>
+            <p>Human values are equal-weighted video means. Model values are one score per video.</p>
+          </div>
+          <div class="legend" id="benchmarkLegend"></div>
+        </div>
+        <div class="chart-frame" id="benchmarkChart" role="img" aria-label="Grouped mean rating chart"></div>
+      </section>
+
+      <section class="findings-grid" id="findings"></section>
+
+      <section id="agreement" class="section-block">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Model–human concordance</p>
+            <h2>Agreement is more than correlation.</h2>
+            <p>Explore item ordering, absolute distance, and systematic offset together.</p>
+          </div>
+          <div class="control-row">
+            <label>
+              <span>Dimension</span>
+              <select id="agreementDimension"></select>
+            </label>
+            <label>
+              <span>Model</span>
+              <select id="agreementModel"></select>
+            </label>
+          </div>
+        </div>
+
+        <div class="agreement-grid">
+          <article class="panel scatter-panel">
+            <div class="mini-heading">
+              <h3 id="scatterTitle">Human mean vs model score</h3>
+              <span>Each point is one video</span>
+            </div>
+            <div id="scatterChart" class="scatter-chart"></div>
+          </article>
+          <aside class="metric-stack" id="agreementMetrics"></aside>
+        </div>
+
+        <article class="panel divergence-panel">
+          <div class="mini-heading">
+            <div>
+              <h3>Largest model–human gaps</h3>
+              <span>Ranked by absolute difference for the active selection</span>
+            </div>
+            <button class="text-button" id="downloadSummary" type="button">Download summary CSV</button>
+          </div>
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>Video</th>
+                  <th>Human mean</th>
+                  <th>Model</th>
+                  <th>Difference</th>
+                  <th>Human n</th>
+                </tr>
+              </thead>
+              <tbody id="divergenceRows"></tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section id="explorer" class="section-block">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Item-level evidence</p>
+            <h2>Inspect every gesture.</h2>
+            <p>Scores, uncertainty, model descriptions, and rationales in one view.</p>
+          </div>
+          <div class="search-wrap">
+            <span aria-hidden="true">⌕</span>
+            <input id="videoSearch" type="search" placeholder="Search title or target word…" autocomplete="off">
+          </div>
+        </div>
+
+        <div class="explorer-layout">
+          <aside class="video-index panel">
+            <div class="index-meta">
+              <span id="videoCount">149 videos</span>
+              <select id="collectionFilter" aria-label="Filter by collection">
+                <option value="all">All collections</option>
+                <option value="gesture">Gesture</option>
+                <option value="object">Object</option>
+              </select>
+            </div>
+            <div id="videoList" class="video-list"></div>
+          </aside>
+          <article class="video-detail panel">
+            <div class="video-detail-header">
+              <div>
+                <p class="eyebrow" id="videoCollection">—</p>
+                <h3 id="videoTitle">Select a video</h3>
+                <p id="videoTarget">—</p>
+              </div>
+              <span class="n-chip" id="videoHumanN">Human n = —</span>
+            </div>
+            <div id="videoScoreChart" class="score-chart"></div>
+            <div class="rationale-section">
+              <h4>Model readings</h4>
+              <div id="modelReadings" class="model-readings"></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="methods" class="section-block">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Read before interpreting</p>
+            <h2>Methods and boundaries.</h2>
+          </div>
+        </div>
+        <div class="methods-grid">
+          <article class="panel method-card">
+            <span>01</span>
+            <h3>Pair on the item</h3>
+            <p>Each model score is paired with the human mean for the same video and dimension. Every video receives equal weight.</p>
+          </article>
+          <article class="panel method-card">
+            <span>02</span>
+            <h3>Read several metrics</h3>
+            <p>Correlation captures ordering; MAE and RMSE capture distance; mean bias captures systematic over- or under-rating.</p>
+          </article>
+          <article class="panel method-card">
+            <span>03</span>
+            <h3>Keep inference modest</h3>
+            <p>Model values are single generated judgments. Human n varies from 5 to 17, and the language distribution is uneven.</p>
+          </article>
+        </div>
+        <article class="panel language-panel">
+          <div>
+            <p class="eyebrow">Human sample composition</p>
+            <h3>Interface language distribution</h3>
+          </div>
+          <div id="languageBars" class="language-bars"></div>
+        </article>
+        <footer>
+          <span id="snapshotDate">Data snapshot —</span>
+          <span>Unlinked research route · no participant identifiers · noindex</span>
+        </footer>
+      </section>
+    </main>
+
+    <div class="tooltip" id="tooltip" role="status"></div>
+    <script src="app.js"></script>
+  </body>
+</html>

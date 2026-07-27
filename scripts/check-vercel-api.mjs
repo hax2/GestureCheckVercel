@@ -10,6 +10,10 @@ const required = [
   "api/_lib/http.js",
   "api/_lib/manifest.js",
   "db/schema.sql",
+  "public/research-insights-7f3c9a/index.html",
+  "public/research-insights-7f3c9a/styles.css",
+  "public/research-insights-7f3c9a/app.js",
+  "public/research-insights-7f3c9a/data.json",
   "vercel.json",
   "package.json",
 ];
@@ -26,4 +30,31 @@ if (!Array.isArray(manifest) || manifest.length === 0) {
   process.exit(1);
 }
 
-console.log(`Vercel API scaffold OK. Manifest videos: ${manifest.length}`);
+const analysis = JSON.parse(fs.readFileSync("public/research-insights-7f3c9a/data.json", "utf8"));
+if (
+  !Array.isArray(analysis.videos) ||
+  analysis.videos.length < manifest.length ||
+  !Array.isArray(analysis.overall) ||
+  analysis.overall.length !== 21
+) {
+  console.error("Research dashboard data is incomplete or does not match the manifest.");
+  process.exit(1);
+}
+const analysisTitles = new Set(analysis.videos.map((video) => video.title));
+const missingManifestVideos = manifest.filter((video) => !analysisTitles.has(video.title));
+if (missingManifestVideos.length) {
+  console.error(`Research dashboard is missing ${missingManifestVideos.length} manifest videos.`);
+  process.exit(1);
+}
+
+const serializedAnalysis = JSON.stringify(analysis);
+const prohibitedFields = ["participant_id", "session_id", "response_id", "rater_code"];
+const leakedFields = prohibitedFields.filter((field) => serializedAnalysis.includes(`"${field}"`));
+if (leakedFields.length) {
+  console.error(`Research dashboard contains prohibited row-level fields: ${leakedFields.join(", ")}`);
+  process.exit(1);
+}
+
+console.log(
+  `Vercel scaffold OK. Manifest videos: ${manifest.length}. Analysis videos: ${analysis.videos.length}.`,
+);
